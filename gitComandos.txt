@@ -1,0 +1,4 @@
+﻿git init
+git add --all
+git commit -m "Criado novo repositorio"
+git push -u origin master
