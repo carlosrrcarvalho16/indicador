@@ -177,30 +177,36 @@ DELIMITER ;
 -- Copiando estrutura para procedure indicador.selectTb_dadosmesAno
 DROP PROCEDURE IF EXISTS `selectTb_dadosmesAno`;
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `selectTb_dadosmesAno`( ID  INT(11) , vANO varchar(4) )
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectTb_dadosmesAno`(
+	IN `ID_Indicador` INT(11),
+	IN `vANO` VARCHAR(4)
+)
 BEGIN 
 	
 	SELECT d.id , d.idIndicador, c.departamento, i.nome , d.ano ,d.mes, d.valor, d.meta, d.sentido 
 	FROM tb_dadosmes as d 
 	INNER JOIN tb_indicador as i ON d.idIndicador = i.id
    INNER JOIN tb_departaments as c ON c.id = i.departamentoID
-	WHERE d.idIndicador = ID and d.ano = vANO
+	WHERE d.idIndicador = ID_Indicador and d.ano = vANO
 	ORDER BY d.mes ASC;
-	
 END//
 DELIMITER ;
 
 -- Copiando estrutura para procedure indicador.selectTb_dadosmesAnoMes
 DROP PROCEDURE IF EXISTS `selectTb_dadosmesAnoMes`;
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `selectTb_dadosmesAnoMes`(IN `id_dep` INT(5), IN `vAno` VARCHAR(2014), IN `vMes` INT(1))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectTb_dadosmesAnoMes`(
+	IN `id_departamento` INT(5),
+	IN `vAno` VARCHAR(2014),
+	IN `vMes` INT(1)
+)
 BEGIN 
 	
 	SELECT d.id , d.idIndicador, c.departamento, i.nome , d.ano ,d.mes, d.valor, d.meta, d.sentido 
 	FROM tb_dadosmes as d 
 	INNER JOIN tb_indicador as i ON d.idIndicador = i.id
    INNER JOIN tb_departaments as c ON c.id = i.departamentoID
-	WHERE c.id = id_dep and d.ano = vAno and d.mes = vMes
+	WHERE c.id = id_departamento and d.ano = vAno and d.mes = vMes
 	ORDER BY d.mes ASC;
 	
 END//
