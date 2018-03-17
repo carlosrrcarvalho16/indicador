@@ -1,4 +1,7 @@
 ﻿git init
 git add --all
-git commit -m "Criado novo repositorio"
+git commit -m " "
 git push -u origin master
+
+para baixar
+git pull origem master
