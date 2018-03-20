@@ -16,6 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
       <h3 class="box-title">Dashboard</h3>
     </div>
 
+    	<?php echo "oi" ;?> 
+    	
     <div class="box-body">
 		
 	</div>
