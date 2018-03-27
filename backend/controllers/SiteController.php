@@ -56,7 +56,8 @@ class SiteController extends Controller
     }
 
     public function actionIndex()
-    {
+    {   
+       
         $model = new Company();   
         return $this->render('index', ['model' => $model]);
 
