@@ -10,6 +10,8 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'version' => '1.0.0',
+    'name' => 'Indicadores',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
