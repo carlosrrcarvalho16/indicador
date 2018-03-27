@@ -4,4 +4,4 @@ git commit -m " "
 git push -u origin master
 
 para baixar
-git pull origem master
+git pull origin master
