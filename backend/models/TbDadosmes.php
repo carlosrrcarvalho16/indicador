@@ -94,4 +94,10 @@ class TbDadosmes extends \yii\db\ActiveRecord
     {
         return $this->hasOne(TbIndicador::className(), ['id' => 'idIndicador']);
     }
+
+    public static function getDadosMes($departament, $year, $month){
+        $sql = "CALL `selectTb_dadosmesAnoMes`('{$departament}', '{$year}', '{$month}')";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
 }

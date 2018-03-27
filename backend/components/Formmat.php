@@ -134,50 +134,84 @@ class Formmat extends Component{
       }
     }
 
-    //Mapfre
-    public function separarValores($string){
-      $result = explode(".", $string);
-      if(count($result) > 1){
-        $string = substr($result[0], 0, -1);
-        $value = substr($result[0], -1) . "." . $result[1];
-      }else{
-        $result = explode(",", $string);
-        if(count($result) > 1){
-          $string = substr($result[0], 0, -3);
-          $value = substr($result[0], -3) . "." . $result[1];
-        } 
-      }
-      $arrValue['string'] = trim($string);
-      $arrValue['value']  = trim($value);
-      return $arrValue;
-    }
-
-    //Allianz
-    public function separarColunas($field, $separador=[]){
-      if(count($separador) > 0){
-        $response = [];
-        for($i=0;$i<count($separador);$i++){
-          $result = explode($separador[$i], $field);
-          $response[$i] = $result[0] . " " .$separador[$i];
-          $field = trim($result[1]);
+    public function strMonth($mes) {
+        if ( is_numeric($mes) ) {
+            if ( $mes == 01 ) {
+                $mesnum = "Janeiro";
+            }
+            elseif ( $mes == 02 ) {
+                $mesnum = "Fevereiro";
+            }
+            elseif ( $mes == 03 ) {
+                $mesnum = "Março";
+            }
+            elseif ( $mes == 04 ) {
+                $mesnum = "Abril";
+            }
+            elseif ( $mes == 05 ) {
+                $mesnum = "Maio";
+            }
+            elseif ( $mes == 06 ) {
+                $mesnum = "Junho";
+            }
+            elseif ( $mes == 07 ) {
+                $mesnum = "Julho";
+            }
+            elseif ( $mes == 8 ) {
+                $mesnum = "Agosto";
+            }
+            elseif ( $mes == 9 ) {
+                $mesnum = "Setembro";
+            }
+            elseif ( $mes == 10 ) {
+                $mesnum = "Outubro";
+            }
+            elseif ( $mes == 11 ) {
+                $mesnum = "Novembro";
+            }
+            elseif ( $mes == 12 ) {
+                $mesnum = "Dezembro";
+            }
         }
-        if(!empty($field)){
-          $response[$i] = $field;
+        else {
+            $mes = strtolower($mes);
+            if ( $mes == 'jan' || $mes == 'janeiro' || $mes == 'january' ) {
+                $mesnum = 01;
+            }
+            elseif ( $mes == 'fev' || $mes == 'fevereiro' || $mes == 'feb' || $mes == 'february' ) {
+                $mesnum = 02;
+            }
+            elseif ( $mes == 'mar' || $mes == 'mar&ccedil;o' || $mes == 'march' ) {
+                $mesnum = 03;
+            }
+            elseif ( $mes == 'abr' || $mes == 'abril' || $mes == 'apr' || $mes == 'april' ) {
+                $mesnum = 04;
+            }
+            elseif ( $mes == 'mai' || $mes == 'maio' || $mes == 'may' ) {
+                $mesnum = 05;
+            }
+            elseif ( $mes == 'jun' || $mes == 'junho' || $mes == 'june' ) {
+                $mesnum = 06;
+            }
+            elseif ( $mes == 'jul' || $mes == 'julho' || $mes == 'july' ) {
+                $mesnum = 07;
+            }
+            if ( $mes == 'ago' || $mes == 'agosto' || $mes == 'aug' || $mes == 'august' ) {
+                $mesnum = 8;
+            }
+            elseif ( $mes == 'set' || $mes == 'setembro' || $mes == 'sep' || $mes == 'september' ) {
+                $mesnum = 9;
+            }
+            elseif ( $mes == 'out' || $mes == 'outubro' || $mes == 'oct' || $mes == 'october' ) {
+                $mesnum = 10;
+            }
+            elseif ( $mes == 'nov' || $mes == 'novembro' || $mes == 'november' ) {
+                $mesnum = 11;
+            }
+            elseif ( $mes == 'dez' || $mes == 'dezembro' || $mes == 'dec' || $mes == 'december' ) {
+                $mesnum = 12;
+            }
         }
-      }else{
-        $result   = explode(" ", $field);
-        $response = [];
-        $num      = 1;
-        for($i=0;$i<count($result);$i++){
-          $is_numeric = str_replace([".", ","], "", $result[$i]);
-          if(!is_numeric($is_numeric)){
-            $response[0] = (isset($response[0]) ? $response[0] . " " : "") . $result[$i];
-          }else{
-            $response[$num] = $result[$i];
-            $num++;
-          }
-        }
-      }
-      return $response;
+        return $mesnum;
     }
 }

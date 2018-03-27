@@ -7,7 +7,7 @@ use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
-use backend\models\Company;
+use backend\models\TbDepartaments;
 
 /**
  * Site controller
@@ -57,9 +57,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $model = new Company();
-        return $this->render('index', ['model' => $model]);
-
+        $departaments = TbDepartaments::find()->all();
+        return $this->render('index', ['departaments' => $departaments]);
     }
     
     public function actionLogin()
