@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		    	<?php foreach($departaments as $departament) {?>
 		        <div class="col-lg-4 col-xs-6">
 		          <!-- small box -->
-		          <div class="small-box bg-red">
+		          <div class="small-box bg-green">
 		            <div class="inner">
 		              <h3><?php echo $departament->departamento; ?></h3>
 		            </div>
