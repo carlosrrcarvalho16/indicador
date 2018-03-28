@@ -23,22 +23,45 @@ $this->params['breadcrumbs'][] = $this->title;
     		</div>
             <!--- aqui -->
             <div class="col-sm-4 col-xl-3">
-                <div class="panel panel-tile text-center br-a br-grey">
-                    <div class="panel-body">
-                        <h1 class="fs30 mt5 mbn"><b>1,5</b></h1>
+                <div  class="panel panel-tile text-center br-a br-grey "> 
+                    <div class="panel-body ">
+                        <div >
+                            <b>Auditoria do SGQ</b>
+                        </div>
+                        <h1 class="fs30 mt5 mbn"><b>100</b></h1>
                             <h3 class="text-system">
-                            <i class="fa fa-arrow-up pr5
-                              text-success"> <!-- -->
-                              </i><b>Meta 1 </b></h3>
+                                <i class="fa fa-arrow-up pr5
+                                    text-warning"> <!-- -->
+                                </i>
+                            Meta 99
+                        </h3>
                     </div>
                     <div class="panel-footer br-t p14">
                         <span class="fs11">
-                            <b>Absenteeism</b>
+                            <b>% de Auditorias Realizadas</b>
                         </span>
                     </div>
                 </div>
             </div>
-
+            <div class="col-sm-4 col-xl-3">
+                <div  class="panel panel-tile text-center br-a br-grey"> 
+                    <div class="panel-body">
+                        <div >
+                            <b>Calibrações de Instrumentos</b>
+                        </div>
+                        <h1 class="fs30 mt5 mbn"><b>100</b></h1>
+                            <h3 class="text-system">
+                            <i class="fa fa-arrow-down pr5
+                              text-success"> <!-- -->
+                              </i><b>Meta 100 </b></h3>
+                    </div>
+                    <div class="panel-footer br-t p14">
+                        <span class="fs11">
+                            <b>% Calibrações realizadas</b>
+                        </span>
+                    </div>
+                </div>
+            </div>
             <!--- fim aqui -->
     	</div>
 
