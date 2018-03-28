@@ -28,9 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
 		    	<?php foreach($departaments as $departament) {?>
 		        <div class="col-lg-4 col-xs-6">
 		          <!-- small box -->
-		          <div class="small-box bg-green">
+		          <div class="small-box bg-aqua">
 		            <div class="inner">
-		              <h3><?php echo $departament->departamento; ?></h3>
+		              <h3><?php echo $departament->departamento; ?></h3> 
 		            </div>
 		            <div class="icon">
 		              <i class="ion ion-pie-graph"></i>
