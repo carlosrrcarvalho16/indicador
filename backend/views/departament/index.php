@@ -15,53 +15,51 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="box-header with-border">
       <h3 class="box-title">Dashboard Departamento</h3>
     </div>
-    	
     <div class="box-body">
     	<div class="row">
     		<div class='col-md-12' style="text-align: center;">
     			<h1><?php echo $departament->departamento; ?> - <?php echo date('Y')?> - <?php echo Yii::$app->formmat->strMonth(date('m'))?></h1>
     		</div>
             <!--- aqui -->
+            
+            <?php 
+            $i=0;
+             //print_r($dados_mes);
+             foreach ($dados_mes as $value) {
+            	$retVal = ($dados_mes[$i]['sentido']==1) ? 'class= fa fa-arrow-up pr5 text-warning' : 'class= fa fa-arrow-up pr5 text-warning';
+            	//echo $dados_mes[$i]['descricao'];
+            	
+             	 ?>
+             
             <div class="col-sm-4 col-xl-3">
                 <div  class="panel panel-tile text-center br-a br-grey "> 
                     <div class="panel-body ">
                         <div >
-                            <b>Auditoria do SGQ</b>
+                            <b><?php echo $dados_mes[$i]['nome']; ?></b>
                         </div>
-                        <h1 class="fs30 mt5 mbn"><b>100</b></h1>
+                        <h1 class="fs30 mt5 mbn">
+                        	<b>
+                        		<?php
+                        			echo $dados_mes[$i]['valor'];
+                        		?>
+                        	</b>
+                        </h1>
                             <h3 class="text-system">
-                                <i class="fa fa-arrow-up pr5
-                                    text-warning"> <!-- -->
+                                <i <?php echo $retVal; ?> > <!-- -->
                                 </i>
-                            Meta 99
+                            Meta <?php echo $dados_mes[$i]['meta']; ?>
                         </h3>
                     </div>
                     <div class="panel-footer br-t p14">
                         <span class="fs11">
-                            <b>% de Auditorias Realizadas</b>
+                            <b>Falta descrição</b>
                         </span>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4 col-xl-3">
-                <div  class="panel panel-tile text-center br-a br-grey"> 
-                    <div class="panel-body">
-                        <div >
-                            <b>Calibrações de Instrumentos</b>
-                        </div>
-                        <h1 class="fs30 mt5 mbn"><b>100</b></h1>
-                            <h3 class="text-system">
-                            <i class="fa fa-arrow-down pr5
-                              text-success"> <!-- -->
-                              </i><b>Meta 100 </b></h3>
-                    </div>
-                    <div class="panel-footer br-t p14">
-                        <span class="fs11">
-                            <b>% Calibrações realizadas</b>
-                        </span>
-                    </div>
-                </div>
-            </div>
+           <?php $i=$i+1;
+
+       		} ?>
             <!--- fim aqui -->
     	</div>
 

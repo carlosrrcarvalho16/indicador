@@ -10,12 +10,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
-/**
- * CompanyController implements the CRUD actions for Company model.
- */
-class DepartamentController extends Controller
+class DadosMesController extends Controller
 {
-    public function behaviors()
+	public function behaviors()
     {
         return [
             'verbs' => [
@@ -27,20 +24,13 @@ class DepartamentController extends Controller
         ];
     }
 
-    /**
-     * Lists all Company models.
-     * @return mixed
-     */
     public function actionIndex()
     {
-        $id          = $_GET['id'];
-        $departament = TbDepartaments::findOne($id);
-        $dados_mes   = TBDadosmes::getDadosMes($id, date('Y'), date('m'));
-        //$dados_mes = [];
-
-        return $this->render('index', ['departament' => $departament, 'dados_mes' => $dados_mes]);
+    	$id          = $_GET['id'];
+    	$dados_mes   = TBDadosmes::getDadosMes($id, date('Y'), date('m'));
+        $dados_mes = [];
+        return $this->render('index');
     }
-
     /**
      * Finds the Company model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -50,10 +40,11 @@ class DepartamentController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = TbDepartaments::findOne($id)) !== null) {
+        if (($model = TBDadosmes::findOne($id) !== null)) {
             return $model;
         } else {
             throw new NotFoundHttpException('A página solicitada não existe.');
         }
     }
+
 }
