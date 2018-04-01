@@ -15,6 +15,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="box-header with-border">
       <h3 class="box-title">Dashboard Departamento</h3>
     </div>
+    <select name="pais" onchange="ajax('seleciona_estados.php?pais=' + this.value, 'estados')">
+    <?php
+    	$meses = array (1 => "Janeiro", 2 => "Fevereiro", 3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho", 7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro", 11 => "Novembro", 12 => "Dezembro");
+
+    	for($i=1;$i <=12;$i++){ ?>
+    		<option value="<?php $i?>">
+    			<?php
+    			echo $meses["$i"];
+    			?>
+    		</option>
+    	<?php } ?>
+      
+</select>
+<div id="estados"></div>
     <div class="box-body">
     	<div class="row">
     		<div class='col-md-12' style="text-align: center;">
