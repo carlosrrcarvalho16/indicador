@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		          <!-- small box -->
 		          <div class="small-box bg-aqua">
 		            <div class="inner">
-		              <h3><?php echo $departament->departamento; ?></h3> 
+		              <h1><?php echo $departament->departamento; ?></h1> 
 		            </div>
 		            <div class="icon">
 		              <i class="ion ion-pie-graph"></i>
