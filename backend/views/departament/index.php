@@ -15,7 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="box-header with-border">
       <h3 class="box-title">Dashboard Departamento</h3>
     </div>
-    <select name="pais" onchange="ajax('seleciona_estados.php?pais=' + this.value, 'estados')">
+
+    <select name="mes" onchange="ajax('index.php?pmes=' + this.value, 'mes')">
     <?php
     	$meses = array (1 => "Janeiro", 2 => "Fevereiro", 3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho", 7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro", 11 => "Novembro", 12 => "Dezembro");
 
@@ -28,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     	<?php } ?>
       
 </select>
-<div id="estados"></div>
+
     <div class="box-body">
     	<div class="row">
     		<div class='col-md-12' style="text-align: center;">
@@ -40,7 +41,11 @@ $this->params['breadcrumbs'][] = $this->title;
             $i=0;
              //print_r($dados_mes);
              foreach ($dados_mes as $value) {
-            	$retVal = ($dados_mes[$i]['sentido']==1) ? 'class= fa fa-arrow-up pr5 text-warning' : 'class= fa fa-arrow-up pr5 text-warning';
+             	// Verifica se está na dentro da meta
+             	$textVal = ($dados_mes[$i]['valor'] >= $dados_mes[$i]['meta']) ? 'text-warning' : 'text-success';
+             	//Define o tipo de seta e a mensagem Tooltip
+            	$retVal = ($dados_mes[$i]['sentido']==0) ? "class= 'fa fa-arrow-up pr5 text-warning'" : "class= 'fa fa-arrow-down pr5 $textVal '";
+            	$tipoTooltip = ($dados_mes[$i]['sentido']==0) ? "title= 'Quanto maior melhor'": "title= 'Quanto menor melhor'";
             	//echo $dados_mes[$i]['descricao'];
             	
              	 ?>
@@ -59,7 +64,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         	</b>
                         </h1>
                             <h3 class="text-system">
-                                <i <?php echo $retVal; ?> > <!-- -->
+                                <i data-toggle="tooltip" data-placement="bottom" 
+                                 <?php echo $tipoTooltip ; ?>. ' melhor' <?php echo $retVal; ?> > <!-- -->
                                 </i>
                             Meta <?php echo $dados_mes[$i]['meta']; ?>
                         </h3>
