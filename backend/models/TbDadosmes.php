@@ -100,4 +100,14 @@ class TbDadosmes extends \yii\db\ActiveRecord
         $result = Yii::$app->db->createCommand($sql)->queryAll();
         return $result;
     }
+    public static function getDadosMesAno($departament, $year){
+        $sql = "CALL `selectTb_dadosmesAno`('{$departament}', '{$year}')";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
+    public static function getDadosYTD($departamentName, $year){
+        $sql = "CALL `select_YTD`('{$departamentName}', '{$year}')";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
 }

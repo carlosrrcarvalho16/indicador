@@ -82,7 +82,8 @@ $this->params['breadcrumbs'][] = $this->title;
 	                    </div>
 	                    <div class="panel-footer br-t p14">
 	                        <span class="fs11">
-	                            <a href="<?php echo BaseUrl::base()?>/grafico?id=<?php echo $dados_mes[$i]['ID Mes'] ?>" class="small-box-footer"> <b><?php echo $descricao;?></b> </a>
+	                            <a href="<?php echo BaseUrl::base()?>/grafico?id=<?php echo $dados_mes[$i]['ID Indicador'] ?>&nome= <?php echo $dados_mes[$i]['nome'] ?>&ano=<?php echo date('Y') ?>"
+	                             class="small-box-footer"> <b><?php echo $descricao;?></b> </a>
 
 	                        </span>
 	                    </div>
