@@ -6,6 +6,7 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use backend\models\Identity;
+use yii\base\Widget;
 
 $this->title = 'Dashboard Departamento';
 $this->params['breadcrumbs'][] = $this->title;
@@ -26,10 +27,9 @@ $this->params['breadcrumbs'][] = $this->title;
     			echo $meses["$i"];
     			?>
     		</option>
-    	<?php } ?>
-      
-</select>
-
+    <?php } ?>
+	</select>
+	
     <div class="box-body">
     	<div class="row">
     		<div class='col-md-12' style="text-align: center;">
@@ -46,6 +46,9 @@ $this->params['breadcrumbs'][] = $this->title;
              	//Define o tipo de seta e a mensagem Tooltip
             	$retVal = ($dados_mes[$i]['sentido']==0) ? "class= 'fa fa-arrow-up pr5 text-warning'" : "class= 'fa fa-arrow-down pr5 $textVal '";
             	$tipoTooltip = ($dados_mes[$i]['sentido']==0) ? "title= 'Quanto maior melhor'": "title= 'Quanto menor melhor'";
+            	// Se o valor do mês
+            	$valorRetVal = ($dados_mes[$i]['valor'] ==null) ? 
+                    'Não preenchido' : $dados_mes[$i]['valor'];
             	//echo $dados_mes[$i]['descricao'];
             	
              	 ?>
@@ -59,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h1 class="fs30 mt5 mbn">
                         	<b>
                         		<?php
-                        			echo $dados_mes[$i]['valor'];
+                        			 echo $valorRetVal;
                         		?>
                         	</b>
                         </h1>
