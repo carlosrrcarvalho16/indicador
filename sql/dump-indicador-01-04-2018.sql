@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
   CONSTRAINT `auth_assignment_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Copiando dados para a tabela indicador.auth_assignment: ~9 rows (aproximadamente)
+-- Copiando dados para a tabela indicador.auth_assignment: ~11 rows (aproximadamente)
 /*!40000 ALTER TABLE `auth_assignment` DISABLE KEYS */;
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 	('admin', '1', 1512927094),
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `company` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Companhias';
 
--- Copiando dados para a tabela indicador.company: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela indicador.company: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
 INSERT INTO `company` (`ID`, `name`, `active`) VALUES
 	(0, 'NEXTEER', 'Y');
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `conf_email` (
   CONSTRAINT `fk001_confEmail_company` FOREIGN KEY (`id_company`) REFERENCES `company` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='Config Email Company';
 
--- Copiando dados para a tabela indicador.conf_email: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela indicador.conf_email: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `conf_email` DISABLE KEYS */;
 INSERT INTO `conf_email` (`ID`, `id_company`, `id_user`, `from_name`, `host_smtp`, `port`, `security`, `from_email`, `password`, `active`) VALUES
 	(1, 0, NULL, 'Indicador Nexteer', 'forwarder.nexteer.com', 25, '', 'indicador@nexteer.com', '', 'Y');
@@ -306,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `tb_dadosmes` (
   CONSTRAINT `fk_dadosMes_idIndicador_ID` FOREIGN KEY (`idIndicador`) REFERENCES `tb_indicador` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5004 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela indicador.tb_dadosmes: ~2.584 rows (aproximadamente)
+-- Copiando dados para a tabela indicador.tb_dadosmes: ~2.632 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_dadosmes` DISABLE KEYS */;
 INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `data`, `mes`, `meta`, `sentido`, `ano`, `criadoPor`, `dataCriacao`, `modificadoPor`, `dataModificacao`) VALUES
 	(2359, 4.76, 4, '2018-03-14', 1, 9, 0, '2015', 1, '2018-03-15 13:49:20', NULL, NULL),
@@ -3547,7 +3547,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   CONSTRAINT `fk001_user_company` FOREIGN KEY (`id_company`) REFERENCES `company` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COMMENT='Usuários';
 
--- Copiando dados para a tabela indicador.user: ~9 rows (aproximadamente)
+-- Copiando dados para a tabela indicador.user: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`ID`, `id_company`, `group`, `name`, `email`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `image`, `status`, `created_at`, `updated_at`, `active`) VALUES
 	(1, 0, 'admin', 'Carlos Carvalho', 'carlos.carvalho@nexteer.com', 'nzxrf5', 'UGX0QmvvjXGRHmnEmEYsHddLjfEMURFw', '$2y$13$cXO.FvWi6PynP2QbGduGn.2khFoBOQdmsmPsP2tC2.qMyTqtgK0VO', NULL, NULL, 10, 0, 0, 'Y'),
