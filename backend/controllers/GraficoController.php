@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\TbDepartaments;
-use backend\models\TBDadosmes;
+use backend\models\TbDadosmes;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -37,8 +37,8 @@ class GraficoController extends Controller
         $nome        = $_GET['nome'];
         $ano          = $_GET['ano'];
         
-        $grafico_mes   = TBDadosmes::getDadosMesAno($id, $ano);
-        $grafico_ytd   = TBDadosmes::getDadosYTD($nome, $ano);
+        $grafico_mes   = TbDadosmes::getDadosMesAno($id, $ano);
+        $grafico_ytd   = TbDadosmes::getDadosYTD($nome, $ano);
        
         return $this->render('index', ['graficoMes' => $grafico_mes, 'graficoYTD' => $grafico_ytd,'vNome' =>$nome]);
     }

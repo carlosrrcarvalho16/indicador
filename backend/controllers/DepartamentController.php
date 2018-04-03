@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\TbDepartaments;
-use backend\models\TBDadosmes;
+use backend\models\TbDadosmes;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,7 +35,7 @@ class DepartamentController extends Controller
     {
         $id          = $_GET['id'];
         $departament = TbDepartaments::findOne($id);
-        $dados_mes   = TBDadosmes::getDadosMes($id, date('Y'), date('m'));
+        $dados_mes   = TbDadosmes::getDadosMes($id, date('Y'), date('m'));
         //$dados_mes = [];
 
         return $this->render('index', ['departament' => $departament, 'dados_mes' => $dados_mes]);

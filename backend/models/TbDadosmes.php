@@ -106,6 +106,7 @@ class TbDadosmes extends \yii\db\ActiveRecord
         return $result;
     }
     public static function getDadosYTD($departamentName, $year){
+        $departamentName = trim($departamentName);
         $sql = "CALL `select_YTD`('{$departamentName}', '{$year}')";
         $result = Yii::$app->db->createCommand($sql)->queryAll();
         return $result;
