@@ -41,6 +41,7 @@ class GraficoController extends Controller
         $grafico_ytd   = TbDadosmes::getDadosYTD($nome, $ano);
        
         return $this->render('index', ['graficoMes' => $grafico_mes, 'graficoYTD' => $grafico_ytd,'vNome' =>$nome]);
+        
     }
 
     /**
