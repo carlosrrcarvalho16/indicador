@@ -111,4 +111,6 @@ class TbDadosmes extends \yii\db\ActiveRecord
         $result = Yii::$app->db->createCommand($sql)->queryAll();
         return $result;
     }
+    
+
 }

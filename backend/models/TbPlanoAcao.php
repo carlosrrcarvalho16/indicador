@@ -59,9 +59,9 @@ class TbPlanoAcao extends \yii\db\ActiveRecord
             'ano'                => 'Ano',
             'mes'                => 'Mes',
             'item'               => 'Item',
-            'descricao_problema' => 'Descricao Problema',
-            'plano_acao'         => 'Plano Acao',
-            'responsavel'        => 'Responsavel',
+            'descricao_problema' => 'Descrição Problema',
+            'plano_acao'         => 'Plano Ação',
+            'responsavel'        => 'Responsável',
             'abertura'           => 'Abertura',
             'prazo'              => 'Prazo',
             'status'             => 'Status',
@@ -74,5 +74,11 @@ class TbPlanoAcao extends \yii\db\ActiveRecord
     public function getIndicador()
     {
         return $this->hasOne(TbIndicador::className(), ['id' => 'indicador']);
+    }
+    public static function getPlanoAcao($idIndicador){
+        $idIndicador = trim($idIndicador);
+        $sql = "CALL `selectPlanoAcao`('{$idIndicador}')";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
     }
 }

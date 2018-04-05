@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\TbDepartaments;
 use backend\models\TbDadosmes;
+use backend\models\TbPlanoAcao;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,12 +36,14 @@ class GraficoController extends Controller
     {
         $id          = $_GET['id'];
         $nome        = $_GET['nome'];
-        $ano          = $_GET['ano'];
+        $ano         = $_GET['ano'];
         
         $grafico_mes   = TbDadosmes::getDadosMesAno($id, $ano);
         $grafico_ytd   = TbDadosmes::getDadosYTD($nome, $ano);
+        $planoAcao   = TbPlanoAcao::getPlanoAcao($id);
+
        
-        return $this->render('index', ['graficoMes' => $grafico_mes, 'graficoYTD' => $grafico_ytd,'vNome' =>$nome]);
+        return $this->render('index', ['graficoMes' => $grafico_mes, 'graficoYTD' => $grafico_ytd,'vNome' =>$nome, 'planoDeAcao' => $planoAcao]);
         
     }
 

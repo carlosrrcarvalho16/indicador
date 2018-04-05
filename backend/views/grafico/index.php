@@ -19,11 +19,11 @@ $backgroundColor      = "";
 $dadosMes             = "";
 $metaMes              = "";
 $metaCor              = "";
-$rotuloAno              = "";
-$valorYTD              = "";
+$rotuloAno            = "";
+$valorYTD             = "";
 
 
-$dadosMes="";//$graficoMes[0]['valor'];
+$dadosMes="";
 for($i=0;$i <=11;$i++){
   //Meta do mês
   $metaMes .=  $graficoMes[$i]['meta'] . "," ; 
@@ -59,7 +59,9 @@ foreach ($graficoYTD as $value) {
   $j = $j+1 ;
   
 }
-print_r($graficoYTD);
+// Dados dos planos de ações
+
+
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 <div class="row">
@@ -75,8 +77,9 @@ print_r($graficoYTD);
         </div>
       </div>
       <div class="box-body">
-        <div class="chart">
-          <canvas id="myChartAno" style="height: 198px; width: 471px;" width="471" height="198"></canvas>
+        <div class="chart"> <!--
+          <canvas id="myChartAno" style="height: 198px; width: 471px;" width="471" height="198"></canvas> -->
+          <canvas id="myChartAno" style="height:230px"></canvas>
         </div>
       </div>
     </div>
@@ -93,13 +96,1800 @@ print_r($graficoYTD);
         </div>
       </div>
       <div class="box-body">
-        <div class="chart">
-          <canvas id="myChart" style="height: 198px; width: 471px;" width="471" height="198"></canvas>
+        <div class="chart"> <!--
+          <canvas id="myChart" style="height: 198px; width: 471px;" width="471" height="198"></canvas> -->
+          <canvas id="myChart" style="height:230px"></canvas>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Planos de ações</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Descrição do Problema</th>
+                  <th>Plano de ação</th>
+                  <th>Responsável</th>
+                  <th>Dt. Abertura</th>
+                  <th>Dt. Limite</th>
+                  <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td>1</td>
+                  <td>Não tem projeto de amortecimentos de água</td>
+                  <td>Realizar o projeto de amortecimento da água</td>
+                  <td>Marcio G</td>
+                  <td><?php
+                      $date = date_create('2015-02-20 00:00:00');
+                      echo date_format($date, 'd-m-Y');
+                      ?>
+                  </td>
+                  <td><?php
+                      $date = date_create('2019-10-20');
+                      echo date_format($date, 'd-m-Y');
+                      ?>
+                  </td>
+                  <td>Aberto</td>
+                </tr>
+                <!-- aqui -->
+                <tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Não tem projeto de amortecimentos de água</td>
+  <td>Realizar o projeto de amortecimento da água</td>
+  <td>Marcio G</td>
+  <td><?php
+    $date = date_create('2015-02-20 00:00:00');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td><?php
+    $date = date_create('2019-10-20');
+    echo date_format($date, 'd-m-Y');
+    ?>
+  </td>
+  <td>Aberto</td>
+</tr>
+                </tbody>   
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+
+  </div>
+</section>
+
+
 
 <!-- https://www.youtube.com/watch?v=E3MvLffU928 -->
 <script> 
@@ -176,7 +1966,19 @@ var myChartAno = new Chart(ctxAno, {
         }
         );
 </script>
-
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 
 
 
