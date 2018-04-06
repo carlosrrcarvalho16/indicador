@@ -37,7 +37,7 @@ class DepartamentController extends Controller
         $id          = $_GET['id'];
         $departament = TbDepartaments::findOne($id);
         $dados_mes   = TbDadosmes::getDadosMes($id, date('Y'), date('m'));
-       $planoDeAcao    = TbPlanoAcao::getPlanoAcao($id);
+        $planoDeAcao = TbPlanoAcao::getPlanoAcao($id);
         //$dados_mes = [];
 
         return $this->render('index', ['departament' => $departament, 'dados_mes' => $dados_mes,

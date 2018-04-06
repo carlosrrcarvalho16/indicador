@@ -6,9 +6,7 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use backend\models\Identity;
-
-
-
+use yii\grid\GridView;
 
 $this->title = 'Dashboard Grafico';
 $this->params['breadcrumbs'][] = $this->title;
@@ -123,10 +121,63 @@ foreach ($graficoYTD as $value) {
           <div class="box-body">
             <?php  
             $resultData = $planoDeAcao;
-            print_r($resultData)
-               
+            /*echo "<pre style='text-align:left'>";
+            print_r($resultData);
+            echo '</pre>'*/
              ?>
+            <?= GridView::widget([
+              'dataProvider' => $dataProviderPlanoAcao,
+              // 'filterModel'  => $searchModelPlanoAcao,
+              'summary'      => "Listando {begin} - {end} de {totalCount} itens",
+              'emptyText'    => 'Nenhum registro encontrado',
+              /*'columns' => [
+                  ['class' => 'yii\grid\SerialColumn'],
+
+                  'idPlano',
+                  'ano',
+                  'mes',
+                  'item',
+                  'descricao_problema',
+
+                  // ['class' => 'yii\grid\ActionColumn'],
+              ],
+*/          ]); ?>
            
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+  </div>
+</section>
+
+<!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+            <h3 class="box-title">Histórico</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <?= GridView::widget([
+              'dataProvider' => $dataProviderPlanoAcaoClosed,
+              // 'filterModel'  => $searchModelPlanoAcao,
+              'summary'      => "Listando {begin} - {end} de {totalCount} itens",
+              'emptyText'    => 'Nenhum registro encontrado',
+              /*'columns' => [
+                  ['class' => 'yii\grid\SerialColumn'],
+
+                  'idPlano',
+                  'ano',
+                  'mes',
+                  'item',
+                  'descricao_problema',
+
+                  // ['class' => 'yii\grid\ActionColumn'],
+              ],*/
+          ]); ?>
            
           </div>
           <!-- /.box-body -->

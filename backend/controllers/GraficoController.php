@@ -6,6 +6,7 @@ use Yii;
 use backend\models\TbDepartaments;
 use backend\models\TbDadosmes;
 use backend\models\TbPlanoAcao;
+use backend\models\TbPlanoAcaoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -38,12 +39,30 @@ class GraficoController extends Controller
         $nome        = $_GET['nome'];
         $ano         = $_GET['ano'];
         
-        $grafico_mes   = TbDadosmes::getDadosMesAno($id, $ano);
-        $grafico_ytd   = TbDadosmes::getDadosYTD($nome, $ano);
+        $grafico_mes = TbDadosmes::getDadosMesAno($id, $ano);
+        $grafico_ytd = TbDadosmes::getDadosYTD($nome, $ano);
         $planoAcao   = TbPlanoAcao::getPlanoAcao($id);
 
+        $searchModelPlanoAcao  = new TbPlanoAcaoSearch();
+        $searchModelPlanoAcao->indicador = $id;
+        $searchModelPlanoAcao->status = 'Aberto';
+        $dataProviderPlanoAcao = $searchModelPlanoAcao->search(Yii::$app->request->queryParams);
+
+        $searchModelPlanoAcaoClosed  = new TbPlanoAcaoSearch();
+        $searchModelPlanoAcaoClosed->indicador = $id;
+        $searchModelPlanoAcaoClosed->status = 'Fechado';
+        $dataProviderPlanoAcaoClosed = $searchModelPlanoAcaoClosed->search(Yii::$app->request->queryParams);
        
-        return $this->render('index', ['graficoMes' => $grafico_mes, 'graficoYTD' => $grafico_ytd,'vNome' =>$nome, 'planoDeAcao' => $planoAcao]);
+        return $this->render('index', [
+            'graficoMes'                  => $grafico_mes, 
+            'graficoYTD'                  => $grafico_ytd,
+            'vNome'                       =>$nome, 
+            'planoDeAcao'                 => $planoAcao, 
+            'searchModelPlanoAcao'        => $searchModelPlanoAcao, 
+            'dataProviderPlanoAcao'       => $dataProviderPlanoAcao,
+            'searchModelPlanoAcaoClosed'  => $searchModelPlanoAcaoClosed, 
+            'dataProviderPlanoAcaoClosed' => $dataProviderPlanoAcaoClosed
+        ]);
         
     }
 
