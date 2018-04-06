@@ -16,24 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="box-header with-border">
       <h3 class="box-title">Dashboard Departamento</h3>
     </div>
-
-    <select name="mes" onchange="ajax('index.php?pmes=' + this.value, 'mes')">
-    <?php
-    	$meses = array (1 => "Janeiro", 2 => "Fevereiro", 3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho", 7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro", 11 => "Novembro", 12 => "Dezembro");
-
-    	for($i=1;$i <=12;$i++){ ?>
-    		<option value="<?php $i?>">
-    			<?php
-    			echo $meses["$i"];
-    			?>
-    		</option>
-    <?php } ?>
-	</select>
 	
     <div class="box-body">
     	<div class="row">
     		<div class='col-md-12' style="text-align: center;">
-    			<h1><?php echo $departament->departamento; ?> - <?php echo date('Y')?> - <?php echo Yii::$app->formmat->strMonth(date('m'))?></h1>
+    			<h1><?php echo $departament->departamento; ?> - <?php echo Yii::$app->session->get('ANO_DASH');?> - <?php echo Yii::$app->formmat->strMonth(Yii::$app->session->get('MES_DASH'))?></h1>
     		</div>
             <!--- aqui -->
             
@@ -99,8 +86,8 @@ $this->params['breadcrumbs'][] = $this->title;
 	                    </div>
 	                    <div class="panel-footer br-t p14">
 	                        <span class="fs11">
-	                            <a href="<?php echo BaseUrl::base()?>/grafico?id=<?php echo $dados_mes[$i]['ID Indicador'] ?>&nome= <?php echo $dados_mes[$i]['nome'] ?>&ano=<?php echo date('Y') ?>"
-	                             class="small-box-footer"> <b><?php echo $descricao;?></b> </a>
+	                            <a href="<?php echo BaseUrl::base()?>/grafico?id=<?php echo $dados_mes[$i]['ID Indicador'] ?>&nome= <?php echo $dados_mes[$i]['nome'] ?>"
+	                             class="small-box-footer"> <b><?php echo (!empty($descricao) ? $descricao : 'S/ descrição');?></b> </a>
 
 	                        </span>
 	                    </div>

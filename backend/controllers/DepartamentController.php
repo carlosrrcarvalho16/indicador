@@ -36,7 +36,7 @@ class DepartamentController extends Controller
     {
         $id          = $_GET['id'];
         $departament = TbDepartaments::findOne($id);
-        $dados_mes   = TbDadosmes::getDadosMes($id, date('Y'), date('m'));
+        $dados_mes   = TbDadosmes::getDadosMes($id, Yii::$app->session->get('ANO_DASH'), Yii::$app->session->get('MES_DASH'));
         $planoDeAcao = TbPlanoAcao::getPlanoAcao($id);
         //$dados_mes = [];
 

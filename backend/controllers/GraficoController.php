@@ -37,7 +37,7 @@ class GraficoController extends Controller
     {
         $id          = $_GET['id'];
         $nome        = $_GET['nome'];
-        $ano         = $_GET['ano'];
+        $ano         = Yii::$app->session->get('ANO_DASH');
         
         $grafico_mes = TbDadosmes::getDadosMesAno($id, $ano);
         $grafico_ytd = TbDadosmes::getDadosYTD($nome, $ano);
