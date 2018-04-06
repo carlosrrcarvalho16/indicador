@@ -23,24 +23,44 @@ $this->params['breadcrumbs'][] = $this->title;
     		</div>
     	</div>
 
-    	<section class="content">
-		    <div class="row">
-		    	<?php foreach($departaments as $departament) {?>
-		        <div class="col-lg-4 col-xs-6">
-		          <!-- small box -->
-		          <div class="small-box bg-aqua">
-		            <div class="inner">
-		              <h1><?php echo $departament->departamento; ?></h1> 
-		            </div>
-		            <div class="icon">
-		              <i class="ion ion-pie-graph"></i>
-		            </div>
-		            <a href="<?php echo BaseUrl::base()?>/departament?id=<?php echo $departament->id ?>" class="small-box-footer">Ver Indicadores <i class="fa fa-arrow-circle-right"></i></a>
-		          </div>
-		        </div>
-		        <?php } ?>
-		    </div>
+    	<div class="row">
+			<div class="col-md-1">
+				<div class="form-group">
+	    			<select name="ano" id="ano-dashboard" class="form-control">
+				    <?php
+				    	$anos = [2018,2017,2016,2015];
+				    	for($i=0;$i < count($anos) ;$i++){ ?>
+				    		<option value="<?php echo $anos[$i]?>">
+				    			<?php
+				    			echo $anos[$i];
+				    			?>
+				    		</option>
+				    <?php } ?>
+					</select>
+				</div>
+    		</div>
+    		<div class="col-md-1">
+    			<div class="form-group">
+	    			<select name="mes" id="mes-dashboard" class="form-control">
+				    <?php
+				    	$meses = array (1 => "Janeiro", 2 => "Fevereiro", 3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho", 7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro", 11 => "Novembro", 12 => "Dezembro");
 
+				    	for($i=1;$i <=12;$i++){ ?>
+				    		<option value="<?php echo $i?>" <?= ($i == date('m') ? ' selected' : '')?>>
+				    			<?php
+				    			echo $meses["$i"];
+				    			?>
+				    		</option>
+				    <?php } ?>
+					</select>
+				</div>
+    		</div>
+		</div>
+
+    	<section class="content">
+		    <div class="row" id="departaments-dashboard">
+		    	<?= Yii::$app->controller->renderPartial('_departamentos', ['departaments' => $departaments]); ?>
+		    </div>
     	</section>
 		
 	</div>

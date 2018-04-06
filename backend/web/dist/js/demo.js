@@ -426,6 +426,44 @@
       }
     });
 
+    // #### INDICADORES ####
+
+    $('#mes-dashboard').change(function() {
+
+        var mes = $(this).val();
+        var ano = $('#ano-dashboard').val();
+        
+        $.ajax({
+            url: '/site/departamentos',
+            method: 'POST',
+            data : {'mes' : mes, 'ano' : ano},
+            dataType: 'HTML',
+            success : function(data){
+              $('#departaments-dashboard').html(data);
+            }
+        });
+
+    });   
+
+    $('#ano-dashboard').change(function() {
+
+        var ano = $(this).val();
+        var mes = $('#mes-dashboard').val();
+        
+        $.ajax({
+            url: '/site/departamentos',
+            method: 'POST',
+            data : {'mes' : mes, 'ano' : ano},
+            dataType: 'HTML',
+            success : function(data){
+              $('#departaments-dashboard').html(data);
+            }
+        });
+
+    });  
+
+    // #### INDICADORES ####
+
 
     // open menu options
     /** add active class and stay opened when selected */

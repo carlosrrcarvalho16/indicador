@@ -28,7 +28,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'teste'],
+                        'actions' => ['logout', 'index', 'teste', 'departamentos'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -57,8 +57,13 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $departaments = TbDepartaments::find()->all();
+        $departaments = TbDepartaments::getSelectDepartamento(date('m'), date('Y'));
         return $this->render('index', ['departaments' => $departaments]);
+    }
+
+    public function actionDepartamentos(){
+        $departaments = TbDepartaments::getSelectDepartamento($_POST['mes'], $_POST['ano']);
+        echo $this->renderPartial('_departamentos', ['departaments' => $departaments]);
     }
     
     public function actionLogin()

@@ -64,4 +64,10 @@ class TbDepartaments extends \yii\db\ActiveRecord
     {
         return $this->hasMany(TbIndicador::className(), ['departamentoID' => 'id']);
     }
+
+    public static function getSelectDepartamento($month, $year){
+        $sql = "CALL `selectDepartamento`('{$month}','{$year}')";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
 }
