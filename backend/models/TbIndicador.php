@@ -114,4 +114,15 @@ class TbIndicador extends \yii\db\ActiveRecord
     {
         return $this->hasMany(TbPlanoAcao::className(), ['indicador' => 'id']);
     }
+
+    public function beforeValidate() 
+    {
+        if($this->isNewRecord){
+            $this->setAttribute('criadoPor', Yii::$app->user->identity->ID);
+        }else{
+            $this->setAttribute('modificadoPor', Yii::$app->user->identity->ID);
+            // $this->setAttribute('dataModificacao', new \yii\db\Expression('NOW()') );
+        }
+        return parent::beforeValidate();
+    }
 }

@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use backend\models\TbDepartaments;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\TbIndicador */
@@ -10,7 +12,7 @@ use yii\widgets\ActiveForm;
 
 <div class="tb-indicador-form box box-primary">
     <?php $form = ActiveForm::begin(); ?>
-    <div class="box-body table-responsive">
+    <div class="box-body">
 
         <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
 
@@ -22,17 +24,28 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'sentido_da_meta')->textInput() ?>
 
-        <?= $form->field($model, 'ytd')->textInput() ?>
-
-        <?= $form->field($model, 'departamentoID')->textInput() ?>
-
-        <?= $form->field($model, 'criadoPor')->textInput(['maxlength' => true]) ?>
-
-        <?= $form->field($model, 'dataCriacao')->textInput() ?>
-
-        <?= $form->field($model, 'modificadoPor')->textInput(['maxlength' => true]) ?>
-
-        <?= $form->field($model, 'dataModificacao')->textInput() ?>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <?= $form->field($model, 'ytd')->textInput() ?>            
+                    <div class="help-block"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <?php
+                    echo $form->field($model, 'departamentoID')->dropDownList(
+                        ArrayHelper::map(TbDepartaments::find()->where(['active' => 'Y'])->all(), 'id', 'departamento'),
+                        [
+                            'prompt' => 'Selecione ...',
+                            'id'     => 'select2-pessoa-categoria'
+                        ]
+                    );
+                    ?>
+                    <div class="help-block"></div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <div class="box-footer">
