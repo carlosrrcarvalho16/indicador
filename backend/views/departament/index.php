@@ -40,10 +40,27 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php 
 	            $i=0;
 	             foreach ($dados_mes as $value) {
+	             	//Verifica o [sentido]= 0 'Maior Melhor', [sentido]= 1 'Maior Pior'
+	             	if ($dados_mes[$i]['sentido'] == 0) {
+	             		//Verifica se o valor é maior ou igual a meta
+	             		if ($dados_mes[$i]['valor'] >= $dados_mes[$i]['meta']) {
+	             			$textVal = 'text-success';
+	             		}else{
+	             			$textVal = 'text-danger';
+	             		}
+	             	}else{
+	             		//Verifica se o valor é menor que a meta
+	             		if ($dados_mes[$i]['valor'] <= $dados_mes[$i]['meta']){
+	             			$textVal = 'text-success';
+	             		}else{
+	             			$textVal = 'text-danger';
+	             		}
+
+	             	}
 	             	// Verifica se está na dentro da meta
-	             	$textVal = ($dados_mes[$i]['valor'] >= $dados_mes[$i]['meta']) ? 'text-warning' : 'text-success';
+	             	//$textVal = ($dados_mes[$i]['valor'] >= $dados_mes[$i]['meta']) ? 'text-warning' : 'text-success';
 	             	//Define o tipo de seta e a mensagem Tooltip
-	            	$retVal = ($dados_mes[$i]['sentido']==0) ? "class= 'fa fa-arrow-up pr5 text-warning'" : "class= 'fa fa-arrow-down pr5 $textVal '";
+	            	$retVal = ($dados_mes[$i]['sentido'] == 0) ? "class= 'fa fa-arrow-up pr5 $textVal'" : "class= 'fa fa-arrow-down pr5 $textVal '";
 	            	$tipoTooltip = ($dados_mes[$i]['sentido']==0) ? "title= 'Quanto maior melhor'": "title= 'Quanto menor melhor'";
 	            	// Se o valor do mês
 	            	$valorRetVal = ($dados_mes[$i]['valor'] ==null) ? 
@@ -52,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	                if ($dados_mes[$i]['descricao'] == 'NULL' ) {
 	                    $descricao = "";
 	                } else {  $descricao = $dados_mes[$i]['descricao']; }
-
+//print_r($dados_mes);die;
 	        ?>
 	             
 	            <div class="col-sm-4 col-xl-3">
@@ -65,7 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	                            </b>
 	                        </div>
 
-		                        <h1 class="fs30 mt5 mbn">
+		                        <h1 class="fs30 mt5 mbn <?php echo $textVal?>">
 		                        	<b>
 		                        		<?php
 		                        			 echo $valorRetVal;

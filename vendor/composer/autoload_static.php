@@ -52,6 +52,7 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         ),
         'c' => 
         array (
+            'chrisb34\\ReportGrid\\' => 20,
             'cebe\\markdown\\' => 14,
         ),
         'S' => 
@@ -77,6 +78,10 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
+        ),
+        'C' => 
+        array (
+            'Composer\\Installers\\' => 20,
         ),
     );
 
@@ -111,7 +116,7 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         ),
         'yii\\bootstrap\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-bootstrap',
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-bootstrap/src',
         ),
         'yii\\' => 
         array (
@@ -165,6 +170,10 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         array (
             0 => __DIR__ . '/..' . '/dmstr/yii2-adminlte-asset',
         ),
+        'chrisb34\\ReportGrid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chrisb34/yii2-report-grid',
+        ),
         'cebe\\markdown\\' => 
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
@@ -204,6 +213,10 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
+        ),
+        'Composer\\Installers\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
         ),
     );
 

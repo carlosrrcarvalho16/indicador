@@ -54,12 +54,12 @@ class DashboardAsset extends AssetBundle
         'js/app.js',
         'js/dashboard2.js',
         'dist/js/demo.js',
-        'dist/js/jquery/dist/jquery.min.js',
+        /*'dist/js/jquery/dist/jquery.min.js',
         'dist/js/datatables.net/js/jquery.dataTables.min.js',
         'dist/js/datatables.net-bs/js/dataTables.bootstrap.min.js',
         'dist/js/fastclick/lib/fastclick.js',
         'dist/js/adminlte.min.js',
-        
+        */
         
 
     ];
