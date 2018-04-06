@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
     	</div>
 
     	<div class="row">
-			<div class="col-md-1">
+			<div class="col-md-2">
 				<div class="form-group">
 	    			<select name="ano" id="ano-dashboard" class="form-control">
 				    <?php
@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					</select>
 				</div>
     		</div>
-    		<div class="col-md-1">
+    		<div class="col-md-2">
     			<div class="form-group">
 	    			<select name="mes" id="mes-dashboard" class="form-control">
 				    <?php
