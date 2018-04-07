@@ -118,31 +118,32 @@ foreach ($graficoYTD as $value) {
             <h3 class="box-title">Planos de ações</h3>
           </div>
           <!-- /.box-header -->
+            <div class="box-tools pull-right">
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
           <div class="box-body">
-            <?php  
-            $resultData = $planoDeAcao;
-            /*echo "<pre style='text-align:left'>";
-            print_r($resultData);
-            echo '</pre>'*/
-             ?>
             <?= GridView::widget([
               'dataProvider' => $dataProviderPlanoAcao,
               // 'filterModel'  => $searchModelPlanoAcao,
               'summary'      => "Listando {begin} - {end} de {totalCount} itens",
               'emptyText'    => 'Nenhum registro encontrado',
-              /*'columns' => [
-                  ['class' => 'yii\grid\SerialColumn'],
-
-                  'idPlano',
-                  'ano',
-                  'mes',
-                  'item',
-                  'descricao_problema',
-
-                  // ['class' => 'yii\grid\ActionColumn'],
+              'columns' => [
+                      ['class' => 'yii\grid\SerialColumn'],
+                      'item',
+                      'descricao_problema',
+                      'plano_acao',
+                      'responsavel',
+                      'abertura',
+                      'prazo',
+                      'status'
               ],
-*/          ]); ?>
-           
+          ]); ?>
+
           </div>
           <!-- /.box-body -->
         </div>
@@ -160,25 +161,31 @@ foreach ($graficoYTD as $value) {
             <h3 class="box-title">Histórico</h3>
           </div>
           <!-- /.box-header -->
+            <div class="box-tools pull-right">
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
           <div class="box-body">
             <?= GridView::widget([
               'dataProvider' => $dataProviderPlanoAcaoClosed,
               // 'filterModel'  => $searchModelPlanoAcao,
               'summary'      => "Listando {begin} - {end} de {totalCount} itens",
               'emptyText'    => 'Nenhum registro encontrado',
-              /*'columns' => [
+              'columns' => [
                   ['class' => 'yii\grid\SerialColumn'],
-
-                  'idPlano',
-                  'ano',
-                  'mes',
                   'item',
                   'descricao_problema',
-
-                  // ['class' => 'yii\grid\ActionColumn'],
-              ],*/
+                  'plano_acao',
+                  'responsavel',
+                  'abertura',
+                  'prazo',
+                  'status'
+              ],
           ]); ?>
-           
           </div>
           <!-- /.box-body -->
         </div>
