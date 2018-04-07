@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\TbIndicadorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Tb Indicadors';
+$this->title = 'Tb Indicador';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tb-indicador-index box box-primary">
