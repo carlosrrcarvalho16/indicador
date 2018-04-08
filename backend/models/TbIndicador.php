@@ -117,11 +117,14 @@ class TbIndicador extends \yii\db\ActiveRecord
 
     public function beforeValidate() 
     {
+
+        $datetime  = date('Y-m-d');
         if($this->isNewRecord){
             $this->setAttribute('criadoPor', Yii::$app->user->identity->ID);
+            $this->setAttribute('dataCriacao', $datetime );
         }else{
             $this->setAttribute('modificadoPor', Yii::$app->user->identity->ID);
-            // $this->setAttribute('dataModificacao', new \yii\db\Expression('NOW()') );
+            $this->setAttribute('dataModificacao', $datetime );
         }
         return parent::beforeValidate();
     }
