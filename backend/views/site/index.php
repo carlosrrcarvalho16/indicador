@@ -10,7 +10,6 @@ use backend\models\Identity;
 $this->title = 'Dashboard';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
 <div class="box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">Dashboard</h3>
@@ -56,12 +55,11 @@ $this->params['breadcrumbs'][] = $this->title;
 				</div>
     		</div>
 		</div>
-
-    	<section class="content">
+    <!--	<section class="content"> -->
 		    <div class="row" id="departaments-dashboard">
 		    	<?= Yii::$app->controller->renderPartial('_departamentos', ['departaments' => $departaments]); ?>
 		    </div>
-    	</section>
+    <!--	</section> -->
 		
 	</div>
 </div>

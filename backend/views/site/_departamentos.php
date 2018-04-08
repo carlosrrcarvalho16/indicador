@@ -3,7 +3,7 @@
 /* @var $this yii\web\View */
 use yii\helpers\BaseUrl;
 ?>
-<section class="content">
+<!-- <section class="content"> -->
 <?php
 foreach($departaments as $departament) {
   $departament = (object) $departament; //força o tipo da variável
@@ -35,4 +35,4 @@ foreach($departaments as $departament) {
 <?php } 
 ?>
 
-</section>
+<!-- </section> -->
