@@ -14,7 +14,7 @@ foreach($departaments as $departament) {
 <div class="col-md-5 col-sm-4 col-xs-12">
   <div class="info-box bg-aqua">
     <span class="info-box-icon">
-      <i class="ion ion-stats-bars"></i>
+      <i class="fa <?php echo $departament->icons; ?>"></i>
     </span>
     <div class="info-box-content">
       <span class="info-box-text"><?php echo $departament->departamento; ?></span>
