@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\TbIndicador */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Tb Indicadors', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Revisão do Cadastro', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tb-indicador-view box box-primary">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger btn-flat',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Você está certo que deseja excluir esse item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -33,10 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'sentido_da_meta',
                 'ytd',
                 'departamentoID',
-                'criadoPor',
+              /*  'criadoPor',
                 'dataCriacao',
                 'modificadoPor',
-                'dataModificacao',
+                'dataModificacao', */
                 'active',
             ],
         ]) ?>
