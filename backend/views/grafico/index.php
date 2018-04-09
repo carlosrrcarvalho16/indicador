@@ -19,8 +19,10 @@ $backgroundColor      = "";
 $dadosMes             = "";
 $metaMes              = "";
 $metaCor              = "";
-$rotuloAno            = "";
+$rotulAno             = "";
 $valorYTD             = "";
+$descricao             ="";
+
 
 
 $dadosMes="";
@@ -54,7 +56,7 @@ for($i=0;$i <=11;$i++){
 //Dados dos anos
  $j = 0;
 foreach ($graficoYTD as $value) { 
-  $rotuloAno .= $graficoYTD[$j]['ano'] .",";
+  $rotulAno .= $graficoYTD[$j]['ano'] .",";
   $valorYTD .= $graficoYTD[$j]['ytd'] .",";
   $j = $j+1 ;
   
@@ -66,7 +68,7 @@ foreach ($graficoYTD as $value) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 <div class="box box-primary">
   <div class="box-header with-border">
-    <h3 class="box-title">Gráficos - <?php echo $vNome; ?></h3>
+    <h3 class="box-title">Gráficos - <?php echo $vNome; ?> </h3>
   </div>
 
   <div class="row">
@@ -206,7 +208,7 @@ var parmBorderColor = [<?php echo $backgroundColor; ?>];
 var parmMetaMes = [<?php echo $metaMes;?>];
 var parmBorderColorMeta = [<?php echo $metaCor;?>];
 var parmValoresYTD = [<?php echo $valorYTD;?>];
-var paramAno = [<?php echo $rotuloAno;?>];
+var paramAno = [<?php echo $rotulAno;?>];
 var myChart = new Chart(ctx, {
           type: 'bar',
           data: {

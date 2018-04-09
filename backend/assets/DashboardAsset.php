@@ -27,7 +27,7 @@ class DashboardAsset extends AssetBundle
         'plugins/select2/select2.min.css',
         'plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
         'css/site.css',
-        'css/theme.css',
+       // 'css/theme.css',
         'css/admin-forms.css',
         
     ];
