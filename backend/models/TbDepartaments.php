@@ -45,7 +45,9 @@ class TbDepartaments extends \yii\db\ActiveRecord
         return [
             'id'            => 'ID',
             'departamento'  => 'Departamento',
-            'managerUserId' => 'Manager User ID',
+            'managerUserId' => 'Gerente',
+            'active'        => 'Ativo',
+            'icons'         => 'Ícone'
         ];
     }
 
