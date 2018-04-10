@@ -11,6 +11,7 @@ use backend\models\TbDepartaments;
 
 ?>
 
+<!-- Fim -->
 <div class="tb-indicador-form box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">Cadastro de Incicadores</h3>
@@ -50,11 +51,13 @@ use backend\models\TbDepartaments;
                     );
                 ?>
             </div>
+             <?= $form->field($model, 'active')->checkbox(['class' => 'minimal', 'value' => 'Y']) ?>
          </div>
      </div>
     </div>
     <div class="box-footer">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-chevron-left"></i> Cancelar', ['/indicador'], ['class' => 'btn btn-danger']); ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>

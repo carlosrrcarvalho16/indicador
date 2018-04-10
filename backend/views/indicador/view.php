@@ -26,18 +26,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'model' => $model,
             'attributes' => [
                 'id',
+                'departamentoID',
                 'nome',
                 'descricao',
                 'ano',
                 'meta',
                 'sentido_da_meta',
                 'ytd',
-                'departamentoID',
+
               /*  'criadoPor',
                 'dataCriacao',
                 'modificadoPor',
                 'dataModificacao', */
-                'active',
+                [
+                    'attribute' => 'active',
+                    'format'    => 'raw',
+                    'value'     => ($model->active == 'Y' ? 'Sim' : 'Não'),
+                ],
             ],
         ]) ?>
     </div>

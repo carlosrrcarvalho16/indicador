@@ -323,7 +323,7 @@ DashboardAsset::register($this);
               </a>
               <ul class="treeview-menu">
                     <li><a href="<?php echo BaseUrl::base();?>/company"><i class="fa fa-circle-o"></i> Empresa<?=(Yii::$app->user->identity->ID == 1 ? 's' : '')?></a></li>
-                    <li><a href="<?php echo BaseUrl::base();?>/indicador/create"><i class="fa fa-circle-o"></i> Indicador<?=(Yii::$app->user->identity->ID == 1 ? 's' : '')?></a></li>
+                    <li><a href="<?php echo BaseUrl::base();?>/indicador"><i class="fa fa-circle-o"></i> Indicador<?=(Yii::$app->user->identity->ID == 1 ? 's' : '')?></a></li>
               </ul>
             </li>
             <?php } 

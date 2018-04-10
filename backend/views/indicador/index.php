@@ -7,19 +7,21 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\TbIndicadorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Tb Indicador';
+$this->title = 'Indicador';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tb-indicador-index box box-primary">
     <div class="box-header with-border">
-        <?= Html::a('Create Tb Indicador', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Criar novo indicador', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
     </div>
     <div class="box-body table-responsive no-padding">
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
+            //'filterModel' => $searchModel,
             'layout' => "{items}\n{summary}\n{pager}",
+            'summary'   => "<div class='summary-grid'>Listando {begin} - {end} de {totalCount} itens</div>",
+            'emptyText' => 'Nenhum registro encontrado',
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
@@ -28,16 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'descricao',
                 'ano',
                 'meta',
-                // 'sentido_da_meta',
-                // 'ytd',
+                'sentido_da_meta',
+                'ytd',
                 // 'departamentoID',
                 // 'criadoPor',
                 // 'dataCriacao',
                 // 'modificadoPor',
                 // 'dataModificacao',
-                // 'active',
+                'active',
 
-                ['class' => 'yii\grid\ActionColumn'],
+                ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}'],
             ],
         ]); ?>
     </div>

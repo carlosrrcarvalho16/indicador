@@ -66,12 +66,13 @@ class TbIndicador extends \yii\db\ActiveRecord
             'ano'             => 'Ano',
             'meta'            => 'Meta',
             'sentido_da_meta' => 'Sentido Da Meta',
-            'ytd'             => 'Ytd',
+            'ytd'             => 'YTD',
             'departamentoID'  => 'Departamento ID',
             'criadoPor'       => 'Criado Por',
             'dataCriacao'     => 'Data Criacao',
             'modificadoPor'   => 'Modificado Por',
             'dataModificacao' => 'Data Modificacao',
+            'active'          => 'Ativo',
         ];
     }
 

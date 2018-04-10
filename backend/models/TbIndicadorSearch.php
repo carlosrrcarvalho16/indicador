@@ -48,7 +48,7 @@ class TbIndicadorSearch extends TbIndicador
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['id' => SORT_DESC]]
+            'sort' => ['defaultOrder' => ['nome' => SORT_ASC]]
         ]);
 
         $this->load($params);
@@ -58,7 +58,7 @@ class TbIndicadorSearch extends TbIndicador
             // $query->where('0=1');
             return $dataProvider;
         }
-
+/*
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -70,13 +70,15 @@ class TbIndicadorSearch extends TbIndicador
             'dataCriacao' => $this->dataCriacao,
             'modificadoPor' => $this->modificadoPor,
             'dataModificacao' => $this->dataModificacao,
+
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome])
             ->andFilterWhere(['like', 'descricao', $this->descricao])
             ->andFilterWhere(['like', 'ano', $this->ano])
             ->andFilterWhere(['like', 'active', $this->active]);
-
+*/
         return $dataProvider;
+
     }
 }

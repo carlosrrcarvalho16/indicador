@@ -14,8 +14,11 @@ $this->params['breadcrumbs'][] = $this->title;
 //Cores do grafico
 $backgroundColorGood  = "'rgba(35, 156, 222, 0.7)',";
 $backgroundColorBad   = "'rgba(248, 44, 8, 0.7)',";
+$borderColorGood      = "'rgba(57, 24, 242, 0.5)',";
+$borderColorBad       = "'rgba(144, 10, 21, 0.5)',";
 $backgroundColorMeta  = "'rgba(84, 233, 20, 0.5)',";
 $backgroundColor      = "";
+$borderColorColor     ="";
 $dadosMes             = "";
 $metaMes              = "";
 $metaCor              = "";
@@ -39,16 +42,20 @@ for($i=0;$i <=11;$i++){
     if ($graficoMes[$i]['sentido'] == 0) {
       //Verifica se o valor é maior ou igual a meta
       if ($graficoMes[$i]['valor'] >= $graficoMes[$i]['meta']) {
-        $backgroundColor .= $backgroundColorGood;
+          $backgroundColor .= $backgroundColorGood;
+          $borderColorColor .= $borderColorGood ;
       } else {
-        $backgroundColor .= $backgroundColorBad;
+          $backgroundColor .= $backgroundColorBad;
+          $borderColorColor .= $borderColorBad ;
       }
     } else {
       //Verifica se o valor é menor que a meta
       if ($graficoMes[$i]['valor'] <= $graficoMes[$i]['meta']) {
-        $backgroundColor .= $backgroundColorGood;
+          $backgroundColor .= $backgroundColorGood;
+          $borderColorColor .= $borderColorGood ;
       } else {
-        $backgroundColor .= $backgroundColorBad;
+          $backgroundColor .= $backgroundColorBad;
+          $borderColorColor .= $borderColorBad ;
       }   
     }
   }  
@@ -204,7 +211,8 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var ctxAno = document.getElementById("myChartAno").getContext('2d');
 var paramMeses = ["Jan","Fev","Mar","Abr"," Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
 var parmValoresMes = [<?php echo $dadosMes;?>];
-var parmBorderColor = [<?php echo $backgroundColor; ?>];
+var parmBackgroundColor = [<?php echo $backgroundColor; ?>];
+var parmBorderColor = [<?php echo $borderColorColor ; ?>];
 var parmMetaMes = [<?php echo $metaMes;?>];
 var parmBorderColorMeta = [<?php echo $metaCor;?>];
 var parmValoresYTD = [<?php echo $valorYTD;?>];
@@ -217,9 +225,10 @@ var myChart = new Chart(ctx, {
               label: '<?php echo $vNome; ?>',
               fill: true, 
               data: parmValoresMes,
-              backgroundColor: parmBorderColor,
+              backgroundColor: parmBackgroundColor,
               borderColor: parmBorderColor,
-              borderWidth: 1
+              borderWidth: 3,
+
             },{
           label: 'Meta',
           data: parmMetaMes,
@@ -233,13 +242,13 @@ var myChart = new Chart(ctx, {
         }]
           },
           options: {
-            scales: {
-              yAxes: [{
-                ticks: {
-                  beginAtZero:true
-                }
-              }]
-            }
+              scales: {
+                  yAxes:[{
+                      ticks:{
+                          beginAtZero:true
+                      }
+                  }]
+              }
           }
         },{
 
@@ -259,16 +268,17 @@ var myChartAno = new Chart(ctxAno, {
               borderWidth: 1
             }]
           },
-          options: {
-            scales: {
-              yAxes: [{
-                ticks: {
-                  beginAtZero:true
-                }
-              }]
-            }
-          }
+
         },{
+        options: {
+            scales: {
+                yAxes:[{
+                    ticks:{
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
 
         }
         );
