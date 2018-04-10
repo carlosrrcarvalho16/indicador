@@ -19,18 +19,18 @@ use backend\models\TbDepartaments;
     <?php $form = ActiveForm::begin(); ?>
     <div class="box-body">
         <div class="col-md-4">
-                <div class="form-group">
-                    <?php
-                    echo $form->field($model, 'departamentoID')->dropDownList(
+            <div class="form-group">
+                <?php
+                echo $form->field($model, 'departamentoID')->dropDownList(
                         ArrayHelper::map(TbDepartaments::find()->where(['active' => 'Y'])->all(), 'id', 'departamento'),
                         [
                             'prompt' => 'Selecione ...',
                             'id'     => 'select2-pessoa-categoria'
                         ]
                     )->label('Departamento');
-                    ?>
-                    <div class="help-block"></div>
-                </div>
+                ?>
+
+            </div>
         </div>
         <div class="row">
         <div class="col-md-2">
@@ -44,14 +44,19 @@ use backend\models\TbDepartaments;
             <div class="col-md-3">
                 <?= $form->field($model, 'meta')->textInput() ?>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <?php
                     $sentido = array (0 => 'Maior melhor',1 => 'Maior pior');
                     echo $form->field($model, 'sentido_da_meta')->dropDownList($sentido
                     );
                 ?>
+
             </div>
-             <?= $form->field($model, 'active')->checkbox(['class' => 'minimal', 'value' => 'Y']) ?>
+             <div class="row">
+                 <div class="col-md-4">
+                 <?= $form->field($model, 'active')->checkbox(['class' => 'minimal', 'value' => 'Y']) ?>
+                 </div>
+             </div>
          </div>
      </div>
     </div>

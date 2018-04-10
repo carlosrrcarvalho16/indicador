@@ -32,13 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'meta',
                 'sentido_da_meta',
                 'ytd',
-                // 'departamentoID',
-                // 'criadoPor',
-                // 'dataCriacao',
-                // 'modificadoPor',
-                // 'dataModificacao',
+                'departamentoID',
                 'active',
-
+                 'criadoPor',
                 ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}'],
             ],
         ]); ?>

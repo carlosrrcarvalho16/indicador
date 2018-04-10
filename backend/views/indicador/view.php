@@ -22,27 +22,19 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </div>
     <div class="box-body table-responsive no-padding">
-        <?= DetailView::widget([
+        <?php DetailView::widget([
             'model' => $model,
             'attributes' => [
                 'id',
-                'departamentoID',
                 'nome',
                 'descricao',
                 'ano',
                 'meta',
                 'sentido_da_meta',
                 'ytd',
-
-              /*  'criadoPor',
-                'dataCriacao',
-                'modificadoPor',
-                'dataModificacao', */
-                [
-                    'attribute' => 'active',
-                    'format'    => 'raw',
-                    'value'     => ($model->active == 'Y' ? 'Sim' : 'Não'),
-                ],
+                'departamentoID',
+                'active',
+                'criadoPor'
             ],
         ]) ?>
     </div>
