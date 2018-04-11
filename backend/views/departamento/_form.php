@@ -14,16 +14,13 @@ use backend\models\user;
     <?php $form = ActiveForm::begin(); ?>
     <div class="box-body table-responsive">
 
-
-
-
         <div class="box-body">
             <div class="col-md-4">
                 <div class="form-group">
                     <?= $form->field($model, 'departamento')->textInput(['maxlength' => true]) ?>
                     <?php
                     echo $form->field($model, 'managerUserId')->dropDownList(
-                        ArrayHelper::map(User::find()->where(['ID'=> 'managerUserId'])->all(), 'id', 'name'),
+                        ArrayHelper::map(user::find()->where(['ID' => 'managerUserId'])->all(), 'ID', 'name'),
                         [
                             'prompt' => 'Selecione ...',
                             'id'     => 'select-user-name'
@@ -32,11 +29,17 @@ use backend\models\user;
                     ?>
 
                 </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <?= $form->field($model, 'active')->checkbox(['class' => 'minimal', 'value' => 'Y']) ?>
+                    </div>
+                </div>
             </div>
 
     </div>
     <div class="box-footer">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-chevron-left"></i> Cancelar', ['/departamento'], ['class' => 'btn btn-danger']); ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>
