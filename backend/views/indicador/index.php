@@ -24,17 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'emptyText' => 'Nenhum registro encontrado',
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-
-                'id',
                 'nome',
                 'descricao',
                 'ano',
                 'meta',
-                'sentido_da_meta',
                 'ytd',
                 'departamentoID',
                 'active',
-                 'criadoPor',
+                'criadoPor',
                 ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>

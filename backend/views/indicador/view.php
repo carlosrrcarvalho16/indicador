@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\TbIndicador */
 
-$this->title = $model->id;
+$this->title = $model->nome;
 $this->params['breadcrumbs'][] = ['label' => 'Revisão do Cadastro', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -20,21 +20,29 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('<i class="glyphicon glyphicon-chevron-left"></i> Cancelar', ['/indicador'], ['class' => 'btn btn-danger']); ?>
+        <?= Html::a('<i class="glyphicon glyphicon-chevron-left"></i> Voltar', ['/indicador'], ['class' => 'btn btn-primary']); ?>
     </div>
     <div class="box-body table-responsive no-padding">
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
-                'id',
+
                 'nome',
                 'descricao',
                 'ano',
                 'meta',
-                'sentido_da_meta',
                 'ytd',
+                [
+                    'attribute' => 'sentido_da_meta',
+                    'format'    => 'raw',
+                    'value'     => ($model->sentido_da_meta == '0' ? 'Maior melhor' : 'Maior pior'),
+                ],
                 'departamentoID',
-                'active',
+                [
+                    'attribute' => 'active',
+                    'format'    => 'raw',
+                    'value'     => ($model->active == 'Y' ? 'Sim' : 'Não'),
+                ],
                 'criadoPor'
             ],
         ]) ?>

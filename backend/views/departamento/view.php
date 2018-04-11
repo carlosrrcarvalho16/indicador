@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\ArrayHelper;
+use backend\models\user;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\TbDepartaments */
@@ -29,7 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'id' ,
                 'departamento',
                 'managerUserId',
-                'active',
+
+                [
+                    'attribute' => 'active',
+                    'format'    => 'raw',
+                    'value'     => ($model->active == 'Y' ? 'Sim' : 'Não'),
+                ],
                 'icons',
             ],
         ]) ?>

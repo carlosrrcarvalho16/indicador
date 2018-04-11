@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use backend\models\user;
 
 /**
  * This is the model class for table "tb_departaments".
@@ -58,6 +59,7 @@ class TbDepartaments extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['ID' => 'managerUserId']);
     }
+
 
     /**
      * @return \yii\db\ActiveQuery

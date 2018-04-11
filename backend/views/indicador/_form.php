@@ -51,9 +51,11 @@ use backend\models\TbDepartaments;
                     );
                 ?>
 
+
             </div>
              <div class="row">
                  <div class="col-md-4">
+                 <?= $form->field($model, 'ytd')->textInput() ?>
                  <?= $form->field($model, 'active')->checkbox(['class' => 'minimal', 'value' => 'Y']) ?>
                  </div>
              </div>

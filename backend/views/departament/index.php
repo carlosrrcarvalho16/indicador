@@ -8,13 +8,13 @@ use yii\widgets\ActiveForm;
 use backend\models\Identity;
 use yii\base\Widget;
 
-$this->title = 'Dashboard Departamento';
+$this->title = 'Indicadores';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="box box-primary">
     <div class="box-header with-border">
-      <h3 class="box-title">Dashboard Departamento</h3>
+      <h3 class="box-title">Dashboard <?php echo $departament->departamento; ?>  </h3>
     </div>
 	
     <div class="box-body">
@@ -27,36 +27,45 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php 
 	            $i=0;
 	             foreach ($dados_mes as $value) {
+                     //Verifica o [sentido]= 0 'Maior Melhor', [sentido]= 1 'Maior Pior'
+                     if ($dados_mes[$i]['sentido'] == 0) {
+                         //[sentido]= 0 'Maior Melhor'
+                         $sentido = "title= 'Quanto maior melhor'";
+                         $tipoSeta = 'fa-arrow-up';
+                         //Verifica se o valor atual é maior ou igual a meta
+                         if ($dados_mes[$i]['valor'] >= $dados_mes[$i]['meta']) {
+                             $textVal = 'text-success';
+                         }else{
+                             $textVal = 'text-danger';
+                         }
+
+                     }else {
+                         //[sentido]= 1 'Maior Pior'
+                         $sentido = "title= 'Quanto menor melhor'";
+                         $tipoSeta = 'fa-arrow-down';
+                         //Verifica se o valor é menor que a meta
+                         if ($dados_mes[$i]['valor'] <= $dados_mes[$i]['meta']){
+                             $textVal = 'text-success';
+                         }else{
+                             $textVal = 'text-danger';
+                         }
+                     }
+
 	             	//Verifica o [sentido]= 0 'Maior Melhor', [sentido]= 1 'Maior Pior'
-                  /*   echo 'sentido ' . $dados_mes[$i]['sentido'] . "<p>" .
+                   /* echo 'sentido ' . $sentido  . "<p>" .
+                       'sentido ' . $dados_mes[$i]['sentido'] . "<p>" .
                          'mes ' . $dados_mes[$i]['mes'] . " <p>" .
                          'nome ' .$dados_mes[$i]['nome'] . " <p>" .
-                         'valor ' .$dados_mes[$i]['valor'] . " <p>" ; die; */
-	             	if ($dados_mes[$i]['sentido'] == 0) {
-	             		//Verifica se o valor é maior ou igual a meta
-	             		if ($dados_mes[$i]['valor'] >= $dados_mes[$i]['meta']) {
-	             			$textVal = 'text-success';
-	             			$tipoSeta = 'fa-arrow-up';
-	             		}else{
-	             			$textVal = 'text-danger';
-                            $tipoSeta = 'fa-arrow-down';
-	             		}
-	             	}else{
-	             		//Verifica se o valor é menor que a meta
-	             		if ($dados_mes[$i]['valor'] <= $dados_mes[$i]['meta']){
-	             			$textVal = 'text-success';
-                            $tipoSeta = 'fa-arrow-up';
-	             		}else{
-	             			$textVal = 'text-danger';
-                            $tipoSeta = 'fa-arrow-down';
-	             		}
+                         'valor ' .$dados_mes[$i]['valor'] . " <p>" ; die;
+                   */
 
-	             	}
+
 	             	// Verifica se está na dentro da meta
 	             	//$textVal = ($dados_mes[$i]['valor'] >= $dados_mes[$i]['meta']) ? 'text-warning' : 'text-success';
 	             	//Define o tipo de seta e a mensagem Tooltip
 	            	$retVal = ($dados_mes[$i]['sentido'] == 0) ? "class= 'fa fa-arrow-up pr5 '" : "class= 'fa fa-arrow-down pr5  '";
-	            	$tipoTooltip = ($dados_mes[$i]['sentido']==0) ? "title= 'Quanto maior melhor'": "title= 'Quanto menor melhor'";
+
+	            	$tipoTooltip = $sentido;
 	            	// Se o valor do mês
 	            	$valorRetVal = ($dados_mes[$i]['valor'] ==null) ? 
 	                    'S/Dados' : $dados_mes[$i]['valor'];
