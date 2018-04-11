@@ -13,10 +13,8 @@ use backend\models\user;
 <div class="tb-departaments-form box box-primary">
     <?php $form = ActiveForm::begin(); ?>
     <div class="box-body table-responsive">
-
         <div class="box-body">
             <div class="col-md-4">
-                <div class="form-group">
                 <div class="form-group">
                     <?= $form->field($model, 'departamento')->textInput(['maxlength' => true]) ?>
                     <?php
@@ -43,9 +41,10 @@ use backend\models\user;
         <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-flat']) ?>
         <?= Html::a('<i class="glyphicon glyphicon-chevron-left"></i> Cancelar', ['/departamento'], ['class' => 'btn btn-danger']); ?>
     </div>
+
         <section id="web-application">
             <h4 class="page-header">Escolher o icone abaixo</h4>
-            v class="row fontawesome-icon-list">
+            <div class="row fontawesome-icon-list">
             <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-adjust"></i> fa-adjust</div>
             <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-anchor"></i> fa-anchor</div>
             <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-archive"></i> fa-archive</div>
@@ -516,5 +515,7 @@ use backend\models\user;
             <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-wrench"></i> fa-wrench</div>
     </div>
         </section>
-    <?php ActiveForm::end(); ?>
+
+
 </div>
+    <?php ActiveForm::end(); ?>

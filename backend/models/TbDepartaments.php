@@ -45,7 +45,7 @@ class TbDepartaments extends \yii\db\ActiveRecord
     {
         return [
             'id'            => 'ID',
-            'departamento'  => 'Departamento',
+            'departamento'  => 'Nome',
             'managerUserId' => 'Gerente',
             'active'        => 'Ativo',
             'icons'         => 'Ícone'
@@ -74,4 +74,5 @@ class TbDepartaments extends \yii\db\ActiveRecord
         $result = Yii::$app->db->createCommand($sql)->queryAll();
         return $result;
     }
+
 }

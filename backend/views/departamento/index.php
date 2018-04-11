@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'layout' => "{items}\n{summary}\n{pager}",
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-                'id',
+
                 'departamento',
                 'managerUserId',
                 'active',
