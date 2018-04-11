@@ -317,7 +317,7 @@ DashboardAsset::register($this);
             <?php if(\Yii::$app->user->can('manageCompany')){?>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-pie-chart"></i>
+                <i class="fa  fa-gear "></i>
                 <span>Administrativo</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>

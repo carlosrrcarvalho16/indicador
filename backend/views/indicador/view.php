@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </div>
     <div class="box-body table-responsive no-padding">
-        <?php DetailView::widget([
+        <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
                 'id',

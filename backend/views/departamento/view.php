@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\TbDepartaments */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Tb Departaments', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Departamentos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tb-departaments-view box box-primary">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger btn-flat',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Você está certo que deseja excluir esse item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
-                'id',
+                'id' ,
                 'departamento',
                 'managerUserId',
                 'active',

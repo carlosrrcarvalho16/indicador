@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
-            //'filterModel' => $searchModel,
+           // 'filterModel' => $searchModel,
             'layout' => "{items}\n{summary}\n{pager}",
             'summary'   => "<div class='summary-grid'>Listando {begin} - {end} de {totalCount} itens</div>",
             'emptyText' => 'Nenhum registro encontrado',
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'departamentoID',
                 'active',
                  'criadoPor',
-                ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}'],
+                ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>
     </div>
