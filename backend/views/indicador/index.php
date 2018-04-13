@@ -18,20 +18,39 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
-           // 'filterModel' => $searchModel,
+            'filterModel' => $searchModel,
             'layout' => "{items}\n{summary}\n{pager}",
             'summary'   => "<div class='summary-grid'>Listando {begin} - {end} de {totalCount} itens</div>",
             'emptyText' => 'Nenhum registro encontrado',
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
+
+
                 'nome',
                 'descricao',
-                'ano',
-                'meta',
-                'ytd',
-                'departamentoID',
-                'active',
-                'criadoPor',
+
+                [
+                    'attribute' =>'ano',
+                    'value' => 'ano',
+                    'contentOptions'=>['style'=>'width: 80px;']
+                ],
+
+                [
+                    'attribute' =>'meta',
+                    'value' => 'meta',
+                    'contentOptions'=>['style'=>'width: 100px;']
+                ],
+
+                [
+                    'attribute' =>'criadoPor',
+                    'value' => 'criadopor.name'
+                ],
+
+
+              //  'ytd',
+              //  'departamentoID',
+               // 'active',
+                //'criadoPor',
                 ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>

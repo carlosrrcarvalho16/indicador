@@ -74,6 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	                    $descricao = "";
 	                } else {  $descricao = $dados_mes[$i]['descricao']; }
 
+
 	        ?>
                      <!-- Colocar form blão dos dados aqui -->
                      <div class="col-lg-4 col-xs-6">
@@ -81,7 +82,10 @@ $this->params['breadcrumbs'][] = $this->title;
                          <div class="small-box bg-aqua">
                              <div class="inner" >
                                  <h3 class="<?php echo $textVal;?>"><?php echo $valorRetVal;?></h3>
-                                 <p><h4><?php echo substr($dados_mes[$i]['nome'], 0, 35) ?></h4></p>
+                                 <p>
+                                    <h4><?php echo substr($dados_mes[$i]['nome'], 0, 35) ?></h4>
+
+                                 </p>
                                  <p><h4>Meta - <?php echo $dados_mes[$i]['meta']; ?> </h4></p>
                              </div>
                              <div class="icon">

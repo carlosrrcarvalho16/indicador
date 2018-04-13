@@ -72,6 +72,7 @@ foreach ($graficoYTD as $value) {
 
 
 ?>
+<?php $form = ActiveForm::begin(); ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 <div class="box box-primary">
   <div class="box-header with-border">
@@ -159,51 +160,48 @@ foreach ($graficoYTD as $value) {
         <!-- /.box -->
     </div>
   </div>
+      <div class="row">
+          <div class="col-xs-12">
+              <div class="box">
+                  <div class="box-header">
+                      <h3 class="box-title">Histórico</h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-tools pull-right">
+                      <div class="box-tools pull-right">
+                          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                          </button>
+                          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                          </button>
+                      </div>
+                  </div>
+                  <div class="box-body">
+                      <?= GridView::widget([
+                          'dataProvider' => $dataProviderPlanoAcaoClosed,
+                          //'filterModel'  => $searchModelPlanoAcao,
+                          'summary'      => "Listando {begin} - {end} de {totalCount} itens",
+                          'emptyText'    => 'Nenhum registro encontrado',
+                          'columns' => [
+                              ['class' => 'yii\grid\SerialColumn'],
+                              'item',
+                              'descricao_problema',
+                              'plano_acao',
+                              'responsavel',
+                              'abertura',
+                              'prazo',
+                              'status'
+                          ],
+                      ]); ?>
+                  </div>
+                  <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+          </div>
+      </div>
 </section>
 
-<!-- Main content -->
-  <section class="content">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Histórico</h3>
-          </div>
-          <!-- /.box-header -->
-            <div class="box-tools pull-right">
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-                    </button>
-                </div>
-            </div>
-          <div class="box-body">
-            <?= GridView::widget([
-              'dataProvider' => $dataProviderPlanoAcaoClosed,
-              // 'filterModel'  => $searchModelPlanoAcao,
-              'summary'      => "Listando {begin} - {end} de {totalCount} itens",
-              'emptyText'    => 'Nenhum registro encontrado',
-              'columns' => [
-                  ['class' => 'yii\grid\SerialColumn'],
-                  'item',
-                  'descricao_problema',
-                  'plano_acao',
-                  'responsavel',
-                  'abertura',
-                  'prazo',
-                  'status'
-              ],
-          ]); ?>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-    </div>
-  </div>
-</section>
-</div>
 
+<?php ActiveForm::end(); ?>
 
 <!-- https://www.youtube.com/watch?v=E3MvLffU928 -->
 <script> 

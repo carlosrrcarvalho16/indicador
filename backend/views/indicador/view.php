@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'model' => $model,
             'attributes' => [
 
+                'departamentoID',
                 'nome',
                 'descricao',
                 'ano',
@@ -37,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'format'    => 'raw',
                     'value'     => ($model->sentido_da_meta == '0' ? 'Maior melhor' : 'Maior pior'),
                 ],
-                'departamentoID',
+
                 [
                     'attribute' => 'active',
                     'format'    => 'raw',

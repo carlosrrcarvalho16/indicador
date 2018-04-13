@@ -100,6 +100,7 @@ class TbIndicador extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['ID' => 'criadoPor']);
     }
 
+
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -108,7 +109,7 @@ class TbIndicador extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['ID' => 'modificadoPor']);
     }
 
-    /**
+       /**
      * @return \yii\db\ActiveQuery
      */
     public function getPlanoacoes()

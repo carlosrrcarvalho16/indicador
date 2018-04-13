@@ -7,6 +7,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use backend\models\TbIndicador;
 
+
 /**
  * TbIndicadorSearch represents the model behind the search form of `backend\models\TbIndicador`.
  */
@@ -58,7 +59,7 @@ class TbIndicadorSearch extends TbIndicador
             // $query->where('0=1');
             return $dataProvider;
         }
-/*
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -66,10 +67,10 @@ class TbIndicadorSearch extends TbIndicador
             'sentido_da_meta' => $this->sentido_da_meta,
             'ytd' => $this->ytd,
             'departamentoID' => $this->departamentoID,
-            'criadoPor' => $this->criadoPor,
-            'dataCriacao' => $this->dataCriacao,
-            'modificadoPor' => $this->modificadoPor,
-            'dataModificacao' => $this->dataModificacao,
+           // 'criadoPor' => $this->criadoPor,
+          //  'dataCriacao' => $this->dataCriacao,
+          //  'modificadoPor' => $this->modificadoPor,
+          //  'dataModificacao' => $this->dataModificacao,
 
         ]);
 
@@ -77,7 +78,7 @@ class TbIndicadorSearch extends TbIndicador
             ->andFilterWhere(['like', 'descricao', $this->descricao])
             ->andFilterWhere(['like', 'ano', $this->ano])
             ->andFilterWhere(['like', 'active', $this->active]);
-*/
+
         return $dataProvider;
 
     }
