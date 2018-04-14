@@ -314,6 +314,19 @@ DashboardAsset::register($this);
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
             </li>
+
+              <li class="treeview">
+                  <a href="#">
+                      <i class="fa   fa-edit"></i>
+                      <span>Atualizar Dados</span>
+                      <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes"><i class="fa fa-pencil-square"></i> Dados do Mês</a></li>
+
+                  </ul>
+              </li>
+
             <?php if(\Yii::$app->user->can('manageCompany')){?>
             <li class="treeview">
               <a href="#">
@@ -331,6 +344,7 @@ DashboardAsset::register($this);
 
             if(\Yii::$app->user->can('manageUser')){
             ?>
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-lock"></i>
@@ -346,6 +360,7 @@ DashboardAsset::register($this);
               </ul>
             </li>
             <?php } ?>
+
           </ul>
         </section>
         <!-- /.sidebar -->
