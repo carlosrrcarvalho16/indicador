@@ -52,13 +52,15 @@ class TbIndicadorSearch extends TbIndicador
             'sort' => ['defaultOrder' => ['nome' => SORT_ASC]]
         ]);
 
-        $this->load($params);
+        // $this->load($params);
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
+
+        $this->load($params);
 
         // grid filtering conditions
         $query->andFilterWhere([
@@ -67,7 +69,7 @@ class TbIndicadorSearch extends TbIndicador
             'sentido_da_meta' => $this->sentido_da_meta,
             'ytd' => $this->ytd,
             'departamentoID' => $this->departamentoID,
-           // 'criadoPor' => $this->criadoPor,
+            'criadoPor' => $this->criadoPor,
           //  'dataCriacao' => $this->dataCriacao,
           //  'modificadoPor' => $this->modificadoPor,
           //  'dataModificacao' => $this->dataModificacao,

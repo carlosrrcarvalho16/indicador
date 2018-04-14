@@ -9,7 +9,9 @@ use backend\models\Identity;
 use yii\grid\GridView;
 
 $this->title = 'Gráficos';
+$this->params['breadcrumbs'][] = ['label' => 'Indicadores', 'url' => [ BaseUrl::base() . '/departament?id=' . $departamentoID]];
 $this->params['breadcrumbs'][] = $this->title;
+
 
 //Cores do grafico
 $backgroundColorGood  = "'rgba(35, 156, 222, 0.7)',";

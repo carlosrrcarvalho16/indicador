@@ -57,15 +57,19 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-
         //Verifica se asessão está vazia
         if (Yii::$app->session->get('MES_DASH') == "") {
-           $mes = Yii::$app->session->set('MES_DASH', date('m')-1);
-           $ano = Yii::$app->session->set('ANO_DASH', date('Y'));
+           $mes = date('m', strtotime('-1 months', strtotime(date('Y-m-d'))));
+           $ano = date('Y');
+           Yii::$app->session->set('MES_DASH', $mes);
+           Yii::$app->session->set('ANO_DASH', $ano);
+        }else{
+            $mes = Yii::$app->session->get('MES_DASH');
+            $ano = Yii::$app->session->get('ANO_DASH');
         }
 
-        $departaments = TbDepartaments::getSelectDepartamento(date('m'), date('Y'));
-        return $this->render('index', ['departaments' => $departaments]);
+        $departaments = TbDepartaments::getSelectDepartamento($mes, $ano);
+        return $this->render('index', ['departaments' => $departaments, 'mes' => $mes, 'ano' => $ano]);
     }
 
     public function actionDepartamentos(){

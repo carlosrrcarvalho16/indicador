@@ -27,7 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'model' => $model,
             'attributes' => [
 
-                'departamentoID',
+                [
+                    'attribute' => 'departamentoID',
+                    'label'     => 'Departamento',
+                    'format'    => 'raw',
+                    'value'     => $model->departamento->departamento,
+                ],
                 'nome',
                 'descricao',
                 'ano',
@@ -44,7 +49,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     'format'    => 'raw',
                     'value'     => ($model->active == 'Y' ? 'Sim' : 'Não'),
                 ],
-                'criadoPor'
+                [
+                    'attribute' => 'criadoPor',
+                    'label'     => 'Criado Por',
+                    'format'    => 'raw',
+                    'value'     => $model->criadopor->name,
+                ],
             ],
         ]) ?>
     </div>

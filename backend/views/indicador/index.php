@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper; //criar Combo
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\TbIndicadorSearch */
@@ -25,7 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-
+                [
+                    'attribute' => 'departamentoID',
+                    'value'     => 'departamento.departamento',
+                    'filter' => ArrayHelper::map(backend\models\TbDepartaments::find()->all(), 'id', 'departamento')
+                ],
                 'nome',
                 'descricao',
 
@@ -40,10 +45,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     'value' => 'meta',
                     'contentOptions'=>['style'=>'width: 100px;']
                 ],
-
                 [
-                    'attribute' =>'criadoPor',
-                    'value' => 'criadopor.name'
+                    'attribute' => 'criadoPor',
+                    'value'     => 'criadopor.name',
+                    'filter' => ArrayHelper::map(backend\models\User::find()->all(), 'ID', 'name')
                 ],
 
 

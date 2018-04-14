@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\TbDepartaments;
+use backend\models\TbIndicador;
 use backend\models\TbDadosmes;
 use backend\models\TbPlanoAcao;
 use backend\models\TbPlanoAcaoSearch;
@@ -52,12 +53,15 @@ class GraficoController extends Controller
         $searchModelPlanoAcaoClosed->indicador = $id;
         $searchModelPlanoAcaoClosed->status = 'Fechado';
         $dataProviderPlanoAcaoClosed = $searchModelPlanoAcaoClosed->search(Yii::$app->request->queryParams);
+
+        $indicador = TbIndicador::findOne($id);
        
         return $this->render('index', [
             'graficoMes'                  => $grafico_mes, 
             'graficoYTD'                  => $grafico_ytd,
-            'vNome'                       =>$nome, 
+            'vNome'                       => $nome, 
             'planoDeAcao'                 => $planoAcao, 
+            'departamentoID'              => $indicador->departamentoID,
             'searchModelPlanoAcao'        => $searchModelPlanoAcao, 
             'dataProviderPlanoAcao'       => $dataProviderPlanoAcao,
             'searchModelPlanoAcaoClosed'  => $searchModelPlanoAcaoClosed, 

@@ -29,10 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
 				    <?php
 				    	$anos = [2018,2017,2016,2015];
 				    	for($i=0;$i < count($anos) ;$i++){ ?>
-				    		<option value="<?php echo $anos[$i]?>">
-				    			<?php
-				    			echo $anos[$i];
-				    			?>
+				    		<option value="<?php echo $anos[$i]?>"  <?= ($anos[$i] == $ano ? ' selected' : '')?>>
+				    			<?php echo $anos[$i]; ?>
 				    		</option>
 				    <?php } ?>
 					</select>
@@ -45,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				    	$meses = array (1 => "Janeiro", 2 => "Fevereiro", 3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho", 7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro", 11 => "Novembro", 12 => "Dezembro");
 
 				    	for($i=1;$i <=12;$i++){ ?>
-				    		<option value="<?php echo $i?>" <?= ($i == date('m') ? ' selected' : '')?>>
+				    		<option value="<?php echo $i?>" <?= ($i == $mes ? ' selected' : '')?>>
 				    			<?php
 				    			echo $meses["$i"];
 				    			?>
