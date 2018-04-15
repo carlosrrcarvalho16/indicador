@@ -38,6 +38,9 @@ class DepartamentController extends Controller
         $departament = TbDepartaments::findOne($id);
         $dados_mes   = TbDadosmes::getDadosMes($id, Yii::$app->session->get('ANO_DASH'), Yii::$app->session->get('MES_DASH'));
         $planoDeAcao = TbPlanoAcao::getPlanoAcao($id);
+        $departamentoComPlanosAtrazados = TbDepartaments::getSelectDepartamentoComPlanosAtrazados(Yii::$app->session->get('ANO_DASH'));
+        $planosAcaoAbertos = TbDepartaments::getFn_PlanosAcaoAbertos(Yii::$app->session->get('ANO_DASH'));
+        $planosAcaoAtrazados = TbDepartaments::getFn_PlanosAcaoAtrazados(Yii::$app->session->get('ANO_DASH'));
         //$dados_mes = [];
 
         return $this->render('index', ['departament' => $departament, 'dados_mes' => $dados_mes,

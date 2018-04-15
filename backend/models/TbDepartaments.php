@@ -74,7 +74,7 @@ class TbDepartaments extends \yii\db\ActiveRecord
         $result = Yii::$app->db->createCommand($sql)->queryAll();
         return $result;
     }
-    
+
     //Retorna um array com os Departamento e a quantidade de Planos atrazados por indicador
     public static function getSelectDepartamentoComPlanosAtrazados($year){
         $sql = "CALL `selectDepartamentoComPlanosAtrazados`('{$year}')";
