@@ -12,6 +12,7 @@ use backend\models\TbDadosmes;
  */
 class TbDadosmesSearch extends TbDadosmes
 {
+
     /**
      * @inheritdoc
      */
@@ -20,7 +21,7 @@ class TbDadosmesSearch extends TbDadosmes
         return [
             [['id', 'idIndicador', 'mes', 'sentido', 'criadoPor', 'modificadoPor'], 'integer'],
             [['valor', 'ytd', 'meta'], 'number'],
-            [['data', 'ano', 'dataCriacao', 'dataModificacao'], 'safe'],
+            [['data', 'ano', 'dataCriacao', 'dataModificacao', ], 'safe'],
         ];
     }
 
@@ -66,6 +67,7 @@ class TbDadosmesSearch extends TbDadosmes
             'idIndicador' => $this->idIndicador,
             'ytd' => $this->ytd,
             'data' => $this->data,
+            'ano' => $this->ano,
             'mes' => $this->mes,
             'meta' => $this->meta,
             'sentido' => $this->sentido,
@@ -73,9 +75,15 @@ class TbDadosmesSearch extends TbDadosmes
             'dataCriacao' => $this->dataCriacao,
             'modificadoPor' => $this->modificadoPor,
             'dataModificacao' => $this->dataModificacao,
+
+
+
+
+
         ]);
 
-        $query->andFilterWhere(['like', 'ano', $this->ano]);
+       // $query->andFilterWhere(['like', 'ano', $this->ano]);
+
 
         return $dataProvider;
     }

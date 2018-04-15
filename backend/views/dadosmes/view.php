@@ -26,19 +26,36 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
-                'id',
+                [
+                    'attribute' => 'idIndicador',
+                    'label'     => 'Indicador',
+                    'format'    => 'raw',
+                    'value'     => $model->indicador->nome,
+                ],
                 'valor',
-                'idIndicador',
                 'ytd',
-                'data',
+                [
+                    'attribute' => 'data',
+                    'label'     => 'Data da Criação',
+                    'format' => ['date', 'php:d/m/Y']
+                ],
                 'mes',
                 'meta',
                 'sentido',
                 'ano',
-                'criadoPor',
-                'dataCriacao',
                 'modificadoPor',
-                'dataModificacao',
+               /* [
+                    'attribute' => 'modificadoPor',
+                    'label'     => 'Atualizado Por',
+                    'format'    => 'raw',
+                    'value'     => $model->modificadopor->name,
+                ],*/
+
+                [
+                    'attribute' => 'dataModificacao',
+                    'label'     => 'Data da Atualização',
+                    'format' => ['date', 'php:d/m/Y']
+                ],
             ],
         ]) ?>
     </div>

@@ -13,17 +13,20 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
+        'options' => ['data-pjax' => true],
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'valor') ?>
 
-    <?= $form->field($model, 'idIndicador') ?>
+    <?php // $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'ytd') ?>
+    <?php //  $form->field($model, 'valor') ?>
 
-    <?= $form->field($model, 'data') ?>
+    <?php  $form->field($model, 'idIndicador') ?>
+
+    <?php // $form->field($model, 'ytd') ?>
+
+    <?php // $form->field($model, 'data') ?>
 
     <?php // echo $form->field($model, 'mes') ?>
 
@@ -43,7 +46,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?php //Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

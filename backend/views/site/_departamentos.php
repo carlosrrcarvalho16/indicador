@@ -18,8 +18,10 @@ foreach($departaments as $departament) {
     </span>
     <div class="info-box-content">
       <span class="info-box-text">
-            <div class="col-md-2 col-sm-2"><i class="fa fa-fw fa-thumbs-up text-success"></i>
+            <div class="col-md-2 col-sm-2"><i class="fa fa-fw fa-thumbs-up text-success "></i>
+
                 <?php echo $departament->Dentro; ?>
+
             </div>
             <div class="col-md-2 col-sm-2"><i class="fa fa-fw fa-thumbs-down text-danger"></i>
                 <?php echo $departament->Fora; ?>

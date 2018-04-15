@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper; //criar Combo
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\TbDadosmesSearch */
@@ -18,6 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
  -->
     <div class="box-body table-responsive no-padding">
+        <?php Pjax::begin(['enablePushState' => false] ); ?>
+
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <?php
         $meses = array(
@@ -36,31 +39,31 @@ $this->params['breadcrumbs'][] = $this->title;
                 );
 
         ?>
-        <?= GridView::widget([
+       <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'layout' => "{items}\n{summary}\n{pager}",
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-                'ano',
                 [
                     'attribute' => 'idIndicador',
                     'value'     => 'indicador.nome',
                     'label'     => 'Indicador',
                     'filter' => ArrayHelper::map(backend\models\TbIndicador::find()->all(), 'id', 'nome')
                 ],
-                'valor',
+                'ano',
                 'mes',
+                'valor',
                 /*[
                     'attribute' => 'mes',
                     'value'     => $meses,
                     'filter' => ArrayHelper::getColumn($meses,'id','data')
                 ],*/
-                'meta',
-                'sentido',
 
 
-                ['class' => 'yii\grid\ActionColumn'],
+
+
+                ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {update}'],
             ],
         ]); ?>
     </div>
