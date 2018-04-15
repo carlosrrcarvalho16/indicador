@@ -74,5 +74,25 @@ class TbDepartaments extends \yii\db\ActiveRecord
         $result = Yii::$app->db->createCommand($sql)->queryAll();
         return $result;
     }
+    
+    //Retorna um array com os Departamento e a quantidade de Planos atrazados por indicador
+    public static function getSelectDepartamentoComPlanosAtrazados($year){
+        $sql = "CALL `selectDepartamentoComPlanosAtrazados`('{$year}')";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
+    //Retorna o total de planos de ações abertos
+    public static function getFn_PlanosAcaoAbertos($year){
+        $sql = "SELECT `fn_PlanosAcaoAbertos`('{$year}')";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
+    //Retorna o total de planos de ações atrazados
+    public static function getFn_PlanosAcaoAtrazados($year){
+        $sql = "SELECT `fn_PlanosAcaoAtrazados`('{$year}')";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
+
 
 }
