@@ -44,7 +44,8 @@ class DepartamentController extends Controller
         //$dados_mes = [];
 
         return $this->render('index', ['departament' => $departament, 'dados_mes' => $dados_mes,
-            'planoDeAcao' => $planoDeAcao]);
+            'planoDeAcao' => $planoDeAcao, ' departamentoComPlanosAtrazados' =>  $departamentoComPlanosAtrazados ,
+            'planosAcaoAbertos' => $planosAcaoAbertos, 'planosAcaoAtrazados' => $planosAcaoAtrazados]);
     }
 
     /**
