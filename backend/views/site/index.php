@@ -10,6 +10,8 @@ use backend\models\Identity;
 $this->title = 'Dashboard';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?php $form = ActiveForm::begin(); ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 <div class="box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">Dashboard</h3>
@@ -62,3 +64,4 @@ $this->params['breadcrumbs'][] = $this->title;
 		
 	</div>
 </div>
+<?php ActiveForm::end(); ?>
