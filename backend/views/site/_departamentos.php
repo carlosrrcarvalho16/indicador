@@ -56,7 +56,7 @@ foreach($departaments as $departament) {
             <!-- DONUT CHART -->
             <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title">N° de NC Atrazadas</h3>
+                    <h3 class="box-title">Planos de ação atrasados</h3>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                         </button>
@@ -83,20 +83,21 @@ foreach($departaments as $departament) {
     var myChartNCatrazadas = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Red','Yellow','Blue'],
+            labels: ['No praso','Atrasada'],
+            tooltipTemplate: '<%= 10 + "%" %>',
             datasets: [{
                 label: '# of Votes',
-                data: [10, 20, 30],
+                data: [25, 5],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(249,33,55,0.6)',
+
 
                 ],
                 borderColor: [
-                    'rgba(255,99,132,1)',
                     'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
+                    'rgba(249,33,55,1)',
+
 
                 ],
                 borderWidth: 1
