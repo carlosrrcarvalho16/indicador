@@ -67,9 +67,17 @@ class SiteController extends Controller
             $mes = Yii::$app->session->get('MES_DASH');
             $ano = Yii::$app->session->get('ANO_DASH');
         }
-
+        $departamentoComPlanosAtrazados = TbDepartaments::getSelectDepartamentoComPlanosAtrazados($ano);
+        $planosAcaoAbertos = TbDepartaments::getFn_PlanosAcaoAbertos($ano);
+        $planosAcaoAtrazados = TbDepartaments::getFn_PlanosAcaoAtrazados($ano);
         $departaments = TbDepartaments::getSelectDepartamento($mes, $ano);
-        return $this->render('index', ['departaments' => $departaments, 'mes' => $mes, 'ano' => $ano]);
+
+
+        return $this->render('index', ['departaments' => $departaments, 'mes' => $mes, 'ano' => $ano,
+            'departamentoComPlanosAtrazados' =>  $departamentoComPlanosAtrazados ,
+            'planosAcaoAbertos' => $planosAcaoAbertos,
+            'planosAcaoAtrazados' => $planosAcaoAtrazados
+        ]);
     }
 
     public function actionDepartamentos(){

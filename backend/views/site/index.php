@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	    			<select name="ano" id="ano-dashboard" class="form-control">
 				    <?php
 				    	$anos = [2018,2017,2016,2015];
+
 				    	for($i=0;$i < count($anos) ;$i++){ ?>
 				    		<option value="<?php echo $anos[$i]?>"  <?= ($anos[$i] == $ano ? ' selected' : '')?>>
 				    			<?php echo $anos[$i]; ?>
