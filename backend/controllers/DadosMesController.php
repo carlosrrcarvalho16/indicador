@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\TbDadosmes;
+
 use backend\models\TbDadosmesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -35,12 +36,24 @@ class DadosmesController extends Controller
      */
     public function actionIndex()
     {
+        $ano = Yii::$app->session->get('ANO_DASH');
+        $idDep = $_GET['dep'];
+        if ( $idDep<>0) {
+             $indicadores = TbDadosmes::getIndicadorAuth($idDep,
+             Yii::$app->session->get('ANO_DASH', $ano));
+        } else {
+             $indicadores = [];
+        }
+       
         $searchModel = new TbDadosmesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $departamentos =TbDadosmes::getDepartamentoAuth(Yii::$app->user->identity->group);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'departamentos' =>  $departamentos,
+            'indicadores' => $indicadores,
         ]);
     }
 

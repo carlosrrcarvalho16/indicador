@@ -322,7 +322,7 @@ DashboardAsset::register($this);
                       <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes"><i class="fa fa-pencil-square"></i> Dados do Mês</a></li>
+                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes?dep=0"><i class="fa fa-pencil-square"></i> Dados do Mês</a></li>
 
                   </ul>
               </li>

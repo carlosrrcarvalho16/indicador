@@ -4,6 +4,7 @@ namespace backend\models;
 
 use Yii;
 
+
 /**
  * This is the model class for table "tb_dadosmes".
  *
@@ -109,6 +110,26 @@ class TbDadosmes extends \yii\db\ActiveRecord
         $departamentName = trim($departamentName);
         $sql = "CALL `select_YTD`('{$departamentName}', '{$year}')";
         $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
+    //Retorna os meses do ano encontrado na tabela tb_dadosmes
+    public static function getAnos(){
+        $departamentName = trim($departamentName);
+        $sql = "CALL `selectAnos`()";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
+    //Retorna a lista dos departamentos que o usuário logado tem permissão de acessar
+    public static function getDepartamentoAuth($vGrupo){
+        $sql = "CALL `selectDepartamentoAuth`('{$vGrupo}')";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
+    //Carrega os indicadores conforme o departamento selecionado
+    public static function getIndicadorAuth($idDep, $year){
+        
+       $sql = "CALL `selectIndicadorAno`('{$idDep}', '{$year}')";
+       $result = Yii::$app->db->createCommand($sql)->queryAll();
         return $result;
     }
     

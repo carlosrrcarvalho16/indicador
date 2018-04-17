@@ -2,6 +2,8 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\BaseUrl;
+
+
 ?>
 <!-- <section class="content"> -->
 <?php
@@ -202,6 +204,7 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
 
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
+         
         type: 'horizontalBar',
         data: {
             labels: parmLabelBar,
@@ -219,8 +222,6 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
                   borderColor: parmBorderColorBadBar,
                   data: parmDataBarBad
                 }
-
-
             ]
         },
         options: barChartOptions
@@ -251,8 +252,11 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
         barDatasetSpacing       : 1,
         //Boolean - whether to make the chart responsive
         responsive              : true,
-        maintainAspectRatio     : true
+        maintainAspectRatio     : true,
+        
+
     }
+
 
 
 

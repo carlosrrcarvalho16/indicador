@@ -4,6 +4,9 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper; //criar Combo
 use yii\widgets\Pjax;
+use yii\helpers\BaseUrl;
+
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\TbDadosmesSearch */
@@ -11,7 +14,51 @@ use yii\widgets\Pjax;
 
 $this->title = 'Dados do mês';
 $this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Dados do mês</h3>
+    </div>
+<div class="row">
+    <div class="form-group">   
+        <div class="col-md-3 col-md-12">
+            <label class="control-label">Departamento</label>
+            <select name="form-dep" id="departamento-dadosmes" class="form-control" onchange='document.location.href="../dadosmes?dep="+this.value+"" ';>
+                <?php
+                    
+                    for($i=0;$i < count($departamentos) ;$i++){ ?>
+                        <option value="<?php echo $departamentos[$i]['id']?>"  <?= ($departamentos[$i] == $departamentos ? ' selected' : '')?>>
+                            <?php echo $departamentos[$i]['departamento']; ?>
+                        </option>
+                        
+                    <?php } ?>
+
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">   
+        <div class="col-md-4">
+            <label class="control-label">Indicador</label>
+            <select name="form-ind" id="indicador-dadosmes" class="form-control">
+                <?php
+                    for($i=0;$i < count($indicadores) ;$i++){ ?>
+                        <option value="<?php echo $indicadores[$i]['id']?>"  
+                            <?= ($indicadores[$i]== $indicadores ? ' selected' : '')?>>
+                            <?php echo $indicadores[$i]['nome']; ?>
+                        </option>
+                    <?php } ?>
+
+            </select>
+        </div>
+    </div>
+</div>
+
+</div>
+
 <div class="tb-dadosmes-index box box-primary">
 <!--
     <div class="box-header with-border">
@@ -39,6 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 );
 
         ?>
+
        <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
@@ -49,6 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'idIndicador',
                     'value'     => 'indicador.nome',
                     'label'     => 'Indicador',
+                    //'filter' => ArrayHelper::map(backend\models\TbIndicador::find()->all(), 'id', 'nome')
                     'filter' => ArrayHelper::map(backend\models\TbIndicador::find()->all(), 'id', 'nome')
                 ],
                 'ano',
@@ -68,3 +117,5 @@ $this->params['breadcrumbs'][] = $this->title;
         ]); ?>
     </div>
 </div>
+</div>
+
