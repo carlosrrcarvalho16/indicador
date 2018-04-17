@@ -67,16 +67,14 @@ class SiteController extends Controller
             $mes = Yii::$app->session->get('MES_DASH');
             $ano = Yii::$app->session->get('ANO_DASH');
         }
-        $departamentoComPlanosAtrazados = TbDepartaments::getSelectDepartamentoComPlanosAtrazados($ano);
-        $planosAcaoAbertos = TbDepartaments::getFn_PlanosAcaoAbertos($ano);
-        $planosAcaoAtrazados = TbDepartaments::getFn_PlanosAcaoAtrazados($ano);
+        $selectQtdDepartamentoPlanosAcao = 
+        TbDepartaments::getSelectQtdDepartamentoPlanosAcao($ano);
         $departaments = TbDepartaments::getSelectDepartamento($mes, $ano);
 
 
-        return $this->render('index', ['departaments' => $departaments, 'mes' => $mes, 'ano' => $ano,
-            'departamentoComPlanosAtrazados' =>  $departamentoComPlanosAtrazados ,
-            'planosAcaoAbertos' => $planosAcaoAbertos,
-            'planosAcaoAtrazados' => $planosAcaoAtrazados
+        return $this->render('index', ['departaments' => $departaments, 'mes' => $mes, 
+            'ano' => $ano,
+            'selectQtdDepartamentoPlanosAcao' =>  $selectQtdDepartamentoPlanosAcao,
         ]);
     }
 
@@ -86,7 +84,8 @@ class SiteController extends Controller
         Yii::$app->session->set('ANO_DASH', $_POST['ano']);
 
         $departaments = TbDepartaments::getSelectDepartamento($_POST['mes'], $_POST['ano']);
-        echo $this->renderPartial('_departamentos', ['departaments' => $departaments]);
+        echo $this->renderPartial('_departamentos', ['departaments' => $departaments ,
+            'selectQtdDepartamentoPlanosAcao' =>  $selectQtdDepartamentoPlanosAcao,]);
     }
     
     public function actionLogin()

@@ -58,7 +58,10 @@ $this->params['breadcrumbs'][] = $this->title;
 		</div>
     <!--	<section class="content"> -->
 		    <div class="row" id="departaments-dashboard">
-		    	<?= Yii::$app->controller->renderPartial('_departamentos', ['departaments' => $departaments]); ?>
+		    	<?= Yii::$app->controller->renderPartial('_departamentos', ['departaments' => $departaments ,
+                    'selectQtdDepartamentoPlanosAcao' =>  $selectQtdDepartamentoPlanosAcao ,
+                    'Ano' => $ano,
+                ]); ?>
 		    </div>
     <!--	</section> -->
 		
