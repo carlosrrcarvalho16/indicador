@@ -20,7 +20,7 @@ use Yii;
  * @property string $dataCriacao
  * @property integer $modificadoPor
  * @property string $dataModificacao
- *
+ * @property double $ynd
  * @property User $modificadoPor0
  * @property User $criadoPor0
  * @property TbIndicador $idIndicador0
@@ -41,7 +41,7 @@ class TbDadosmes extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['valor', 'meta'], 'number'],
+            [['valor', 'meta','ytd'], 'number'],
             [['idIndicador', 'mes', 'sentido', 'ano', 'criadoPor', 'modificadoPor'], 'integer'],
             [['data', 'dataCriacao', 'dataModificacao'], 'safe'],
             [['sentido', 'ano'], 'required'],
@@ -59,6 +59,7 @@ class TbDadosmes extends \yii\db\ActiveRecord
         return [
             'id'              => 'ID',
             'valor'           => 'Valor',
+            'ytd'             =>  'YTD',
             'idIndicador'     => 'Id Indicador',
             'data'            => 'Data',
             'mes'             => 'Mes',
@@ -131,6 +132,22 @@ class TbDadosmes extends \yii\db\ActiveRecord
        $sql = "CALL `selectIndicadorAno`('{$idDep}', '{$year}')";
        $result = Yii::$app->db->createCommand($sql)->queryAll();
         return $result;
+    }
+
+    //Seta valores antes da validação
+    public function beforeValidate() 
+    {
+       // echo 'aqui';die;
+
+        $datetime  = date('Y-m-d');
+        if($this->isNewRecord){
+            $this->setAttribute('criadoPor', Yii::$app->user->identity->ID);
+            $this->setAttribute('dataCriacao', $datetime );
+        }else{
+            $this->setAttribute('modificadoPor', Yii::$app->user->identity->ID);
+            $this->setAttribute('dataModificacao', $datetime );
+        }
+        return parent::beforeValidate();
     }
     
 

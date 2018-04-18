@@ -13,13 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="tb-dadosmes-view box box-primary">
     <div class="box-header">
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-flat']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger btn-flat',
-            'data' => [
-                'confirm' => 'Você está certo que deseja excluir esse item?',
-                'method' => 'post',
-            ],
-        ]) ?>
+        
 
     </div>
     <div class="box-body table-responsive no-padding">
@@ -41,21 +35,27 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'mes',
                 'meta',
-                'sentido',
+                [
+                    'attribute' => 'sentido',
+                    'format'    => 'raw',
+                    'value'     => ($model->sentido == '0' ? 'Maior melhor' : 'Maior pior'),
+                ],
                 'ano',
-                'modificadoPor',
-               /* [
+                
+                [
                     'attribute' => 'modificadoPor',
                     'label'     => 'Atualizado Por',
                     'format'    => 'raw',
-                    'value'     => $model->modificadopor->name,
-                ],*/
+                    'value'     => (!isset($model->modificadopor->name) ? '' :$model->modificadopor->name)
+                ], 
 
                 [
                     'attribute' => 'dataModificacao',
                     'label'     => 'Data da Atualização',
-                    'format' => ['date', 'php:d/m/Y']
-                ],
+                    'format'    => ['date', 'php:d/m/Y'],
+                    
+                ], 
+                
             ],
         ]) ?>
     </div>

@@ -37,23 +37,23 @@ class DadosmesController extends Controller
     public function actionIndex()
     {
         $ano = Yii::$app->session->get('ANO_DASH');
-        $idDep = $_GET['dep'];
-        if ( $idDep<>0) {
-             $indicadores = TbDadosmes::getIndicadorAuth($idDep,
-             Yii::$app->session->get('ANO_DASH', $ano));
-        } else {
-             $indicadores = [];
-        }
+        $indicadores = [];
+        if (isset($_GET['dep'])) {
+            $idDep = $_GET['dep'];
+            $indicadores = TbDadosmes::getIndicadorAuth($idDep, $ano);
+        } 
+         
        
         $searchModel = new TbDadosmesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $departamentos =TbDadosmes::getDepartamentoAuth(Yii::$app->user->identity->group);
 
+
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-            'departamentos' =>  $departamentos,
-            'indicadores' => $indicadores,
+            'searchModel'   => $searchModel,
+            'dataProvider'  => $dataProvider,
+            'departamentos' => $departamentos,
+            'indicadores'   => $indicadores,
         ]);
     }
 

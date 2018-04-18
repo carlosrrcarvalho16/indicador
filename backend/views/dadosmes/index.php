@@ -15,7 +15,6 @@ use yii\helpers\BaseUrl;
 $this->title = 'Dados do mês';
 $this->params['breadcrumbs'][] = $this->title;
 
-
 ?>
 <div class="box box-primary">
     <div class="box-header with-border">
@@ -26,14 +25,16 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-3 col-md-12">
             <label class="control-label">Departamento</label>
             <select name="form-dep" id="departamento-dadosmes" class="form-control" onchange='document.location.href="../dadosmes?dep="+this.value+"" ';>
-                <?php
-                    
+                <option selected="selected">Selecione ...</option>
+                <?php  
                     for($i=0;$i < count($departamentos) ;$i++){ ?>
                         <option value="<?php echo $departamentos[$i]['id']?>"  <?= ($departamentos[$i] == $departamentos ? ' selected' : '')?>>
                             <?php echo $departamentos[$i]['departamento']; ?>
                         </option>
                         
                     <?php } ?>
+
+
 
             </select>
         </div>
@@ -43,7 +44,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="form-group">   
         <div class="col-md-4">
             <label class="control-label">Indicador</label>
-            <select name="form-ind" id="indicador-dadosmes" class="form-control">
+            <select class="form-control" name="ind" id="ind"  onchange='document.location.href="../dadosmes?ind="+this.value+"" ';>
+                <option selected="selected">Selecione ...</option>
                 <?php
                     for($i=0;$i < count($indicadores) ;$i++){ ?>
                         <option value="<?php echo $indicadores[$i]['id']?>"  
@@ -66,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
  -->
     <div class="box-body table-responsive no-padding">
-        <?php Pjax::begin(['enablePushState' => false] ); ?>
+        
 
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <?php
@@ -89,7 +91,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
        <?= GridView::widget([
             'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
+            //'filterModel' => $searchModel,
             'layout' => "{items}\n{summary}\n{pager}",
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
@@ -97,7 +99,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'idIndicador',
                     'value'     => 'indicador.nome',
                     'label'     => 'Indicador',
-                    //'filter' => ArrayHelper::map(backend\models\TbIndicador::find()->all(), 'id', 'nome')
                     'filter' => ArrayHelper::map(backend\models\TbIndicador::find()->all(), 'id', 'nome')
                 ],
                 'ano',

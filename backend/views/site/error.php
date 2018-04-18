@@ -9,6 +9,7 @@ use yii\helpers\Html;
 use yii\helpers\BaseUrl;
 
 $this->title = $name;
+
 ?>
 <div class="site-error">
 
@@ -23,7 +24,7 @@ $this->title = $name;
             
 
             <div class="error-content">
-              <h3><i class="fa fa-warning text-yellow"></i> Oops! Pagina não encontrada.</h3>
+              <h3><i class="fa fa-warning text-yellow"></i> Ops! Pagina não encontrada.</h3>
 
               <p>
                 Não foi possível encontrar a página que você estava procurando.

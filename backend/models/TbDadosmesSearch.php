@@ -43,13 +43,16 @@ class TbDadosmesSearch extends TbDadosmes
      */
     public function search($params)
     {
+        //var_dump($params) ; die;
+        //$query = TbDadosmes::find()->where(['idIndicador' => $xxxx]);
         $query = TbDadosmes::find();
+        
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['id' => SORT_DESC]]
+            'sort' => ['defaultOrder' => ['idIndicador' => SORT_ASC, 'ano' => SORT_DESC ,'mes' => SORT_ASC]]
         ]);
 
         $this->load($params);
@@ -59,22 +62,31 @@ class TbDadosmesSearch extends TbDadosmes
             // $query->where('0=1');
             return $dataProvider;
         }
+        if (isset($_GET['ind'])) {
+            $ind = $_GET['ind'];
+        } else{
+            $ind ="1";
+        }
+       
 
+        $ano = Yii::$app->session->get('ANO_DASH');
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'valor' => $this->valor,
-            'idIndicador' => $this->idIndicador,
-            'ytd' => $this->ytd,
-            'data' => $this->data,
-            'ano' => $this->ano,
-            'mes' => $this->mes,
-            'meta' => $this->meta,
-            'sentido' => $this->sentido,
-            'criadoPor' => $this->criadoPor,
-            'dataCriacao' => $this->dataCriacao,
-            'modificadoPor' => $this->modificadoPor,
-            'dataModificacao' => $this->dataModificacao,
+           // 'valor' => $this->valor,
+           //'idIndicador' => $this->idIndicador,
+            'idIndicador' => $ind ,
+           // 'ytd' => $this->ytd,
+           // 'data' => $this->data,
+            //'ano' => $this->ano,
+            'ano' =>$ano,
+          //  'mes' => $this->mes,
+           // 'meta' => $this->meta,
+           // 'sentido' => $this->sentido,
+           // 'criadoPor' => $this->criadoPor,
+           // 'dataCriacao' => $this->dataCriacao,
+           // 'modificadoPor' => $this->modificadoPor,
+           // 'dataModificacao' => $this->dataModificacao,
 
 
 
