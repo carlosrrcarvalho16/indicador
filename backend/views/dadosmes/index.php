@@ -8,6 +8,7 @@ use yii\helpers\BaseUrl;
 
 
 
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\TbDadosmesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -72,7 +73,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <?php
-        $meses = array(
+        $meses = ArrayHelper::map( 
+            array(
                 ['id' => '1' , 'data' => 'Janeiro'],
                 ['id' => '2' , 'data' => 'Fevereiro'],
                 ['id' => '3' , 'data' => 'Março'],
@@ -85,10 +87,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['id' => '10', 'data' => 'Outubro'],
                 ['id' => '11', 'data' => 'Novembro'],
                 ['id' => '12', 'data' => 'Dezembro']
-                );
+                ),
+        'id','data');
 
+                
+               
+        
+      /*
+         $value = ArrayHelper::getValue($meses, ['id' => '12']);
+         echo $value;
+         die;
+*/
         ?>
-
        <?= GridView::widget([
             'dataProvider' => $dataProvider,
             //'filterModel' => $searchModel,
@@ -104,12 +114,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'ano',
                 'mes',
                 'valor',
-                /*[
+               /*
+                [
                     'attribute' => 'mes',
                     'value'     => $meses,
-                    'filter' => ArrayHelper::getColumn($meses,'id','data')
-                ],*/
-
+                    'filter'    => ArrayHelper::getValue($meses, ['id' => 'mes']),
+                ],
+                */
 
 
 
