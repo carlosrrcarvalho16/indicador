@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'attribute' =>'meta',
                     'value' => 'meta',
-                    'contentOptions'=>['style'=>'width: 100px;']
+                    'contentOptions'=>['style'=>'width: 80px;']
                 ],
                 [
                     'attribute' => 'criadoPor',
@@ -51,11 +51,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'filter' => ArrayHelper::map(backend\models\User::find()->all(), 'ID', 'name')
                 ],
 
-
-              //  'ytd',
-              //  'departamentoID',
-               // 'active',
-                //'criadoPor',
                 ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>

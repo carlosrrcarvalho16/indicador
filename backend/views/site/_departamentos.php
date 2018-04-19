@@ -2,8 +2,6 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\BaseUrl;
-
-
 ?>
 <!-- <section class="content"> -->
 <?php
@@ -21,7 +19,9 @@ foreach($departaments as $departament) {
     <div class="info-box-content">
       <span class="info-box-text">
             <div class="col-md-2 col-sm-2 col-xs-10"><i class="fa fa-fw fa-thumbs-up text-success "></i>
+
                 <?php echo $departament->Dentro; ?>
+
             </div>
             <div class="col-md-2 col-sm-2 col-xs-10"><i class="fa fa-fw fa-thumbs-down text-danger"></i>
                 <?php echo $departament->Fora; ?>
@@ -253,12 +253,6 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
         //Boolean - whether to make the chart responsive
         responsive              : true,
         maintainAspectRatio     : true,
-        
-
     }
-
-
-
-
 </script>
 

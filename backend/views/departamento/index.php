@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper; //criar Combo
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\TbDepartamentoSearch */
@@ -24,9 +25,28 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\SerialColumn'],
 
                 'departamento',
-                'managerUserId',
-                'active',
-                'icons',
+               
+                [
+                    'attribute' => 'managerUserId',
+                    'value'     => 'manageruser.name',
+                    'contentOptions'=>['style'=>'width: 300px;'],
+                    'filter'    => ArrayHelper::map(backend\models\User::find()->all(), 'ID', 'name')
+                ],
+                [
+                    'attribute' => 'active',
+                    'contentOptions'=>['style'=>'width: 120px; vertical-align: middle;'],
+
+                    'content' => function($data){
+                        return ($data->active == 'Y' ? 'Sim' : 'Não');
+                    }
+                ],
+                [
+                    'attribute' =>'icons',
+                    'value' => 'icons',
+                    'contentOptions'=>['style'=>'width: 150px;']
+                ],
+
+               
                 ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>
