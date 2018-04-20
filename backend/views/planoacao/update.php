@@ -5,12 +5,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\TbPlanoAcao */
 
-$this->title = 'Update Tb Plano Acao: ' . $model->idPlano;
-$this->params['breadcrumbs'][] = ['label' => 'Tb Plano Acaos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->idPlano, 'url' => ['view', 'id' => $model->idPlano]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Atualizar Plano Acao: ' . $model->item;
 ?>
-<div class="tb-plano-acao-update">
+<div class="plano-acao-update">
+
+	<h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

@@ -68,9 +68,6 @@ class PlanoacaoController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
-            $model->abertura = Yii::$app->formmat->showDate($model->abertura, 'date');
-            $model->prazo    = Yii::$app->formmat->showDate($model->prazo, 'date');
-
             if($model->save()){
                 echo json_encode(['status' => 'success', 'message' => 'Cadastro realizado']);
             }else{
@@ -99,10 +96,18 @@ class PlanoacaoController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idPlano]);
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->save()){
+                echo json_encode(['status' => 'success', 'message' => 'Cadastro realizado']);
+            }else{
+                echo json_encode(['status' => 'error', 'message' => 'Falha no cadastro' . json_encode($model->errors)]);
+            }
         } else {
-            return $this->render('update', [
+
+            $model->abertura = Yii::$app->formmat->showDate($model->abertura, 'date');
+            $model->prazo    = Yii::$app->formmat->showDate($model->prazo, 'date');
+
+            return $this->renderAjax('update', [
                 'model' => $model,
             ]);
         }
@@ -116,9 +121,14 @@ class PlanoacaoController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
 
-        return $this->redirect(['index']);
+        if($model->delete()):
+            echo json_encode(['status' => 'success', 'message' => 'Registro desativado']);
+        else:
+            echo json_encode(['status' => 'error', 'message' => 'Falha ao desativar registro' . json_encode($model->errors)]);
+        endif;
+
     }
 
     /**

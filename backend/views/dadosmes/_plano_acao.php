@@ -36,7 +36,7 @@ use backend\models\Identity;
     echo "<div id='bodyContent'>" . Html::hiddenInput('id_indicador', $dadosmes->idIndicador) . "</div>";
     ?>
 
-	<?php Pjax::begin(['id' => 'planosGrid']); ?>
+	<?php Pjax::begin(['id' => 'registrosGrid']); ?>
 	<?= GridView::widget([
 			'dataProvider' => $dataProviderPlano,
 			'pjax'         => true,

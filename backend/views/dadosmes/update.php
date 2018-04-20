@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\TbDadosmes */
 
-$this->title = 'Update Tb Dadosmes: ' . $model->id;
+$this->title = 'Atualizar Dados Mês: ' . $model->mes . '/' . $model->ano;
 $this->params['breadcrumbs'][] = ['label' => 'Tb Dadosmes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->indicador->nome, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Atualizar';
 ?>
 <div class="tb-dadosmes-update">
 

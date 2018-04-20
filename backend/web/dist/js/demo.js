@@ -411,7 +411,7 @@
           .done(function(result){
               result = JSON.parse(result);
               if(result.status == 'success'){
-                  $.pjax.reload({container:'#vinculosGrid'});
+                  $.pjax.reload({container:'#registrosGrid'});
                   return false;
               }else{
                   console.log(result.message);

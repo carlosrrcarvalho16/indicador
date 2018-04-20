@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="tb-plano-acao-form box box-primary">
     <?php 
-    $form = ActiveForm::begin(); 
+    $form = ActiveForm::begin(['id' => $model->formName()]); 
     echo $form->field($model, 'indicador')->hiddenInput()->label(false);
     echo $form->field($model, 'ano')->hiddenInput()->label(false);
     echo $form->field($model, 'mes')->hiddenInput()->label(false);
@@ -71,7 +71,7 @@ $('form#{$model->formName()}').on('beforeSubmit', function(e){
         if(result.status == 'success'){
             $(\$form).trigger("reset");
             $(document).find('#modal').modal('hide');
-            $.pjax.reload({container:'#planosGrid'});
+            $.pjax.reload({container:'#registrosGrid'});
             return false;
         }else{
             $(\$form).trigger("reset");
