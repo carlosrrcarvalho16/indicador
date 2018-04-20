@@ -314,7 +314,10 @@ DashboardAsset::register($this);
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
             </li>
+             <?php //if(\Yii::$app->user->can('manageCompany','updateCompras','updateIcimLeam','updateProducao','updateQualidade','managePermission',
+            // 'updateEngenharia','updateMeioAmbiente','updateRecursosHumanos','updateSaudeSegurança')){?>
 
+             
               <li class="treeview">
                   <a href="#">
                       <i class="fa   fa-edit"></i>
@@ -326,7 +329,7 @@ DashboardAsset::register($this);
 
                   </ul>
               </li>
-
+              <?php // } ?>
             <?php if(\Yii::$app->user->can('manageCompany')){?>
             <li class="treeview">
               <a href="#">

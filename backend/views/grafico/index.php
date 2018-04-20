@@ -242,6 +242,11 @@ var myChart = new Chart(ctx, {
         }]
           },
           options: {
+              animation: { 
+                duration: 5000,
+                xAxis: true,
+                yAxis: true,
+        },
               scales: {
                   yAxes:[{
                       ticks:{
@@ -260,7 +265,7 @@ var myChartAno = new Chart(ctxAno, {
           data: {
             labels: paramAno,
             datasets: [{
-              label: 'Anos anteriores e YTD',
+              label: 'YTD',
               fill: true, 
               data: parmValoresYTD,
               backgroundColor: ['rgba(35, 156, 222, 0.7)','rgba(35, 156, 222, 0.7)','rgba(35, 156, 222, 0.7)','rgba(35, 156, 222, 0.7)',],
