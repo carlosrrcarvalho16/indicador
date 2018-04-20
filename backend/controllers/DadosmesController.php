@@ -6,6 +6,8 @@ use Yii;
 use backend\models\TbDadosmes;
 
 use backend\models\TbDadosmesSearch;
+use backend\models\TbPlanoAcaoSearch;
+use backend\models\TbIndicador;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -38,10 +40,15 @@ class DadosmesController extends Controller
     {
         $ano = Yii::$app->session->get('ANO_DASH');
         $indicadores = [];
+        $idDep = '';
         if (isset($_GET['dep'])) {
             $idDep = $_GET['dep'];
             $indicadores = TbDadosmes::getIndicadorAuth($idDep, $ano);
         } 
+        $idInd = '';
+        if (isset($_GET['ind'])) {
+            $idInd = $_GET['ind'];
+        }
          
        
         $searchModel = new TbDadosmesSearch();
@@ -54,6 +61,8 @@ class DadosmesController extends Controller
             'dataProvider'  => $dataProvider,
             'departamentos' => $departamentos,
             'indicadores'   => $indicadores,
+            'idDep'         => $idDep,
+            'idInd'         => $idInd
         ]);
     }
 
@@ -97,11 +106,25 @@ class DadosmesController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $indicador      = TbIndicador::findOne($model->idIndicador);
+            $indicador->ytd = $model->ytd;
+            $indicador->save();
+
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
+
         } else {
+
+            $searchModelPlano = new TbPlanoAcaoSearch();
+            $searchModelPlano->indicador = $model->idIndicador;
+            $dataProviderPlano = $searchModelPlano->search(Yii::$app->request->queryParams);
+
             return $this->render('update', [
-                'model' => $model,
+                'model'             => $model,
+                'dataProviderPlano' => $dataProviderPlano,
             ]);
         }
     }

@@ -75,6 +75,7 @@ class TbPlanoAcao extends \yii\db\ActiveRecord
     {
         return $this->hasOne(TbIndicador::className(), ['id' => 'indicador']);
     }
+    
     public static function getPlanoAcao($idIndicador){
         $idIndicador = trim($idIndicador);
         $sql = "CALL `selectPlanoAcao`('{$idIndicador}')";

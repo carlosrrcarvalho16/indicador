@@ -48,9 +48,13 @@ foreach($departaments as $departament) {
 <?php } 
 ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
 <!-- Inicio da tratativa dos graficos dos planos de ações-->
 <?php
+
+// $this->registerJsFile("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js");
+
 //Cores do grafico
 $backgroundColorGood    = "'rgba(54, 162, 235, 0.5)',";
 $backgroundColorBad     = "'rgba(249,33,55,0.6)',";
@@ -175,9 +179,9 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
         type: 'doughnut',
         data: {
             labels: ['No praso','Atrasada'],
-            tooltipTemplate: '<%= 10 + "%" %>',
+            // tooltipTemplate: '<%= 10 + "%" %>',
             datasets: [{
-                label: '# of Votes',
+                // label: '# of Votes',
                 data: parmData,
                 backgroundColor: parmBackgroundColor,
                 borderColor: parmBorderColor,
@@ -254,5 +258,8 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
         responsive              : true,
         maintainAspectRatio     : true,
     }
+
+    console.log('teste charts');
+
 </script>
 

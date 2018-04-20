@@ -7,13 +7,14 @@ use yii\helpers\Html;
 
 $this->title = 'Update Tb Dadosmes: ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Tb Dadosmes', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->indicador->nome, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="tb-dadosmes-update">
 
     <?= $this->render('_form', [
-        'model' => $model,
+		'model'             => $model,
+		'dataProviderPlano' => $dataProviderPlano,
     ]) ?>
 
 </div>

@@ -67,8 +67,7 @@ class SiteController extends Controller
             $mes = Yii::$app->session->get('MES_DASH');
             $ano = Yii::$app->session->get('ANO_DASH');
         }
-        $selectQtdDepartamentoPlanosAcao = 
-        TbDepartaments::getSelectQtdDepartamentoPlanosAcao($ano);
+        $selectQtdDepartamentoPlanosAcao = TbDepartaments::getSelectQtdDepartamentoPlanosAcao($ano);
         $departaments = TbDepartaments::getSelectDepartamento($mes, $ano);
 
 
@@ -83,8 +82,10 @@ class SiteController extends Controller
         Yii::$app->session->set('MES_DASH', $_POST['mes']);
         Yii::$app->session->set('ANO_DASH', $_POST['ano']);
 
+        $selectQtdDepartamentoPlanosAcao = TbDepartaments::getSelectQtdDepartamentoPlanosAcao($_POST['ano']);
+
         $departaments = TbDepartaments::getSelectDepartamento($_POST['mes'], $_POST['ano']);
-        echo $this->renderPartial('_departamentos', ['departaments' => $departaments ,
+        echo $this->renderPartial('_departamentos', ['departaments' => $departaments,
             'selectQtdDepartamentoPlanosAcao' =>  $selectQtdDepartamentoPlanosAcao,]);
     }
     

@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\TbPlanoAcao;
 use backend\models\TbPlanoAcaoSearch;
+use backend\models\TbDadosmes;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -65,11 +66,25 @@ class PlanoacaoController extends Controller
     {
         $model = new TbPlanoAcao();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idPlano]);
+        if ($model->load(Yii::$app->request->post())) {
+
+            $model->abertura = Yii::$app->formmat->showDate($model->abertura, 'date');
+            $model->prazo    = Yii::$app->formmat->showDate($model->prazo, 'date');
+
+            if($model->save()){
+                echo json_encode(['status' => 'success', 'message' => 'Cadastro realizado']);
+            }else{
+                echo json_encode(['status' => 'error', 'message' => 'Falha no cadastro' . json_encode($model->errors)]);
+            }
+            
         } else {
-            return $this->render('create', [
-                'model' => $model,
+            if($_GET['indicador'])
+                $model->indicador = $_GET['indicador'];
+            $model->ano = Yii::$app->session->get('ANO_DASH');
+            $dadosmes      = TbDadosmes::findOne($_GET['idDadosMes']);
+            $model->mes = $dadosmes->mes;
+            return $this->renderAjax('create', [
+                'model'     => $model
             ]);
         }
     }

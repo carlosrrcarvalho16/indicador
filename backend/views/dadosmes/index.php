@@ -21,45 +21,38 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="box-header with-border">
         <h3 class="box-title">Dados do mês</h3>
     </div>
-<div class="row">
-    <div class="form-group">   
-        <div class="col-md-3 col-md-12">
-            <label class="control-label">Departamento</label>
-            <select name="form-dep" id="departamento-dadosmes" class="form-control" onchange='document.location.href="../dadosmes?dep="+this.value+"" ';>
-                <option selected="selected">Selecione ...</option>
-                <?php  
-                    for($i=0;$i < count($departamentos) ;$i++){ ?>
-                        <option value="<?php echo $departamentos[$i]['id']?>"  <?= ($departamentos[$i] == $departamentos ? ' selected' : '')?>>
-                            <?php echo $departamentos[$i]['departamento']; ?>
-                        </option>
-                        
-                    <?php } ?>
-
-
-
-            </select>
+    <div class="row">
+        <div class="col-md-3" style="margin-left: 15px;">
+            <div class="form-group">   
+                <label class="control-label">Departamento</label>
+                <select name="form-dep" id="departamento-dadosmes" class="form-control" onchange='document.location.href="../dadosmes?dep="+this.value+"" ';>
+                    <option selected="selected">Selecione ...</option>
+                    <?php  
+                        for($i=0;$i < count($departamentos) ;$i++){ ?>
+                            <option value="<?php echo $departamentos[$i]['id']?>" <?= ($departamentos[$i]['id'] == $idDep ? ' selected' : '')?>>
+                                <?php echo $departamentos[$i]['departamento']; ?>
+                            </option>
+                            
+                        <?php } ?>
+                </select>
+            </div>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="form-group">   
         <div class="col-md-4">
-            <label class="control-label">Indicador</label>
-            <select class="form-control" name="ind" id="ind"  onchange='document.location.href="../dadosmes?ind="+this.value+"" ';>
-                <option selected="selected">Selecione ...</option>
-                <?php
-                    for($i=0;$i < count($indicadores) ;$i++){ ?>
-                        <option value="<?php echo $indicadores[$i]['id']?>"  
-                            <?= ($indicadores[$i]== $indicadores ? ' selected' : '')?>>
-                            <?php echo $indicadores[$i]['nome']; ?>
-                        </option>
-                    <?php } ?>
-
-            </select>
+            <div class="form-group">   
+                <label class="control-label">Indicador</label>
+                <select class="form-control" name="ind" id="ind" onchange='document.location.href="../dadosmes?ind="+this.value+"&dep=<?=$_GET['dep']?>" ';>
+                    <option selected="selected">Selecione ...</option>
+                    <?php
+                        for($i=0;$i < count($indicadores) ;$i++){ ?>
+                            <option value="<?php echo $indicadores[$i]['id']?>"  
+                                <?= ($indicadores[$i]['id'] == $idInd ? ' selected' : '')?>>
+                                <?php echo $indicadores[$i]['nome']; ?>
+                            </option>
+                        <?php } ?>
+                </select>
+            </div>
         </div>
     </div>
-</div>
-
 </div>
 
 <div class="tb-dadosmes-index box box-primary">
