@@ -54,7 +54,9 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="box-footer">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::button('<i class="glyphicon glyphicon-remove"></i> Cancelar', ['class' => 'btn btn-danger', 'id' => 'modalButtonClose']) ?>
     </div>
+
     <?php ActiveForm::end(); ?>
 </div>
 

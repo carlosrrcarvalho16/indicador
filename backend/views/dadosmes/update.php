@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model backend\models\TbDadosmes */
 
 $this->title = 'Atualizar Dados Mês: ' . $model->mes . '/' . $model->ano;
-$this->params['breadcrumbs'][] = ['label' => 'Tb Dadosmes', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Dados do mês', 'url' => ['index?dep=0',]];
 $this->params['breadcrumbs'][] = ['label' => $model->indicador->nome, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Atualizar';
 ?>

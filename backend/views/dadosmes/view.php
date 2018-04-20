@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\TbDadosmes */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Dados do mês', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Dados do mês', 'url' => ['index?dep=0']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tb-dadosmes-view box box-primary">
