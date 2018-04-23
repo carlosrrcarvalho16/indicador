@@ -11,12 +11,11 @@ $this->params['breadcrumbs'][] = ['label' => 'Dados do mês', 'url' => ['index?d
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tb-dadosmes-view box box-primary">
+    
     <div class="box-header">
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-flat']) ?>
-        
-
     </div>
-    <div class="box-body table-responsive no-padding">
+    
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [

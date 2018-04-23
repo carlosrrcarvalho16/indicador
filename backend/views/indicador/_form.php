@@ -55,6 +55,8 @@ use backend\models\TbDepartaments;
           <div class="col-md-3">
             <?= $form->field($model, 'ytd')->textInput() ?>
           </div>
+        </div>
+        <div class="row">
          <div class="col-md-3">
               <?= $form->field($model, 'meta')->textInput() ?>
           </div>
