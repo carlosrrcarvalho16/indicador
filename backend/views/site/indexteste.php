@@ -2,56 +2,71 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\BaseUrl;
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
+use yii\widgets\ActiveForm;
+use backend\models\Identity;
+
+$this->title = 'Dashboard';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<!-- <section class="content"> -->
-<?php
-foreach($departaments as $departament) {
-  $departament = (object) $departament; //força o tipo da variável
-?>
-<?php $percent = (($departament->qtd_preenchida)/($departament->qtd_ind));
-      $percent = intval($percent * 100);
-?>
-<div class="col-md-5 col-sm-4 col-xs-10">
-  <div class="info-box bg-aqua">
-    <span class="info-box-icon">
-      <i class="fa <?php echo $departament->icons; ?>"></i>
-    </span>
-    <div class="info-box-content">
-      <span class="info-box-text">
-            <div class="col-md-2 col-sm-2 col-xs-10"><i class="fa fa-fw fa-thumbs-up text-success "></i>
-
-                <?php echo $departament->Dentro; ?>
-
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-10"><i class="fa fa-fw fa-thumbs-down text-danger"></i>
-                <?php echo $departament->Fora; ?>
-            </div>
-            <h3><?php echo $departament->departamento; ?></h3>
-      </span>
-
-      <span class="info-box-number"><?php echo $departament->qtd_preenchida; ?> / <?php echo $departament->qtd_ind; ?> - <?php echo $percent ;?>% Preenchido(s)</span>
-
-    <div class="progress">            
-      <div class="progress-bar" style="width: <?php echo $percent; ?>%"></div>
-    </div>  
-      <a href="<?php echo BaseUrl::base()?>/departament?id=<?php echo $departament->id ?>" class="small-box-footer">Ver Indicadores <i class="fa fa-arrow-circle-right"></i></a>
+<?php $form = ActiveForm::begin(); ?>
+<div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Dashboard</h3>
     </div>
-    <!-- /.info-box-content -->
-  </div>
-  <!-- /.info-box -->
+    	
+    <div class="box-body">
+    	<div class="row">
+    		<div class='col-md-12' style="text-align: center;">
+    			<h1>Indicadores Consolidados</h1>	
+    		</div>
+    	</div>
 
-</div>
+    	<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+	    			<select name="ano" id="ano-dashboard" class="form-control" onselect="anodashboard()">
+				    <?php
+				    	$anos = [2018,2017,2016,2015];
 
+				    	for($i=0;$i < count($anos) ;$i++){ ?>
+				    		<option value="<?php echo $anos[$i]?>"  <?= ($anos[$i] == $ano ? ' selected' : '')?>>
+				    			<?php echo $anos[$i]; ?>
+				    		</option>
+				    <?php } ?>
+					</select>
+				</div>
+    		</div>
+    		
+    		<div class="col-md-2">
+    			<div class="form-group">
+	    			<select name="mes" id="mes-dashboard" class="form-control">
+				    <?php
+				    	$meses = array (1 => "Janeiro", 2 => "Fevereiro", 3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho", 7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro", 11 => "Novembro", 12 => "Dezembro");
 
-
-
-<?php } 
-?>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-
-<!-- Inicio da tratativa dos graficos dos planos de ações-->
-<?php
+				    	for($i=1;$i <=12;$i++){ ?>
+				    		<option value="<?php echo $i?>" <?= ($i == $mes ? ' selected' : '')?>>
+				    			<?php
+				    			echo $meses["$i"];
+				    			?>
+				    		</option>
+				    <?php } ?>
+					</select>
+				</div>
+    		</div>
+		</div>
+    <!--	<section class="content"> -->
+		    <div class="row" id="departaments-dashboard">
+		    	<?= Yii::$app->controller->renderPartial('_departamentos', ['departaments' => $departaments ,
+                    'selectQtdDepartamentoPlanosAcao' =>  $selectQtdDepartamentoPlanosAcao ,
+                    'Ano' => $ano,
+                ]); ?>
+		    </div>
+    <!--	</section> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- Inicio da tratativa dos graficos dos planos de ações-->
+		<?php
 
 // $this->registerJsFile("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js");
 
@@ -97,7 +112,6 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
 }
 
 ?>
-
 <!-- Small boxes (Stat box) -->
 <section class="content">
     <div class="row">
@@ -136,14 +150,7 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
 
         </div>
     </div>
-
-
-
-
 </section>
-
-<!-- /.row -->
-<!-- </section> -->
 
 <script>
     var parmBackgroundColor = [<?php echo $backgroundColor; ?>];
@@ -263,15 +270,27 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
    // Selecionamos o menu dropdown, que possui os valores possíveis:
    var menu_dropdown_ano = document.getElementById("ano-dashboard");
     menu_dropdown_ano.addEventListener("change", function(){
-        
-        addData(myChartNCatrazadas,[100,15], 0);
-        console.log(parmData);
+    	
+    	addData(myChartNCatrazadas,[100,15], 0);
+    	console.log(parmData);
     });
 
     function addData(chart, data, datasetIndex) {
-        chart.data.datasets[datasetIndex].data = data;
-        chart.update();
-    };
+   		chart.data.datasets[datasetIndex].data = data;
+   		chart.update();
+	};
+
 
 </script>
 
+
+
+
+
+
+
+
+
+	</div>
+</div>
+<?php ActiveForm::end(); ?>
