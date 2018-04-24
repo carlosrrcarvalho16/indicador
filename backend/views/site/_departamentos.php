@@ -263,12 +263,13 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
    // Selecionamos o menu dropdown, que possui os valores possíveis:
    var menu_dropdown_ano = document.getElementById("ano-dashboard");
     menu_dropdown_ano.addEventListener("change", function(){
-        
-        addData(myChartNCatrazadas,[100,15], 0);
-        console.log(parmData);
+        var parmData2 = [<?php echo $countAbertos .",". $countAtrasados; ?>];
+        addData(myChartNCatrazadas,parmData2, 0);
+        console.log(parmData2);
     });
 
     function addData(chart, data, datasetIndex) {
+        
         chart.data.datasets[datasetIndex].data = data;
         chart.update();
     };
