@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\datepicker\DatePicker;
+
+
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\TbPlanoAcao */
@@ -38,7 +41,11 @@ use yii\widgets\ActiveForm;
 
         <div class='row'>
             <div class="col-md-4">
-                <?= $form->field($model, 'abertura')->textInput(['class' => 'form-control', 'data-inputmask' => "'alias': 'dd/mm/yyyy'", 'data-mask' => ''])?>
+                
+                <?= $form->field($model, 'abertura')->textInput(['class' => 'form-control', 'data-inputmask' => "'alias': 'dd/mm/yyyy'", 'data-mask' => ''])
+                ?>
+
+                
             </div>
             <div class="col-md-4">
                 <?= $form->field($model, 'prazo')->textInput() ?>

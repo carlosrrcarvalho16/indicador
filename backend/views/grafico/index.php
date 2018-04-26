@@ -8,6 +8,7 @@ use yii\widgets\ActiveForm;
 use backend\models\Identity;
 use yii\grid\GridView;
 
+
 $this->title = 'Gráficos';
 $this->params['breadcrumbs'][] = ['label' => 'Indicadores', 'url' => [ BaseUrl::base() . '/departament?id=' . $departamentoID]];
 $this->params['breadcrumbs'][] = $this->title;
@@ -157,10 +158,22 @@ foreach ($graficoYTD as $value) {
                       ],
                       [
                         'attribute'      => 'prazo',
-                        'format'         => ['date', 'php:d/m/Y'],
-                        
+                        'format'         => ['date', 'php:d/m/Y'],                        
                       ],
-                      'status'
+                      'status',
+                     /* [
+                        'class' => \yiister\grid\widgets\ProgressColumn::className(),
+                        'attribute' => 'Percentual',
+                        'size' => \yiister\grid\widgets\ProgressColumn::SIZE_LARGE,
+                        'isStriped' => true,
+                        'progressBarClass' => function ($model, $column) {
+                            return $model->{$column->attribute} > 70
+                                ? \yiister\grid\widgets\ProgressColumn::STYLE_SUCCESS
+                                : \yiister\grid\widgets\ProgressColumn::STYLE_WARNING;
+                        },
+                    ],
+                    */
+
               ],
           ]); ?>
 
