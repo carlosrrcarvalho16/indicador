@@ -6,7 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer'),
+    'yiister\\grid\\' => array($vendorDir . '/yiister/yii2-advanced-grid/src'),
+    'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer/src'),
     'yii\\jui\\' => array($vendorDir . '/yiisoft/yii2-jui'),
     'yii\\gii\\' => array($vendorDir . '/yiisoft/yii2-gii'),
     'yii\\faker\\' => array($vendorDir . '/yiisoft/yii2-faker'),
@@ -24,8 +25,12 @@ return array(
     'kartik\\mpdf\\' => array($vendorDir . '/kartik-v/yii2-mpdf'),
     'kartik\\grid\\' => array($vendorDir . '/kartik-v/yii2-grid'),
     'kartik\\editable\\' => array($vendorDir . '/kartik-v/yii2-editable'),
+    'kartik\\date\\' => array($vendorDir . '/kartik-v/yii2-widget-datepicker'),
     'kartik\\base\\' => array($vendorDir . '/kartik-v/yii2-krajee-base'),
+    'dosamigos\\grid\\' => array($vendorDir . '/2amigos/yii2-grid-view-library'),
+    'dosamigos\\editable\\' => array($vendorDir . '/2amigos/yii2-editable-widget'),
     'dosamigos\\datepicker\\' => array($vendorDir . '/2amigos/yii2-date-picker-widget/src'),
+    'dosamigos\\assets\\' => array($vendorDir . '/2amigos/yii2-dosamigos-asset-bundle'),
     'dmstr\\' => array($vendorDir . '/dmstr/yii2-adminlte-asset'),
     'chrisb34\\ReportGrid\\' => array($vendorDir . '/chrisb34/yii2-report-grid'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),

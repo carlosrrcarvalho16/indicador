@@ -8,6 +8,7 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
 {
     public static $files = array (
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
+        'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/functions.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -16,6 +17,7 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
     public static $prefixLengthsPsr4 = array (
         'y' => 
         array (
+            'yiister\\grid\\' => 13,
             'yii\\swiftmailer\\' => 16,
             'yii\\jui\\' => 8,
             'yii\\gii\\' => 8,
@@ -43,11 +45,15 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
             'kartik\\mpdf\\' => 12,
             'kartik\\grid\\' => 12,
             'kartik\\editable\\' => 16,
+            'kartik\\date\\' => 12,
             'kartik\\base\\' => 12,
         ),
         'd' => 
         array (
+            'dosamigos\\grid\\' => 15,
+            'dosamigos\\editable\\' => 19,
             'dosamigos\\datepicker\\' => 21,
+            'dosamigos\\assets\\' => 17,
             'dmstr\\' => 6,
         ),
         'c' => 
@@ -86,9 +92,13 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
     );
 
     public static $prefixDirsPsr4 = array (
+        'yiister\\grid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiister/yii2-advanced-grid/src',
+        ),
         'yii\\swiftmailer\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer',
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer/src',
         ),
         'yii\\jui\\' => 
         array (
@@ -158,13 +168,29 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-editable',
         ),
+        'kartik\\date\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-datepicker',
+        ),
         'kartik\\base\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
         ),
+        'dosamigos\\grid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-grid-view-library',
+        ),
+        'dosamigos\\editable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-editable-widget',
+        ),
         'dosamigos\\datepicker\\' => 
         array (
             0 => __DIR__ . '/..' . '/2amigos/yii2-date-picker-widget/src',
+        ),
+        'dosamigos\\assets\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-dosamigos-asset-bundle',
         ),
         'dmstr\\' => 
         array (
@@ -260,8 +286,19 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
                 0 => __DIR__ . '/..' . '/phpspec/php-diff/lib',
             ),
         ),
+        'C' => 
+        array (
+            'ComponentInstaller' => 
+            array (
+                0 => __DIR__ . '/..' . '/robloach/component-installer/src',
+            ),
+        ),
         'A' => 
         array (
+            'Assetic' => 
+            array (
+                0 => __DIR__ . '/..' . '/kriswallsmith/assetic/src',
+            ),
             'Alchemy' => 
             array (
                 0 => __DIR__ . '/..' . '/alchemy/binary-driver/src',

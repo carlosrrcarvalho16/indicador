@@ -16,7 +16,7 @@ use yii\helpers\Json;
 /**
  * DatePicker renders a `datepicker` jQuery UI widget.
  *
- * For example to use the datepicker with a [[yii\base\Model|model]]:
+ * For example to use the datepicker with a [[\yii\base\Model|model]]:
  *
  * ```php
  * echo DatePicker::widget([
@@ -38,6 +38,25 @@ use yii\helpers\Json;
  * ]);
  * ```
  *
+ * You can also use this widget in an [[\yii\widgets\ActiveForm|ActiveForm]] using the [[\yii\widgets\ActiveField::widget()|widget()]]
+ * method, for example like this:
+ *
+ * ```php
+ * <?= $form->field($model, 'from_date')->widget(\yii\jui\DatePicker::classname(), [
+ *     //'language' => 'ru',
+ *     //'dateFormat' => 'yyyy-MM-dd',
+ * ]) ?>
+ * ```
+ *
+ * Note that and empty string (`''`) and `null` will result in an empty text field while `0` will be
+ * interpreted as a UNIX timestamp and result in a date displayed as `1970-01-01`.
+ * It is recommended to add a
+ * validation filter in your model that sets the value to `null` in case when no date has been entered:
+ *
+ * ```php
+ * [['from_date'], 'default', 'value' => null],
+ * ```
+ *
  * @see http://api.jqueryui.com/datepicker/
  * @author Alexander Kochetov <creocoder@gmail.com>
  * @author Carsten Brandt <mail@cebe.cc>
@@ -46,8 +65,11 @@ use yii\helpers\Json;
 class DatePicker extends InputWidget
 {
     /**
-     * @var string the locale ID (eg 'fr', 'de') for the language to be used by the date picker.
+     * @var string the locale ID (e.g. 'fr', 'de', 'en-GB') for the language to be used by the date picker.
      * If this property is empty, then the current application language will be used.
+     *
+     * Since version 2.0.2 a fallback is used if the application language includes a locale part (e.g. `de-DE`) and the language
+     * file does not exist, it will fall back to using `de`.
      */
     public $language;
     /**
@@ -117,20 +139,17 @@ class DatePicker extends InputWidget
         $language = $this->language ? $this->language : Yii::$app->language;
 
         if (strncmp($this->dateFormat, 'php:', 4) === 0) {
-            $this->clientOptions['dateFormat'] = FormatConverter::convertDatePhpToJui(substr($this->dateFormat, 4), 'date', $language);
+            $this->clientOptions['dateFormat'] = FormatConverter::convertDatePhpToJui(substr($this->dateFormat, 4));
         } else {
             $this->clientOptions['dateFormat'] = FormatConverter::convertDateIcuToJui($this->dateFormat, 'date', $language);
         }
 
-        if ($language != 'en-US') {
+        if ($language !== 'en-US') {
             $view = $this->getView();
-            $bundle = DatePickerLanguageAsset::register($view);
-            if ($bundle->autoGenerate) {
-                $view->registerJsFile($bundle->baseUrl . "/ui/i18n/datepicker-$language.js", [
-                    'depends' => [JuiAsset::className()],
-                ]);
-            }
-            $options = Json::encode($this->clientOptions);
+            $assetBundle = DatePickerLanguageAsset::register($view);
+            $assetBundle->language = $language;
+            $options = Json::htmlEncode($this->clientOptions);
+            $language = Html::encode($language);
             $view->registerJs("$('#{$containerID}').datepicker($.extend({}, $.datepicker.regional['{$language}'], $options));");
         } else {
             $this->registerClientOptions('datepicker', $containerID);
@@ -154,7 +173,7 @@ class DatePicker extends InputWidget
         } else {
             $value = $this->value;
         }
-        if ($value !== null) {
+        if ($value !== null && $value !== '') {
             // format value according to dateFormat
             try {
                 $value = Yii::$app->formatter->asDate($value, $this->dateFormat);

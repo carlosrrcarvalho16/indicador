@@ -9,17 +9,18 @@ use backend\models\Identity;
 use yii\grid\GridView;
 
 
+
 $this->title = 'Gráficos';
 $this->params['breadcrumbs'][] = ['label' => 'Indicadores', 'url' => [ BaseUrl::base() . '/departament?id=' . $departamentoID]];
 $this->params['breadcrumbs'][] = $this->title;
 
 
 //Cores do grafico
-$backgroundColorGood  = "'rgba(35, 156, 222, 0.7)',";
-$backgroundColorBad   = "'rgba(248, 44, 8, 0.7)',";
-$borderColorGood      = "'rgba(57, 24, 242, 0.5)',";
-$borderColorBad       = "'rgba(144, 10, 21, 0.5)',";
-$backgroundColorMeta  = "'rgba(84, 233, 20, 0.5)',";
+$backgroundColorGood  = "'rgba(11, 35, 227, 0.5)',"; //"'rgba(35, 156, 222, 1)',"
+$backgroundColorBad   = "'rgba(248, 44, 8, 1)',";
+$borderColorGood      = "'rgba(11, 35, 227, 0.8)',";
+$borderColorBad       = "'rgba(248, 44, 8, 1)',";
+$backgroundColorMeta  = "'rgba(84, 233, 20,1)',";
 $backgroundColor      = "";
 $borderColorColor     ="";
 $dadosMes             = "";
@@ -140,6 +141,7 @@ foreach ($graficoYTD as $value) {
                 </div>
             </div>
           <div class="box-body">
+
             <?= GridView::widget([
               'dataProvider' => $dataProviderPlanoAcao,
               // 'filterModel'  => $searchModelPlanoAcao,
@@ -162,17 +164,18 @@ foreach ($graficoYTD as $value) {
                       ],
                       'status',
                      /* [
-                        'class' => \yiister\grid\widgets\ProgressColumn::className(),
-                        'attribute' => 'Percentual',
-                        'size' => \yiister\grid\widgets\ProgressColumn::SIZE_LARGE,
-                        'isStriped' => true,
-                        'progressBarClass' => function ($model, $column) {
-                            return $model->{$column->attribute} > 70
-                                ? \yiister\grid\widgets\ProgressColumn::STYLE_SUCCESS
-                                : \yiister\grid\widgets\ProgressColumn::STYLE_WARNING;
-                        },
-                    ],
-                    */
+                            'class' => \yiister\grid\widgets\ProgressColumn::className(),
+                            'attribute' => 'Percentual',
+                            'size' => \yiister\grid\widgets\ProgressColumn::SIZE_LARGE,
+                            'isStriped' => true,
+                            'progressBarClass' => function ($model, $column) {
+                                return $model->{$column->attribute} > 15
+                                    ? \yiister\grid\widgets\ProgressColumn::STYLE_SUCCESS
+                                    : \yiister\grid\widgets\ProgressColumn::STYLE_WARNING;
+                            },
+                        ],
+                        */
+                   
 
               ],
           ]); ?>
@@ -271,8 +274,8 @@ var myChart = new Chart(ctx, {
         }]
           },
           options: {
-              animation: { 
-                duration: 5000,
+              animation: {
+                duration: 3000,
                 xAxis: true,
                 yAxis: true,
         },
@@ -297,14 +300,19 @@ var myChartAno = new Chart(ctxAno, {
               label: 'YTD',
               fill: true, 
               data: parmValoresYTD,
-              backgroundColor: ['rgba(35, 156, 222, 0.7)','rgba(35, 156, 222, 0.7)','rgba(35, 156, 222, 0.7)','rgba(35, 156, 222, 0.7)',],
-              borderColor: ['rgba(35, 156, 222, 0.7)','rgba(35, 156, 222, 0.7)','rgba(35, 156, 222, 0.7)','rgba(35, 156, 222, 0.7)',],
+              backgroundColor: ['rgba(11, 35, 227, 0.5)','rgba(11, 35, 227, 0.5)','rgba(11, 35, 227, 0.5)','rgba(11, 35, 227, 0.5)',],
+              borderColor: ['rgba(11, 35, 227, 0.8)','rgba(11, 35, 227, 0.8)','rgba(11, 35, 227, 0.8)','rgba(11, 35, 227, 0.8)',],
               borderWidth: 1
             }]
           },
 
         },{
         options: {
+            animation: {
+                duration: 3000,
+                xAxis: true,
+                yAxis: true,
+            },
             scales: {
                 yAxes:[{
                     ticks:{

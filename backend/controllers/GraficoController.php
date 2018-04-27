@@ -8,6 +8,7 @@ use backend\models\TbIndicador;
 use backend\models\TbDadosmes;
 use backend\models\TbPlanoAcao;
 use backend\models\TbPlanoAcaoSearch;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -44,6 +45,22 @@ class GraficoController extends Controller
         $grafico_ytd = TbDadosmes::getDadosYTD($nome, $ano);
         $planoAcao   = TbPlanoAcao::getPlanoAcao($id);
 
+/* PlanoAcao
+        $query = TbPlanoAcao::getPlanoAcao($id);
+            //->where (['pa.status' => 'Aberto']);
+        $dataProviderPlanoAcao  = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 5,
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'item' => SORT_ASC
+                ]
+            ],
+        ]);
+
+*/
         $searchModelPlanoAcao  = new TbPlanoAcaoSearch();
         $searchModelPlanoAcao->indicador = $id;
         $searchModelPlanoAcao->status = 'Aberto';
@@ -62,7 +79,7 @@ class GraficoController extends Controller
             'vNome'                       => $nome, 
             'planoDeAcao'                 => $planoAcao, 
             'departamentoID'              => $indicador->departamentoID,
-            'searchModelPlanoAcao'        => $searchModelPlanoAcao, 
+            'searchModelPlanoAcao'        => $searchModelPlanoAcao,
             'dataProviderPlanoAcao'       => $dataProviderPlanoAcao,
             'searchModelPlanoAcaoClosed'  => $searchModelPlanoAcaoClosed, 
             'dataProviderPlanoAcaoClosed' => $dataProviderPlanoAcaoClosed

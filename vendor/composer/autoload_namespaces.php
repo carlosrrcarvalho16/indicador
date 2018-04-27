@@ -12,5 +12,7 @@ return array(
     'Evenement' => array($vendorDir . '/evenement/evenement/src'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
     'Diff' => array($vendorDir . '/phpspec/php-diff/lib'),
+    'ComponentInstaller' => array($vendorDir . '/robloach/component-installer/src'),
+    'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
     'Alchemy' => array($vendorDir . '/alchemy/binary-driver/src'),
 );

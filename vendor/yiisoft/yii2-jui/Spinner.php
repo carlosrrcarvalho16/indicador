@@ -31,6 +31,15 @@ use yii\helpers\Html;
  * ]);
  * ```
  *
+ * You can also use this widget in an [[yii\widgets\ActiveForm|ActiveForm]] using the [[yii\widgets\ActiveField::widget()|widget()]]
+ * method, for example like this:
+ *
+ * ```php
+ * <?= $form->field($model, 'from_date')->widget(\yii\jui\Spinner::classname(), [
+ *     'clientOptions' => ['step' => 2],
+ * ]) ?>
+ * ```
+ *
  * @see http://api.jqueryui.com/spinner/
  * @author Alexander Kochetov <creocoder@gmail.com>
  * @since 2.0
@@ -42,6 +51,10 @@ class Spinner extends InputWidget
      */
     protected $clientEventMap = [
         'spin' => 'spin',
+        'change' => 'spinchange',
+        'create' => 'spincreate',
+        'start' => 'spinstart',
+        'stop' => 'spinstop'
     ];
 
 

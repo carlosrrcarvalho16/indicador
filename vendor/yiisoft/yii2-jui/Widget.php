@@ -48,7 +48,7 @@ class Widget extends \yii\base\Widget
     public $clientEvents = [];
 
     /**
-     * @var array event names mapped to what should be specified in .on(
+     * @var array event names mapped to what should be specified in `.on()`.
      * If empty, it is assumed that event passed to clientEvents is prefixed with widget name.
      */
     protected $clientEventMap = [];
@@ -74,7 +74,7 @@ class Widget extends \yii\base\Widget
     protected function registerClientOptions($name, $id)
     {
         if ($this->clientOptions !== false) {
-            $options = empty($this->clientOptions) ? '' : Json::encode($this->clientOptions);
+            $options = empty($this->clientOptions) ? '' : Json::htmlEncode($this->clientOptions);
             $js = "jQuery('#$id').$name($options);";
             $this->getView()->registerJs($js);
         }
@@ -112,7 +112,7 @@ class Widget extends \yii\base\Widget
             $id = $this->options['id'];
         }
         JuiAsset::register($this->getView());
-        $this->registerClientOptions($name, $id);
         $this->registerClientEvents($name, $id);
+        $this->registerClientOptions($name, $id);
     }
 }

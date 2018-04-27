@@ -80,6 +80,7 @@ class TbPlanoAcao extends \yii\db\ActiveRecord
         $idIndicador = trim($idIndicador);
         $sql = "CALL `selectPlanoAcao`('{$idIndicador}')";
         $result = Yii::$app->db->createCommand($sql)->queryAll();
+        
         return $result;
     }
 

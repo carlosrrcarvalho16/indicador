@@ -19,7 +19,7 @@ class TbPlanoAcaoSearch extends TbPlanoAcao
     {
         return [
             [['idPlano', 'indicador', 'mes'], 'integer'],
-            [['ano', 'item', 'descricao_problema', 'plano_acao', 'responsavel', 'abertura', 'prazo', 'status'], 'safe'],
+            [['ano', 'item', 'descricao_problema', 'plano_acao', 'responsavel', 'abertura', 'prazo', 'status',], 'safe'],
         ];
     }
 

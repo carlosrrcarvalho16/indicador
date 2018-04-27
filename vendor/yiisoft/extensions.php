@@ -21,24 +21,6 @@ return array (
       '@dosamigos/datepicker' => $vendorDir . '/2amigos/yii2-date-picker-widget/src',
     ),
   ),
-  'yiisoft/yii2-jui' => 
-  array (
-    'name' => 'yiisoft/yii2-jui',
-    'version' => '2.0.0.0',
-    'alias' => 
-    array (
-      '@yii/jui' => $vendorDir . '/yiisoft/yii2-jui',
-    ),
-  ),
-  'yiisoft/yii2-swiftmailer' => 
-  array (
-    'name' => 'yiisoft/yii2-swiftmailer',
-    'version' => '2.1.0.0',
-    'alias' => 
-    array (
-      '@yii/swiftmailer' => $vendorDir . '/yiisoft/yii2-swiftmailer',
-    ),
-  ),
   'kartik-v/yii2-krajee-base' => 
   array (
     'name' => 'kartik-v/yii2-krajee-base',
@@ -181,6 +163,69 @@ return array (
     'alias' => 
     array (
       '@chrisb34/ReportGrid' => $vendorDir . '/chrisb34/yii2-report-grid',
+    ),
+  ),
+  'yiisoft/yii2-swiftmailer' => 
+  array (
+    'name' => 'yiisoft/yii2-swiftmailer',
+    'version' => '2.1.1.0',
+    'alias' => 
+    array (
+      '@yii/swiftmailer' => $vendorDir . '/yiisoft/yii2-swiftmailer/src',
+    ),
+  ),
+  'yiisoft/yii2-jui' => 
+  array (
+    'name' => 'yiisoft/yii2-jui',
+    'version' => '2.0.6.0',
+    'alias' => 
+    array (
+      '@yii/jui' => $vendorDir . '/yiisoft/yii2-jui',
+    ),
+  ),
+  '2amigos/yii2-dosamigos-asset-bundle' => 
+  array (
+    'name' => '2amigos/yii2-dosamigos-asset-bundle',
+    'version' => '0.1.0.0',
+    'alias' => 
+    array (
+      '@dosamigos/assets' => $vendorDir . '/2amigos/yii2-dosamigos-asset-bundle',
+    ),
+  ),
+  '2amigos/yii2-editable-widget' => 
+  array (
+    'name' => '2amigos/yii2-editable-widget',
+    'version' => '0.1.3.0',
+    'alias' => 
+    array (
+      '@dosamigos/editable' => $vendorDir . '/2amigos/yii2-editable-widget',
+    ),
+  ),
+  '2amigos/yii2-grid-view-library' => 
+  array (
+    'name' => '2amigos/yii2-grid-view-library',
+    'version' => '0.1.1.0',
+    'alias' => 
+    array (
+      '@dosamigos/grid' => $vendorDir . '/2amigos/yii2-grid-view-library',
+    ),
+  ),
+  'kartik-v/yii2-widget-datepicker' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-datepicker',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/date' => $vendorDir . '/kartik-v/yii2-widget-datepicker',
+    ),
+  ),
+  'yiister/yii2-advanced-grid' => 
+  array (
+    'name' => 'yiister/yii2-advanced-grid',
+    'version' => '1.0.1.0',
+    'alias' => 
+    array (
+      '@yiister/grid' => $vendorDir . '/yiister/yii2-advanced-grid/src',
     ),
   ),
 );
