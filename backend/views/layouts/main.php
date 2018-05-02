@@ -329,6 +329,25 @@ DashboardAsset::register($this);
 
                   </ul>
               </li>
+              <li class="treeview">
+                  <a href="#">
+                      <i class="fa  fa-file-text"></i>
+                      <span>Relatórios</span>
+                      <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes?dep=0"><i class="fa fa-arrow-circle-right "></i>Planos de ações</a></li>
+                  </ul>
+                  <ul class="treeview-menu">
+                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes?dep=0"><i class="fa fa-arrow-circle-right "></i>Usuários</a></li>
+                  </ul>
+                  <ul class="treeview-menu">
+                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes?dep=0"><i class="fa fa-arrow-circle-right "></i>Indicadores</a></li>
+                  </ul>
+                  <ul class="treeview-menu">
+                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes?dep=0"><i class="fa fa-arrow-circle-right "></i>Departamentos</a></li>
+                  </ul>
+              </li>
               <?php // } ?>
             <?php if(\Yii::$app->user->can('manageCompany')){?>
             <li class="treeview">
