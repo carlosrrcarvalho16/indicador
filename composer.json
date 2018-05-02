@@ -33,7 +33,8 @@
         "philippfrenzel/yii2fullcalendar" : "*",
         "php-xpdf/php-xpdf": "*",
 		"wbraganca/yii2-dynamicform": "*",
-        "yiister/yii2-advanced-grid": "*"
+        "yiister/yii2-advanced-grid": "*",
+		"mpdf/mpdf": "*"
 		
 		
 		
