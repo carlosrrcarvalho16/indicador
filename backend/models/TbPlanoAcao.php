@@ -86,11 +86,14 @@ class TbPlanoAcao extends \yii\db\ActiveRecord
 
     public function beforeValidate() 
     {
+
         if(!empty($this->abertura))
             $this->abertura = Yii::$app->formmat->convert($this->abertura, 'date');
 
-        if(!empty($this->prazo))
+        if(!empty($this->prazo)){
+
             $this->prazo = Yii::$app->formmat->convert($this->prazo, 'date');
+        }
 
         return parent::beforeValidate();
     } 

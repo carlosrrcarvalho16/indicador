@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\datepicker\DatePicker;
+use kartik\date\DatePicker;
+
 
 
 
@@ -41,14 +42,25 @@ use dosamigos\datepicker\DatePicker;
 
         <div class='row'>
             <div class="col-md-4">
-                
-                <?= $form->field($model, 'abertura')->textInput(['class' => 'form-control', 'data-inputmask' => "'alias': 'dd/mm/yyyy'", 'data-mask' => ''])
+                <?=
+                    $form->field($model, 'abertura')->widget(DatePicker::className(),[
+                            'pluginOptions' => [
+                                    'format' => 'dd-M-yyyy',
+                                    'todayHighlight' => true
+                            ],
+                    ])
                 ?>
 
-                
             </div>
             <div class="col-md-4">
-                <?= $form->field($model, 'prazo')->textInput() ?>
+                <?=
+                    $form->field($model, 'prazo')->widget(DatePicker::className(),[
+                        'pluginOptions' => [
+                            'format' => 'dd-M-yyyy',
+                            'todayHighlight' => true
+                        ],
+                    ])
+                ?>
             </div>
             <div class="col-md-4">
                 <?php
