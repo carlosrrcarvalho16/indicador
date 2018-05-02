@@ -16,9 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 //Cores do grafico
-$backgroundColorGood  = "'rgba(11, 35, 227, 0.5)',"; //"'rgba(35, 156, 222, 1)',"
-$backgroundColorBad   = "'rgba(248, 44, 8, 1)',";
-$borderColorGood      = "'rgba(11, 35, 227, 0.8)',";
+$backgroundColorGood  = "'rgba(77, 152, 245, 0.7)',"; //"'rgba(35, 156, 222, 1)',"
+$backgroundColorBad   = "'rgba(248, 44, 8, 0.7)',";
+$borderColorGood      = "'rgba(77, 152, 245, 0.9)',";
 $borderColorBad       = "'rgba(248, 44, 8, 1)',";
 $backgroundColorMeta  = "'rgba(84, 233, 20,1)',";
 $backgroundColor      = "";
@@ -77,7 +77,12 @@ foreach ($graficoYTD as $value) {
 
 ?>
 <?php $form = ActiveForm::begin(); ?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
 <div class="box box-primary">
   <div class="box-header with-border">
     <h3 class="box-title">Gráficos - <?php echo $vNome; ?> </h3>
@@ -275,7 +280,7 @@ var myChart = new Chart(ctx, {
           },
           options: {
               animation: {
-                duration: 3000,
+                duration: 1000,
                 xAxis: true,
                 yAxis: true,
         },
@@ -300,7 +305,7 @@ var myChartAno = new Chart(ctxAno, {
               label: 'YTD',
               fill: true, 
               data: parmValoresYTD,
-              backgroundColor: ['rgba(11, 35, 227, 0.5)','rgba(11, 35, 227, 0.5)','rgba(11, 35, 227, 0.5)','rgba(11, 35, 227, 0.5)',],
+              backgroundColor: ['rgba(35, 111, 210, 0.7)','rgba(35, 111, 210, 0.7)','rgba(35, 111, 210, 0.7)','rgba(35, 111, 210, 0.7)',],
               borderColor: ['rgba(11, 35, 227, 0.8)','rgba(11, 35, 227, 0.8)','rgba(11, 35, 227, 0.8)','rgba(11, 35, 227, 0.8)',],
               borderWidth: 1
             }]
@@ -308,11 +313,7 @@ var myChartAno = new Chart(ctxAno, {
 
         },{
         options: {
-            animation: {
-                duration: 3000,
-                xAxis: true,
-                yAxis: true,
-            },
+
             scales: {
                 yAxes:[{
                     ticks:{

@@ -149,6 +149,48 @@ class TbDadosmes extends \yii\db\ActiveRecord
         }
         return parent::beforeValidate();
     }
+    public function getMesText()
+    {
+        switch ($this->mes) {
+            case 1;
+                $text = "Janeiro";
+                break;
+            case 2;
+                $text = "Fevereiro";
+                break;
+            case 3;
+                $text = "Março";
+                break;
+            case 4;
+                $text = "Abril";
+                break;
+            case 5;
+                $text = "Maio";
+                break;
+            case 6;
+                $text = "Junho";
+                break;
+            case 7;
+                $text = "Julho";
+                break;
+            case 8;
+                $text = "Agosto";
+                break;
+            case 9;
+                $text = "Setembro";
+                break;
+            case 10;
+                $text = "Outubro";
+                break;
+            case 11;
+                $text = "Novembro";
+                break;
+            case 12;
+                $text = "Dezembro";
+                break;
+        }
+        return $text;
+    }
     
 
 }

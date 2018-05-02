@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <?php
-        $meses = ArrayHelper::map( 
+       /* $meses = ArrayHelper::map(
             array(
                 ['id' => '1' , 'data' => 'Janeiro'],
                 ['id' => '2' , 'data' => 'Fevereiro'],
@@ -82,10 +82,24 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['id' => '12', 'data' => 'Dezembro']
                 ),
         'id','data');
+*/
+        $meses = array(
+                1=> 'Janeiro',
+                2=> 'Fevereiro',
+                3=> 'Março',
+                4=> 'Abril',
+                5=> 'Maio',
+                6=> 'Junho',
+                7=> 'Julho',
+                8=> 'Agosto',
+                9=> 'Setembro',
+                10=> 'Outubro',
+                11=> 'Novembro',
+                12=> 'Dezembro',
+                );
 
-                
-               
-        
+
+
       /*
          $value = ArrayHelper::getValue($meses, ['id' => '12']);
          echo $value;
@@ -105,16 +119,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     'filter' => ArrayHelper::map(backend\models\TbIndicador::find()->all(), 'id', 'nome')
                 ],
                 'ano',
-                'mes',
-                'valor',
-               /*
                 [
                     'attribute' => 'mes',
-                    'value'     => $meses,
-                    'filter'    => ArrayHelper::getValue($meses, ['id' => 'mes']),
+                    'value' => 'mesText'
                 ],
-                */
-
+                'valor',
+                'meta',
+               /* [
+                    'attribute' => 'valor',
+                    'label' => 'valor',
+                    'options' => [ 'style' => 'valor'=='meta' ? 'background-color:#5544EA':'background-color:#DA4557'],
+                ],*/
 
 
                 ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {update}'],

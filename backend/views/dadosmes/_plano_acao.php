@@ -43,17 +43,20 @@ use backend\models\Identity;
             'layout' => "{items}\n{summary}\n{pager}",
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-
-                // 'idPlano',
-                // 'indicador',
-                // 'ano',
-                // 'mes',
                 'item',
                 'descricao_problema',
                 'plano_acao',
                 'responsavel',
-                'abertura',
-                'prazo',
+                [
+                    'attribute'      => 'abertura',
+                    'format'         => ['date', 'php:d/m/Y'],
+
+                ],
+                [
+                    'attribute'      => 'prazo',
+                    'format'         => ['date', 'php:d/m/Y'],
+
+                ],
                 'status',
 
                 ['class' => 'yii\grid\ActionColumn',
