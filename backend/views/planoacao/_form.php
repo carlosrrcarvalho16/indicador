@@ -44,6 +44,7 @@ use kartik\date\DatePicker;
             <div class="col-md-4">
                 <?=
                     $form->field($model, 'abertura')->widget(DatePicker::className(),[
+                        'options' => ['placeholder' => 'Selecione a data ...'],
                             'pluginOptions' => [
                                     'format' => 'dd-M-yyyy',
                                     'todayHighlight' => true
@@ -55,6 +56,7 @@ use kartik\date\DatePicker;
             <div class="col-md-4">
                 <?=
                     $form->field($model, 'prazo')->widget(DatePicker::className(),[
+                        'options' => ['placeholder' => 'Selecione a data ...'],
                         'pluginOptions' => [
                             'format' => 'dd-M-yyyy',
                             'todayHighlight' => true
