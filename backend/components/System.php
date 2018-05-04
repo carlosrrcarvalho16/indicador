@@ -12,4 +12,8 @@ class System extends Component{
     public function getUser() {
         return Yii::$app->user->ID;
     }
+
+    public function calcPercentual($prazo, $abertura) {
+        return 76;
+    }
 }

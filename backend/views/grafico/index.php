@@ -167,6 +167,18 @@ foreach ($graficoYTD as $value) {
                         'attribute'      => 'prazo',
                         'format'         => ['date', 'php:d/m/Y'],                        
                       ],
+                      [
+                        'label' => 'Percentual',
+                        'format'         => 'raw', 
+                        'value'=> function ($data) {
+                          $percentual = Yii::$app->system->calcPercentual($data->prazo, $data->abertura);
+                          return '<div class="progress active" style="border: 1px solid #333; border-radius: 5px">
+                                  <div class="progress-bar progress-bar-'.($percentual > 75 ? 'yellow' : 'green').'" role="progressbar" aria-valuenow="'.$percentual.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$percentual.'%">
+                                    <span class="sr-only">'.$percentual.'% Complete</span>
+                                  </div>
+                                </div>';
+                        },                       
+                      ],
                       'status',
                      /* [
                             'class' => \yiister\grid\widgets\ProgressColumn::className(),
