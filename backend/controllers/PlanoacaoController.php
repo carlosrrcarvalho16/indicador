@@ -68,10 +68,20 @@ class PlanoacaoController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
-            if($model->save()){
-                echo json_encode(['status' => 'success', 'message' => 'Cadastro realizado']);
+            if(empty($model->abertura))
+                $model->addError('abertura', 'Data Abertura não pode ser vazio');
+
+            if(empty($model->prazo))
+                $model->addError('prazo', 'Data Prazo não pode ser vazio');
+
+            if($model->getErrors()){
+                echo json_encode(['status' => 'error', 'message' => 'Falha no cadastro', 'errors' => json_encode($model->errors)]);
             }else{
-                echo json_encode(['status' => 'error', 'message' => 'Falha no cadastro' . json_encode($model->errors)]);
+                if($model->save()){
+                    echo json_encode(['status' => 'success', 'message' => 'Cadastro realizado']);
+                }else{
+                    echo json_encode(['status' => 'error', 'message' => 'Falha no cadastro' . json_encode($model->errors)]);
+                }
             }
             
         } else {
@@ -80,6 +90,8 @@ class PlanoacaoController extends Controller
             $model->ano = Yii::$app->session->get('ANO_DASH');
             $dadosmes      = TbDadosmes::findOne($_GET['idDadosMes']);
             $model->mes = $dadosmes->mes;
+            $model->abertura = date('d/m/Y');
+            $model->prazo = date('d/m/Y', strtotime('+15 days'));
             return $this->renderAjax('create', [
                 'model'     => $model
             ]);

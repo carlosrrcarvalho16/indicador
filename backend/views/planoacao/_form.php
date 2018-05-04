@@ -44,11 +44,12 @@ use kartik\date\DatePicker;
             <div class="col-md-4">
                 <?=
                     $form->field($model, 'abertura')->widget(DatePicker::className(),[
-                        'options' => ['placeholder' => 'Selecione a data ...'],
-                            'pluginOptions' => [
-                                    'format' => 'dd-M-yyyy',
-                                    'todayHighlight' => true
-                            ],
+                              'name' => 'abertura',
+                              'options' => ['placeholder' => 'Selecione a data ...'],
+                              'pluginOptions' => [
+                                  'format' => 'dd-M-yyyy',
+                                  'todayHighlight' => true
+                              ]
                     ])
                 ?>
 
@@ -97,8 +98,9 @@ $('form#{$model->formName()}').on('beforeSubmit', function(e){
             $.pjax.reload({container:'#registrosGrid'});
             return false;
         }else{
-            $(\$form).trigger("reset");
-            $("#message").html(result.message);
+            // $(\$form).trigger("reset");
+            // $("#message").html(result.message);
+            alert(result.message);
         }
     })
     .fail(function(){
