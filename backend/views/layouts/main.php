@@ -329,26 +329,21 @@ DashboardAsset::register($this);
 
                   </ul>
               </li>
+              <?php // } ?>
               <li class="treeview">
                   <a href="#">
-                      <i class="fa  fa-file-text"></i>
+                      <i class="fa   fa-file-text-o"></i>
                       <span>Relatórios</span>
                       <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes?dep=0"><i class="fa fa-arrow-circle-right "></i>Planos de ações</a></li>
-                  </ul>
-                  <ul class="treeview-menu">
-                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes?dep=0"><i class="fa fa-arrow-circle-right "></i>Usuários</a></li>
-                  </ul>
-                  <ul class="treeview-menu">
-                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes?dep=0"><i class="fa fa-arrow-circle-right "></i>Indicadores</a></li>
-                  </ul>
-                  <ul class="treeview-menu">
-                      <li><a href="<?php echo BaseUrl::base();?>/dadosmes?dep=0"><i class="fa fa-arrow-circle-right "></i>Departamentos</a></li>
+                      <li><a href="<?php echo BaseUrl::base();?>/reports/departamentos"><i class="fa fa-arrow-circle-right"></i> Departamentos</a></li>
+                      <li><a href="<?php echo BaseUrl::base();?>/reports/indicadores"><i class="fa fa-arrow-circle-right"></i> Indicadores</a></li>
+                      <li><a href="<?php echo BaseUrl::base();?>/reports/plano_de_acoes"><i class="fa fa-arrow-circle-right"></i> Plano de ações</a></li>
+                      <li><a href="<?php echo BaseUrl::base();?>/reports/usuarios"><i class="fa fa-arrow-circle-right"></i> Usuários</a></li>
                   </ul>
               </li>
-              <?php // } ?>
+
             <?php if(\Yii::$app->user->can('manageCompany')){?>
             <li class="treeview">
               <a href="#">

@@ -108,7 +108,7 @@ foreach ($graficoYTD as $value) {
         </div>
       </div>
     </div>
-    <div class="col-md-6"> 
+    <div class="col-md-8">
       <div class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title">Mensal</h3>
@@ -134,7 +134,7 @@ foreach ($graficoYTD as $value) {
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Planos de ações</h3>
+            <h3 class="box-title">Planos de ações abertos</h3>
           </div>
           <!-- /.box-header -->
             <div class="box-tools pull-right">
@@ -173,27 +173,12 @@ foreach ($graficoYTD as $value) {
                         'value'=> function ($data) {
                           $percentual = Yii::$app->system->calcPercentual($data->prazo, $data->abertura);
                           return '<div class="progress active" style="border: 1px solid #333; border-radius: 5px">
-                                  <div class="progress-bar progress-bar-'.($percentual > 75 ? 'yellow' : 'green').'" role="progressbar" aria-valuenow="'.$percentual.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$percentual.'%">
+                                  <div class="progress-bar progress-bar-'.($percentual > 75 ? ($percentual > 100 ? 'red' : 'yellow') : 'green').'" role="progressbar" aria-valuenow="'.$percentual.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$percentual.'%">
                                     <span class="sr-only">'.$percentual.'% Complete</span>
                                   </div>
                                 </div>';
                         },                       
                       ],
-                      'status',
-                     /* [
-                            'class' => \yiister\grid\widgets\ProgressColumn::className(),
-                            'attribute' => 'Percentual',
-                            'size' => \yiister\grid\widgets\ProgressColumn::SIZE_LARGE,
-                            'isStriped' => true,
-                            'progressBarClass' => function ($model, $column) {
-                                return $model->{$column->attribute} > 15
-                                    ? \yiister\grid\widgets\ProgressColumn::STYLE_SUCCESS
-                                    : \yiister\grid\widgets\ProgressColumn::STYLE_WARNING;
-                            },
-                        ],
-                        */
-                   
-
               ],
           ]); ?>
 
@@ -207,7 +192,7 @@ foreach ($graficoYTD as $value) {
           <div class="col-xs-12">
               <div class="box">
                   <div class="box-header">
-                      <h3 class="box-title">Histórico</h3>
+                      <h3 class="box-title">Histórico - Planos de ações fechados</h3>
                   </div>
                   <!-- /.box-header -->
                   <div class="box-tools pull-right">
@@ -240,7 +225,7 @@ foreach ($graficoYTD as $value) {
                                 'format'         => ['date', 'php:d/m/Y'],
                                 
                               ],
-                              'status'
+
                           ],
                       ]); ?>
                   </div>
