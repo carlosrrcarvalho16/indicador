@@ -28,11 +28,11 @@
 		"kartik-v/yii2-widget-datepicker": "@dev",
 		"kartik-v/yii2-editable": "*",
 		"kartik-v/yii2-grid": "*",
-        "kartik-v/yii2-mpdf": "*",
 		"swiftmailer/swiftmailer": "*",
         "philippfrenzel/yii2fullcalendar" : "*",
         "php-xpdf/php-xpdf": "*",
-		"wbraganca/yii2-dynamicform": "*"
+		"wbraganca/yii2-dynamicform": "*",
+        "kartik-v/yii2-mpdf": "*"
         
 		
 		

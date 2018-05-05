@@ -219,13 +219,4 @@ return array (
       '@kartik/date' => $vendorDir . '/kartik-v/yii2-widget-datepicker',
     ),
   ),
-  'yiister/yii2-advanced-grid' => 
-  array (
-    'name' => 'yiister/yii2-advanced-grid',
-    'version' => '1.0.1.0',
-    'alias' => 
-    array (
-      '@yiister/grid' => $vendorDir . '/yiister/yii2-advanced-grid/src',
-    ),
-  ),
 );

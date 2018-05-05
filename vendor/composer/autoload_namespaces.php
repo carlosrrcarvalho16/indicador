@@ -15,4 +15,5 @@ return array(
     'ComponentInstaller' => array($vendorDir . '/robloach/component-installer/src'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
     'Alchemy' => array($vendorDir . '/alchemy/binary-driver/src'),
+	'mPDF' => array($vendorDir . '/mpdf/mpdf'),
 );

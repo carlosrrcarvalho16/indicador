@@ -13,13 +13,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <h1>Relatório de Departamentos</h1>
-
 <div class="tb-departaments-index box box-primary">
 
     <div class="box-body table-responsive no-padding">
 
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
+            // 'filterModel' => $searchModel,
             'layout' => "{items}\n{summary}\n{pager}",
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
@@ -40,7 +40,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         return ($data->active == 'Y' ? 'Sim' : 'Não');
                     }
                 ],
-
             ],
         ]);
         ?>

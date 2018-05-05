@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="box-header with-border">
         <?=
 
-        Html::a('<i class="fa fa-hand-pointer-o"></i> Gerar PDF', ['genpdf'], [
+        Html::a('<i class="fa fa-hand-pointer-o"></i> Gerar PDF', ['report'], [
             'class'=>'btn btn-success btn-flat',
             'target'=>'_blank',
             'data-toggle'=>'tooltip',
