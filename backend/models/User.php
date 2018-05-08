@@ -24,6 +24,12 @@ class User extends \yii\db\ActiveRecord
 {
     public $password;
 
+    public $currentPassword;
+    public $newPassword;
+    public $newPasswordConfirm;
+    const STATUS_DELETED = 2;
+    const STATUS_ACTIVE = 1;
+
     /**
      * @inheritdoc
      */
@@ -48,8 +54,22 @@ class User extends \yii\db\ActiveRecord
             [['image'], 'string', 'max' => 100],
             [['active'], 'string', 'max' => 1],
             [['username'], 'unique'],
-            [['email'], 'unique']
+            [['email'], 'unique'], //daqui  para baixo adicionado
+/* aqui */  [['newPassword','currentPassword','newPasswordConfirm'],'required'],
+/* aqui */  [['currentPassword'],'validateCurrentPassword'],
+/* aqui */  [['newPassword','newPasswordConfirm'],'string','min'=> 3],
+/* aqui */  [['newPassword','newPasswordConfirm'],'filter','filter'=>'trim'],
+/* aqui */  [['newPasswordConfirm'],'compare','compareAttribute'=>'newPassword','message'=>'Password do not match'],
         ];
+    }
+    public function validateCurrentPassword(){
+        if(!$this->verfyPassowrd($this->currentPassword)){
+            $this->addError("currentPassword",'Current Password incorret');
+        }
+    }
+    public function verfyPassowrd($password){
+        $dbpassword = static::findOne(['username'=>Yii::$app->user->identity->username, 'status' => self::STATUS_ACTIVE])->password_hash;
+        return Yii::$app->security->validatePassword($password,$dbpassword);
     }
 
     /**

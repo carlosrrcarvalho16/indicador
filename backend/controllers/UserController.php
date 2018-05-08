@@ -47,6 +47,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
+        
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -54,6 +55,26 @@ class UserController extends Controller
             'searchModel'  => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+    public function activeChangepassword(){
+        echo 'aqui';die;
+        //Set up user and load post data
+        $user = Yii::$app->user->identity;
+        $loadedPost = $user->load(Yii::$app->request->post);
+        //validade for normal request
+        if($loadedPost && $user->validade()){
+            $user->password = $user->newPassword;
+            //save, set flash, and refresh page
+            $user->save(false);
+            Yii::$app->session->setFlash('success','You have successfully change your password.');
+            return $this->refresh();
+        }
+        //render
+        
+        return $this->render('changepassword',[
+            'user'=>$user
+        ]);
+
     }
 
     public function actionAuth(){

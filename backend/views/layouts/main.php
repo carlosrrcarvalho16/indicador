@@ -268,6 +268,7 @@ DashboardAsset::register($this);
                     </div> -->
                     <div class="pull-right">
                       <?= Html::a('Sair', ['/site/logout'], ['data-method'=>'post', 'class' =>'btn btn-default btn-flat']) ?>
+                      <?= Html::a('Trocar senha', ['/user/changepassword'], ['data-method'=>'post', 'class' =>'btn btn-default btn-flat']) ?>
                     </div>
                   </li>
                 </ul>
@@ -370,6 +371,7 @@ DashboardAsset::register($this);
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo BaseUrl::base();?>/user"><i class="fa fa-user"></i> Usuários</a></li>
+                <li><a href="<?php echo BaseUrl::base();?>/user/changepassword"><i class="fa fa-user"></i> Trocar senha de Usuários</a></li>
                 <?php if(\Yii::$app->user->can('manageGroup')){?>
                 <li><a href="<?php echo BaseUrl::base();?>/group"><i class="fa fa-users"></i> Grupos de Usuários</a></li>
                 <li><a href="<?php echo BaseUrl::base();?>/permission"><i class="fa fa-unlock-alt"></i> Permissões</a></li>

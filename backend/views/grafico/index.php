@@ -173,7 +173,7 @@ foreach ($graficoYTD as $value) {
                         'value'=> function ($data) {
                           $percentual = Yii::$app->system->calcPercentual($data->prazo, $data->abertura);
                           return '<div class="progress active" style="border: 1px solid #333; border-radius: 5px">
-                                  <div class="progress-bar progress-bar-'.($percentual > 75 ? ($percentual > 100 ? 'red' : 'yellow') : 'green').'" role="progressbar" aria-valuenow="'.$percentual.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$percentual.'%">
+                                  <div class="progress-bar progress-bar-'.($percentual > 75 ? ($percentual > 100 ? 'red' : 'yellow') : 'green').'" role="progressbar" aria-valuenow="'.$percentual.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$percentual.'%">'.$percentual.'%
                                     <span class="sr-only">'.$percentual.'% Complete</span>
                                   </div>
                                 </div>';
