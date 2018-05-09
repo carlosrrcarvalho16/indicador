@@ -36,13 +36,10 @@ class DashboardAsset extends AssetBundle
         '//code.jquery.com/ui/1.11.4/jquery-ui.min.js',
         '//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js',
         '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js',
-        // '//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js',
-        /*'plugins/jQuery/jQuery-2.1.4.min.js',*/
         'plugins/maskmoney/jquery.maskMoney.min.js',
         'plugins/sparkline/jquery.sparkline.min.js',
         'plugins/slimScroll/jquery.slimscroll.min.js',
         'plugins/fastclick/fastclick.min.js',
-        'plugins/chartjs/Chart.min.js',
         'plugins/iCheck/icheck.min.js',
         'plugins/input-mask/jquery.inputmask.js',
         'plugins/input-mask/jquery.inputmask.date.extensions.js',
