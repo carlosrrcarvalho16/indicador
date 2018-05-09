@@ -154,53 +154,90 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
         </div>
     </div>
 </section>
-
+<?php $Percentual = Yii::$app->system->valorPercentual($countAtrasados,$countAbertos );
+        $Percentual =$Percentual . "%"
+?>
 <script>
+    //-------------
+    //- Pie CHART -
+    //-------------
     var parmBackgroundColor = [<?php echo $backgroundColor; ?>];
     var parmBorderColor = [<?php echo $borderColorColor ; ?>];
     var parmData = [<?php echo $countAbertos .",". $countAtrasados; ?>];
-    var pieOptions     = {
-        //Boolean - Whether we should show a stroke on each segment
-        segmentShowStroke    : true,
-        //String - The colour of each segment stroke
-        segmentStrokeColor   : '#fff',
-        //Number - The width of each segment stroke
-        segmentStrokeWidth   : 2,
-        //Number - The percentage of the chart that we cut out of the middle
-        percentageInnerCutout: 50, // This is 0 for Pie charts
-        //Number - Amount of animation steps
-        animationSteps       : 100,
-        //String - Animation easing effect
-        animationEasing      : 'easeOutBounce',
-        //Boolean - Whether we animate the rotation of the Doughnut
-        animateRotate        : true,
-        //Boolean - Whether we animate scaling the Doughnut from the centre
-        animateScale         : false,
-        //Boolean - whether to make the chart responsive to window resizing
-        responsive           : true,
-        // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-        maintainAspectRatio  : true,
-    }
+    var parmPercent = [ <?php 
+        echo '"' . $Percentual .'"';
+        ?>];
+    //Teste chart
+    Chart.pluginService.register({
+        beforeDraw: function (chart) {
+            if (chart.config.options.elements.center) {
+        //Get ctx from string
+        var ctx = chart.chart.ctx;
+        
+        //Get options from the center object in options
+        var centerConfig = chart.config.options.elements.center;
+        var fontStyle = centerConfig.fontStyle || 'Arial';
+                var txt = centerConfig.text;
+        var color = centerConfig.color || '#000';
+        var sidePadding = centerConfig.sidePadding || 20;
+        var sidePaddingCalculated = (sidePadding/100) * (chart.innerRadius * 2)
+        //Start with a base font of 30px
+        ctx.font = "30px " + fontStyle;
+        
+        //Get the width of the string and also the width of the element minus 10 to give it 5px side padding
+        var stringWidth = ctx.measureText(txt).width;
+        var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
 
+        // Find out how much the font can grow in width.
+        var widthRatio = elementWidth / stringWidth;
+        var newFontSize = Math.floor(30 * widthRatio);
+        var elementHeight = (chart.innerRadius * 2);
 
+        // Pick a new font size so it will not be larger than the height of label.
+        var fontSizeToUse = Math.min(newFontSize, elementHeight);
 
-    var ctx = document.getElementById("myChartNCatrazadas").getContext('2d');
-    var myChartNCatrazadas = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['No praso','Atrasada'],
-            // tooltipTemplate: '<%= 10 + "%" %>',
-            datasets: [{
-                // label: '# of Votes',
-                data: parmData,
-                backgroundColor: parmBackgroundColor,
-                borderColor: parmBorderColor,
-                borderWidth: 2
-            }]
-        },
-        options: pieOptions,
+                //Set font settings to draw it correctly.
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+        var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+        ctx.font = fontSizeToUse+"px " + fontStyle;
+        ctx.fillStyle = color;
+        
+        //Draw text in center
+        ctx.fillText(txt, centerX, centerY);
+            }
+        }
     });
 
+
+        var config = {
+            type: 'doughnut',
+            data: {
+                labels: ['No praso','Atrasada'],
+                datasets: [{
+                    data: parmData,
+                    backgroundColor:parmBackgroundColor,
+                    hoverBackgroundColor: parmBorderColor,
+                    borderWidth: 2
+                }]
+            },
+        options: {
+            elements: {
+                center: {
+                    text: parmPercent,
+          color: parmBackgroundColor, // Default is #000000
+          fontStyle: 'Arial', // Default is Arial
+          sidePadding: 20 // Defualt is 20 (as a percentage)
+                }
+            }
+        }
+    };
+
+
+        var ctx = document.getElementById("myChartNCatrazadas").getContext("2d");
+        var myChartNCatrazadas = new Chart(ctx, config);
+    //Fim do teste
 
     //-------------
     //- BAR CHART -
@@ -283,7 +320,7 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
    		chart.update();
 	};
 
-
+    
 </script>
 
 

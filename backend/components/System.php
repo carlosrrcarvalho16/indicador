@@ -37,4 +37,13 @@ class System extends Component{
 
         return intval($percentual);
     }
+    public function valorPercentual($dividendo, $divisor) {
+            if($divisor==0){
+                $percentual =100;
+            }else{
+                $percentual = (1-($dividendo/$divisor))*100;
+            }
+        return intval($percentual);
+    }
+    
 }
