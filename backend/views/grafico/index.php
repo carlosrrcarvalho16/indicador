@@ -81,7 +81,7 @@ foreach ($graficoYTD as $value) {
 <script src="/plugins/chartjs/Chart.bundle.js"></script>
 <div class="box box-primary">
   <div class="box-header with-border">
-    <h3 class="box-title">Gráficos - <?php echo $vNome; ?> </h3>
+    <h3 class="box-title">Gráficos - <?php echo $vNome; ?></h3>
   </div>
 
   <div class="row">
@@ -97,8 +97,7 @@ foreach ($graficoYTD as $value) {
           </div>
         </div>
         <div class="box-body">
-          <div class="chart"> <!--
-            <canvas id="myChartAno" style="height: 198px; width: 471px;" width="471" height="198"></canvas> -->
+          <div class="chart">            
             <canvas id="myChartAno" style="height:230px"></canvas>
           </div>
         </div>
@@ -116,8 +115,7 @@ foreach ($graficoYTD as $value) {
           </div>
         </div>
         <div class="box-body">
-          <div class="chart"> <!--
-            <canvas id="myChart" style="height: 198px; width: 471px;" width="471" height="198"></canvas> -->
+          <div class="chart"> 
             <canvas id="myChart" style="height:230px"></canvas>
           </div>
         </div>

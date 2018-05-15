@@ -12,61 +12,67 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php $form = ActiveForm::begin(); ?>
 <section class="content" id: "content1">
- <div class="box box-primary">
-    <div class="box-header with-border">
-      <h3 class="box-title">Dashboard</h3>
-    </div>
-
-    <div class="box-body">
-     <div class="row">
-      <div class='col-md-12' style="text-align: center;">
-       <h1>Indicadores Consolidados</h1>	
-     </div>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Dashboard</h3>
+      </div>
+      
+      <div class="box-body">
+         <div class="row">
+          <div class='col-md-12' style="text-align: center;">
+           <h1>Indicadores Consolidados</h1>	
+       </div>
    </div>
+
    <div class="row">
-     <div class="col-md-2 col-sm-6">
-      <div class="form-group">
-       <select name="ano" id="ano-dashboard" class="form-control" onselect="anodashboard()">
-        <?php
-        $anos = [2018,2017,2016,2015];
+       <div class="col-md-2 col-sm-6">
+        <div class="form-group">
+            <select name="ano" id="ano-dashboard" class="form-control" onselect="anodashboard()">
+                <?php
+                $anos = [2018,2017,2016,2015];
 
-        for($i=0;$i < count($anos) ;$i++){ ?>
-          <option value="<?php echo $anos[$i]?>"  <?= ($anos[$i] == $ano ? ' selected' : '')?>>
-           <?php echo $anos[$i]; ?>
-         </option>
-       <?php } ?>
-     </select>
+                for($i=0;$i < count($anos) ;$i++){ ?>
+                  <option value="<?php echo $anos[$i]?>"  <?= ($anos[$i] == $ano ? ' selected' : '')?>>
+                   <?php echo $anos[$i]; ?>
+               </option>
+           <?php } ?>
+       </select>
    </div>
- </div>
+</div>
 
- <div class="col-md-2 col-sm-6">
-  <div class="form-group">
-   <select name="mes" id="mes-dashboard" class="form-control">
-     <?php
-     $meses = array (1 => "Janeiro", 2 => "Fevereiro", 3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho", 7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro", 11 => "Novembro", 12 => "Dezembro");
+<div class="col-md-2 col-sm-6">
+    
+   <div class="form-group">
+    <select name="mes" id="mes-dashboard" class="form-control">
+        <?php
+        $meses = array (1 => "Janeiro", 2 => "Fevereiro", 3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho", 7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro", 11 => "Novembro", 12 => "Dezembro");
 
-     for($i=1;$i <=12;$i++){ ?>
-      <option value="<?php echo $i?>" <?= ($i == $mes ? ' selected' : '')?>>
-       <?php
-       echo $meses["$i"];
-       ?>
-     </option>
+        for($i=1;$i <=12;$i++){ ?>
+          <option value="<?php echo $i?>" <?= ($i == $mes ? ' selected' : '')?>>
+           <?php
+           echo $meses["$i"];
+           ?>
+       </option>
    <?php } ?>
- </select>
+</select>
 </div>
 </div>
 </div>
 
 <div class="row" id="departaments-dashboard">
- <?= Yii::$app->controller->renderPartial('_departamentos', ['departaments' => $departaments ,
-   'selectQtdDepartamentoPlanosAcao' =>  $selectQtdDepartamentoPlanosAcao ,
-   'Ano' => $ano,
- ]); ?>
+   <?= Yii::$app->controller->renderPartial('_departamentos', ['departaments' => $departaments ,
+    'selectQtdDepartamentoPlanosAcao' =>  $selectQtdDepartamentoPlanosAcao ,
+    'Ano' => $ano,
+]); ?>
 </div>
 <!--	</section> -->
+
 <!-- Inicio da tratativa dos graficos dos planos de ações-->
 <?php
-			//Cores do grafico
+
+// $this->registerJsFile("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js");
+
+//Cores do grafico
 $backgroundColorGood    = "'rgba(54, 162, 235, 0.5)',";
 $backgroundColorBad     = "'rgba(249,33,55,0.6)',";
 $backgroundColor        =  $backgroundColorGood . $backgroundColorBad;
@@ -77,7 +83,7 @@ $planosAbertos          = 0;
 $planosAtrasadas        = 0;
 
 
-			//Dados do grafico de planos de ação por departamento
+//Dados do grafico de planos de ação por departamento
 $parLabel                   = "";
 $parDataAtrazadas           = "";
 $backgroundColorGoodBar     = "";
@@ -91,75 +97,70 @@ $countAtrasados             = 0 ;
 
 $i=0;
 foreach ($selectQtdDepartamentoPlanosAcao as $value) {
-  $parTotalAtrasados .= $selectQtdDepartamentoPlanosAcao[$i]['TotalAtrasados'] .",";
-  $parTotalAbertos .= $selectQtdDepartamentoPlanosAcao[$i]['TotalAbertos'] . ",";
-  $parLabel .=  "'" . $selectQtdDepartamentoPlanosAcao[$i]['departamento'] . "',";
+    $parTotalAtrasados .= $selectQtdDepartamentoPlanosAcao[$i]['TotalAtrasados'] .",";
+    $parTotalAbertos .= $selectQtdDepartamentoPlanosAcao[$i]['TotalAbertos'] . ",";
+    $parLabel .=  "'" . $selectQtdDepartamentoPlanosAcao[$i]['departamento'] . "',";
 
-  $countAbertos =  $countAbertos +  intval($selectQtdDepartamentoPlanosAcao[$i]['TotalAbertos']);
-  $countAtrasados = $countAtrasados + intval($selectQtdDepartamentoPlanosAcao[$i]['TotalAtrasados']);
-  $backgroundColorGoodBar .= $backgroundColorGood ;
-  $borderColorGoodBar     .= $borderColorGood ;
-  $backgroundColorBadBar  .= $backgroundColorBad ;
-  $borderColorBadBar     .= $borderColorBad ;
-  $borderColorBadBar      .= $borderColorGood;
+    $countAbertos =  $countAbertos +  intval($selectQtdDepartamentoPlanosAcao[$i]['TotalAbertos']);
+    $countAtrasados = $countAtrasados + intval($selectQtdDepartamentoPlanosAcao[$i]['TotalAtrasados']);
+    $backgroundColorGoodBar .= $backgroundColorGood ;
+    $borderColorGoodBar     .= $borderColorGood ;
+    $backgroundColorBadBar  .= $backgroundColorBad ;
+    $borderColorBadBar     .= $borderColorBad ;
+    $borderColorBadBar      .= $borderColorGood;
 
 
-  $i=$i+1;
+    $i=$i+1;
 }
 
 ?>
 <!-- Small boxes (Stat box) -->
 <script src="/plugins/chartjs/Chart.js"></script>
 <script src="/plugins/chartjs/Chart.bundle.js"></script>
-<!-- <div class="row"> -->
-<div class="col-md-10 col-sm-12">     
- <!-- <section class="content"> -->
-   <div class="row">
-    <div class="col-md-6 col-sm-12">
-     <!-- DONUT CHART -->
-     <div class="box box-danger">
-      <div class="box-header with-border">
-       <h3 class="box-title">Status dos planos de ação</h3>
-       <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-      </div>
-    </div>
-    <div class="box-body">
-							<!-- 
-              <canvas id="myChartNCatrazadas" style="height:250px"></canvas>
-            -->
-            <canvas id="myChartNCatrazadas" style="height:150px"></canvas>
-          </div>
-        </div>
+<div class="row">      
 
-      </div>
-      <div class="col-md-6 col-sm-12">
-       <!-- DONUT CHART -->
-       <div class="box box-danger">
-        <div class="box-header with-border">
-         <h3 class="box-title">Planos de ação por departamento</h3>
-         <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-        </div>
-      </div>
-      <div class="box-body">
-       <canvas id="myChart" style="height:150px"></canvas>
-     </div>
-   </div>
+    <!-- <section class="content"> -->
+        <div class="row">
+            <div class="col-md-6">
+                <!-- DONUT CHART -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Status dos planos de ação</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <canvas id="myChartNCatrazadas" style="height:250px"></canvas>
+                    </div>
+                </div>
 
- </div>
-</div> 
+            </div>
+            <div class="col-md-6">
+                <!-- DONUT CHART -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Planos de ação por departamento</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <canvas id="myChart" style="height:250px"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section> 
 </div>
 <?php $Percentual = Yii::$app->system->valorPercentual($countAtrasados,$countAbertos );
 $Percentual =$Percentual . "%"
 ?>
-</div>
-</div>
-</section>
 <script>
     //-------------
     //- Pie CHART -
@@ -168,12 +169,12 @@ $Percentual =$Percentual . "%"
     var parmBorderColor = [<?php echo $borderColorColor ; ?>];
     var parmData = [<?php echo $countAbertos .",". $countAtrasados; ?>];
     var parmPercent = [ <?php 
-      echo '"' . $Percentual .'"';
-      ?>];
+        echo '"' . $Percentual .'"';
+        ?>];
     //Teste chart
     Chart.pluginService.register({
-      beforeDraw: function (chart) {
-        if (chart.config.options.elements.center) {
+        beforeDraw: function (chart) {
+            if (chart.config.options.elements.center) {
         //Get ctx from string
         var ctx = chart.chart.ctx;
         
@@ -209,37 +210,37 @@ $Percentual =$Percentual . "%"
                 
         //Draw text in center
         ctx.fillText(txt, centerX, centerY);
-      }
     }
-  });
+}
+});
 
 
     var config = {
-      type: 'doughnut',
-      data: {
-        labels: ['No praso','Atrasada'],
-        datasets: [{
-          data: parmData,
-          backgroundColor:parmBackgroundColor,
-          hoverBackgroundColor: parmBorderColor,
-          borderWidth: 2
-        }]
-      },
-      options: {
-        elements: {
-          center: {
-            text: parmPercent,
+        type: 'doughnut',
+        data: {
+            labels: ['No praso','Atrasada'],
+            datasets: [{
+                data: parmData,
+                backgroundColor:parmBackgroundColor,
+                hoverBackgroundColor: parmBorderColor,
+                borderWidth: 2
+            }]
+        },
+        options: {
+            elements: {
+                center: {
+                    text: parmPercent,
           color: parmBackgroundColor, // Default is #000000
           fontStyle: 'Arial', // Default is Arial
           sidePadding: 20 // Defualt is 20 (as a percentage)
-        }
       }
-    }
-  };
+  }
+}
+};
 
 
-  var ctx = document.getElementById("myChartNCatrazadas").getContext("2d");
-  var myChartNCatrazadas = new Chart(ctx, config);
+var ctx = document.getElementById("myChartNCatrazadas").getContext("2d");
+var myChartNCatrazadas = new Chart(ctx, config);
     //Fim do teste
 
     //-------------
@@ -258,28 +259,28 @@ $Percentual =$Percentual . "%"
 
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
-
-      type: 'horizontalBar',
-      data: {
-        labels: parmLabelBar,
-        datasets: [
-        {
-          label: "No praso",
-          backgroundColor: parmBackgroundColorBar,
-          borderColor: parmBorderColorGoodBar ,
-
-          borderWidth: 2,
-          data: parmDataBarGood
-        }, {
-          label: "Atrasada",
-          backgroundColor: parmBackgroundColorBadBar,
-          borderColor: parmBorderColorBadBar,
-          data: parmDataBarBad
-        }
-        ]
+     
+        type: 'horizontalBar',
+        data: {
+            labels: parmLabelBar,
+            datasets: [
+            {
+              label: "No praso",
+              backgroundColor: parmBackgroundColorBar,
+              borderColor: parmBorderColorGoodBar ,
+              
+              borderWidth: 2,
+              data: parmDataBarGood
+          }, {
+              label: "Atrasada",
+              backgroundColor: parmBackgroundColorBadBar,
+              borderColor: parmBorderColorBadBar,
+              data: parmDataBarBad
+          }
+          ]
       },
       options: barChartOptions
-    });
+  });
 
 
 
@@ -307,7 +308,7 @@ $Percentual =$Percentual . "%"
         //Boolean - whether to make the chart responsive
         responsive              : true,
         maintainAspectRatio     : true,
-      }
+    }
 
    //Quando clicar no combobox Ano, atualiza os dados
    // Selecionamos o menu dropdown, que possui os valores possíveis:
@@ -316,14 +317,24 @@ $Percentual =$Percentual . "%"
     window.location.reload();
     //	addData(myChartNCatrazadas,[100,15], 0);
     // 	console.log(parmData);
-  });
+});
 
    function addData(chart, data, datasetIndex) {
      chart.data.datasets[datasetIndex].data = data;
      chart.update();
-   };
+ };
+
+ 
+</script>
 
 
- </script>
 
- <?php ActiveForm::end(); ?>
+
+
+
+
+
+
+</div>
+</div>
+<?php ActiveForm::end(); ?>

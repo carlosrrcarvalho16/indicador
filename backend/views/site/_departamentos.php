@@ -17,7 +17,7 @@ foreach($departaments as $departament) {
     <span class="info-box-icon">
       <i class="fa <?php echo $departament->icons; ?>"></i>
     </span>
-    <div class="info-box-content">
+    <div class="info-box-content ">
       <span class="info-box-text">
             <div class="col-md-2 col-sm-2"><i class="fa fa-fw fa-thumbs-up text-success "></i>
 
@@ -30,7 +30,7 @@ foreach($departaments as $departament) {
             <h3><?php echo $departament->departamento; ?></h3>
       </span>
 
-      <span class="info-box-number"><?php echo $departament->qtd_preenchida; ?> / <?php echo $departament->qtd_ind; ?> - <?php echo $percent ;?>% Preenchido(s)</span>
+      <span class="info-box-number"><?php echo $departament->qtd_preenchida; ?> / <?php echo $departament->qtd_ind; ?> - <?php echo $percent ;?>% Atualizado</span>
 
 
 
