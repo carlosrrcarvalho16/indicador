@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
     	</div>
 
     	<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-2 col-sm-6">
 				<div class="form-group">
 	    			<select name="ano" id="ano-dashboard" class="form-control" onselect="anodashboard()">
 				    <?php
@@ -40,7 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
 				</div>
     		</div>
     		
-    		<div class="col-md-2">
+    		<div class="col-md-2 col-sm-6">
+            
     			<div class="form-group">
 	    			<select name="mes" id="mes-dashboard" class="form-control">
 				    <?php
@@ -120,7 +121,7 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
 
 <!-- <section class="content"> -->
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <!-- DONUT CHART -->
             <div class="box box-danger">
                 <div class="box-header with-border">
@@ -137,7 +138,7 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
             </div>
 
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
             <!-- DONUT CHART -->
             <div class="box box-danger">
                 <div class="box-header with-border">

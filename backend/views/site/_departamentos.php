@@ -12,7 +12,7 @@ foreach($departaments as $departament) {
       $percent = intval($percent * 100);
 ?>
 <!-- <div class="col-md-5 col-sm-4 col-xs-10"> -->
-<div class="col-lg-3 col-xs-6">
+<div class="col-sm-6 col-md-6">
   <div class="info-box bg-aqua">
     <span class="info-box-icon">
       <i class="fa <?php echo $departament->icons; ?>"></i>
