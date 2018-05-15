@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="user-index box box-primary">
     <div class="box-header with-border">
         <?= Html::a('Novo Usuário', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
-        <?= Html::a('Novo Troca senha', ['Changepassword'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Novo Troca senha', ['changePassword'], ['class' => 'btn btn-success btn-flat']) ?>
     </div>
 
     <div class="box-body table-responsive no-padding">

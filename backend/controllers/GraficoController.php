@@ -45,22 +45,7 @@ class GraficoController extends Controller
         $grafico_ytd = TbDadosmes::getDadosYTD($nome, $ano);
         $planoAcao   = TbPlanoAcao::getPlanoAcao($id);
 
-/* PlanoAcao
-        $query = TbPlanoAcao::getPlanoAcao($id);
-            //->where (['pa.status' => 'Aberto']);
-        $dataProviderPlanoAcao  = new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => [
-                'pageSize' => 5,
-            ],
-            'sort' => [
-                'defaultOrder' => [
-                    'item' => SORT_ASC
-                ]
-            ],
-        ]);
 
-*/
         $searchModelPlanoAcao  = new TbPlanoAcaoSearch();
         $searchModelPlanoAcao->indicador = $id;
         $searchModelPlanoAcao->status = 'Aberto';

@@ -107,7 +107,7 @@ foreach ($graficoYTD as $value) {
     <div class="col-md-8">
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title">Mensal</h3>
+          <h3 class="box-title">Mensal - <?php echo  $_GET['desc']; ?></h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
             </button>
@@ -148,6 +148,7 @@ foreach ($graficoYTD as $value) {
               // 'filterModel'  => $searchModelPlanoAcao,
               'summary'      => "Listando {begin} - {end} de {totalCount} itens",
               'emptyText'    => 'Nenhum registro encontrado',
+              
               'columns' => [
                       ['class' => 'yii\grid\SerialColumn'],
                       'item',
@@ -247,6 +248,7 @@ var parmMetaMes = [<?php echo $metaMes;?>];
 var parmBorderColorMeta = [<?php echo $metaCor;?>];
 var parmValoresYTD = [<?php echo $valorYTD;?>];
 var paramAno = [<?php echo $rotulAno;?>];
+
 var myChart = new Chart(ctx, {
           type: 'bar',
           data: {
@@ -276,19 +278,23 @@ var myChart = new Chart(ctx, {
                 duration: 1000,
                 xAxis: true,
                 yAxis: true,
-        },
+              },
+              legend: {
+                display: false
+              },
               scales: {
                   yAxes:[{
                       ticks:{
                           beginAtZero:true
                       }
                   }]
-              }
-          }
-        },{
-
-        }
+              },
+             
+            }
+        },
         );
+  
+
 //Grafico dos anos (YTD)
 var myChartAno = new Chart(ctxAno, {
           type: 'bar',
@@ -303,21 +309,28 @@ var myChartAno = new Chart(ctxAno, {
               borderWidth: 1
             }]
           },
-
-        },{
-        options: {
-
-            scales: {
-                yAxes:[{
-                    ticks:{
-                        beginAtZero:true
-                    }
-                }]
+          options: {
+              animation: {
+                duration: 1000,
+                xAxis: true,
+                yAxis: true,
+              },
+              legend: {
+                display: false
+              },
+              scales: {
+                  yAxes:[{
+                      ticks:{
+                          beginAtZero:true
+                      }
+                  }]
+              },
+             
             }
-        }
 
-        }
+        },
         );
+
 </script>
 
 

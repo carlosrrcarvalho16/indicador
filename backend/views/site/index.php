@@ -11,6 +11,7 @@ $this->title = 'Dashboard';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php $form = ActiveForm::begin(); ?>
+<section class="content">
 <div class="box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">Dashboard</h3>
@@ -56,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				</div>
     		</div>
 		</div>
-    <!--	<section class="content"> -->
+        
 		    <div class="row" id="departaments-dashboard">
 		    	<?= Yii::$app->controller->renderPartial('_departamentos', ['departaments' => $departaments ,
                     'selectQtdDepartamentoPlanosAcao' =>  $selectQtdDepartamentoPlanosAcao ,
@@ -115,8 +116,9 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
 <!-- Small boxes (Stat box) -->
         <script src="/plugins/chartjs/Chart.js"></script>
         <script src="/plugins/chartjs/Chart.bundle.js"></script>
-        
-<section class="content">
+<div class="row">      
+
+<!-- <section class="content"> -->
     <div class="row">
         <div class="col-md-5">
             <!-- DONUT CHART -->
@@ -153,7 +155,8 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
 
         </div>
     </div>
-</section>
+</section> 
+</div>
 <?php $Percentual = Yii::$app->system->valorPercentual($countAtrasados,$countAbertos );
         $Percentual =$Percentual . "%"
 ?>
