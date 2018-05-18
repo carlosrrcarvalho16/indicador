@@ -321,10 +321,7 @@ DashboardAsset::register($this);
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
             </li>
-             <?php //if(\Yii::$app->user->can('manageCompany','updateCompras','updateIcimLeam','updateProducao','updateQualidade','managePermission',
-            // 'updateEngenharia','updateMeioAmbiente','updateRecursosHumanos','updateSaudeSegurança')){?>
-
-             
+             <?php if(\Yii::$app->user->can('updateDataMonth')){ ?>
               <li class="treeview">
                   <a href="#">
                       <i class="fa   fa-edit"></i>
@@ -336,7 +333,7 @@ DashboardAsset::register($this);
 
                   </ul>
               </li>
-              <?php // } ?>
+              <?php } ?>
               <li class="treeview">
                   <a href="#">
                       <i class="fa   fa-file-text-o"></i>
@@ -413,6 +410,29 @@ DashboardAsset::register($this);
 
         <!-- Main content -->
         <section class="content">
+
+              <?php if(Yii::$app->session->has('success')): ?>
+              <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Success!</h4>
+                <?php 
+                echo Yii::$app->session->get('success'); 
+                Yii::$app->session->remove('success'); 
+                ?>
+              </div>
+              <?php endif;?>
+
+              <?php if(Yii::$app->session->has('error')): ?>
+              <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-ban"></i> Error!</h4>
+                <?php 
+                echo Yii::$app->session->get('error'); 
+                Yii::$app->session->remove('error'); 
+                ?>
+              </div>
+              <?php endif;?>
+
             <?= $content ?>
         </section>
     </div>

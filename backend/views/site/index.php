@@ -110,7 +110,7 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
 ?>
 <!-- Small boxes (Stat box) -->
 <script src="/plugins/chartjs/Chart.js"></script>
-<script src="/plugins/chartjs/Chart.bundle.js"></script>
+<script src="/plugins/Chartjs/Chart.bundle.js"></script>
 <!-- <div class="row"> -->
 <div class="col-md-10 col-sm-12">     
  <!-- <section class="content"> -->

@@ -47,7 +47,6 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -128,6 +127,37 @@ class UserController extends Controller
         else:
             return $this->render('create', ['model' => $model, 'user' => $user]);
         endif;
+    }
+
+    public function actionChangepassword(){
+
+        $id =         Yii::$app->user->identity->ID;
+        $model        = $this->findModel($id);
+        $user         = $model;
+
+        if ($model->load(Yii::$app->request->post())) { //submit do form
+
+            $model->password = $_POST['User']['password'];
+            
+            if(!empty($model->password)):
+                $model->setPassword($model->password);
+                $model->generateAuthKey();
+            endif;
+
+            if(!$model->save() || strlen($model->password) < 6){
+                Yii::$app->session->set('error','Erro ao alterar senha!');
+                return $this->redirect(['changepassword']);
+            }else{
+                Yii::$app->session->set('success','Senha alterada com sucesso!');
+                return $this->redirect(['/site/index']);
+            }
+
+        } else {
+
+            return $this->render('change_password', [
+                'model' => $model, 'user' => $user
+            ]);
+        }
     }
 
     /**

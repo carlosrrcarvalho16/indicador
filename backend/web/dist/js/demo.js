@@ -460,7 +460,10 @@
             }
         });
 
-    });  
+    }); 
+
+    $(".alert-success").animate({opacity: 1.0}, 6000).fadeOut("slow"); 
+    $(".alert-danger").animate({opacity: 1.0}, 6000).fadeOut("slow");
 
     // #### INDICADORES ####
 
