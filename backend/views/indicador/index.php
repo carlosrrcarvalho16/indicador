@@ -23,13 +23,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'layout' => "{items}\n{summary}\n{pager}",
             'summary'   => "<div class='summary-grid'>Listando {begin} - {end} de {totalCount} itens</div>",
             'emptyText' => 'Nenhum registro encontrado',
+            'rowOptions' => function($model, $key, $index, $column){
+                if($index % 2 == 0){
+                    return ['class' => 'info'];
+                }
+            },
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
                 [
                     'attribute' => 'departamentoID',
                     'value'     => 'departamento.departamento',
-                    'filter' => ArrayHelper::map(backend\models\TbDepartaments::find()->all(), 'id', 'departamento')
+                    'filter' => ArrayHelper::map(backend\models\TbDepartaments::find()->all(), 'id', 'departamento'),
                 ],
                 'nome',
                 'descricao',

@@ -11,7 +11,6 @@ $this->title = 'Dashboard';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php $form = ActiveForm::begin(); ?>
-<section class="content" id: "content1">
  <div class="box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">Dashboard</h3>
@@ -106,16 +105,15 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
 
   $i=$i+1;
 }
-
 ?>
-<!-- Small boxes (Stat box) -->
+</div>
+</div> <!--end box primary-->
+
 <script src="/plugins/chartjs/Chart.js"></script>
 <script src="/plugins/Chartjs/Chart.bundle.js"></script>
-<!-- <div class="row"> -->
-<div class="col-md-10 col-sm-12">     
- <!-- <section class="content"> -->
-   <div class="row">
-    <div class="col-md-6 col-sm-12">
+
+<div class="row">
+    <div class="col-md-6 col-sm-6">
      <!-- DONUT CHART -->
      <div class="box box-danger">
       <div class="box-header with-border">
@@ -127,15 +125,12 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
       </div>
     </div>
     <div class="box-body">
-							<!-- 
-              <canvas id="myChartNCatrazadas" style="height:250px"></canvas>
-            -->
             <canvas id="myChartNCatrazadas" style="height:150px"></canvas>
           </div>
         </div>
 
       </div>
-      <div class="col-md-6 col-sm-12">
+      <div class="col-md-6 col-sm-6">
        <!-- DONUT CHART -->
        <div class="box box-danger">
         <div class="box-header with-border">
@@ -150,16 +145,15 @@ foreach ($selectQtdDepartamentoPlanosAcao as $value) {
        <canvas id="myChart" style="height:150px"></canvas>
      </div>
    </div>
-
  </div>
 </div> 
 </div>
-<?php $Percentual = Yii::$app->system->valorPercentual($countAtrasados,$countAbertos );
-$Percentual =$Percentual . "%"
+
+<?php 
+$Percentual = Yii::$app->system->valorPercentual($countAtrasados,$countAbertos );
+$Percentual = $Percentual . "%"
 ?>
-</div>
-</div>
-</section>
+
 <script>
     //-------------
     //- Pie CHART -
