@@ -26,6 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'layout'    => "{summary}\n{items}\n{pager}",
             'summary'   => "<div class='summary-grid'>Listando {begin} - {end} de {totalCount} itens</div>",
             'emptyText' => 'Nenhum registro encontrado',
+            'rowOptions' => function($model, $key, $index, $column){
+                if($index % 2 == 0){
+                    return ['class' => 'info'];
+                }
+            },
             'columns'   => [
                 ['class' => 'yii\grid\SerialColumn'],
 

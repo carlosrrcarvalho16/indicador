@@ -21,6 +21,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'layout' => "{items}\n{summary}\n{pager}",
+            'rowOptions' => function($model, $key, $index, $column){
+                if($index % 2 == 0){
+                    return ['class' => 'info'];
+                }
+            },
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 

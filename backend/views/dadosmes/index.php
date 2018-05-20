@@ -66,23 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <?php
-       /* $meses = ArrayHelper::map(
-            array(
-                ['id' => '1' , 'data' => 'Janeiro'],
-                ['id' => '2' , 'data' => 'Fevereiro'],
-                ['id' => '3' , 'data' => 'Março'],
-                ['id' => '4' , 'data' => 'Abril'],
-                ['id' => '5' , 'data' => 'Maio'],
-                ['id' => '6' , 'data' => 'Junho'],
-                ['id' => '7' , 'data' => 'Julho'],
-                ['id' => '8' , 'data' => 'Agosto'],
-                ['id' => '9' , 'data' => 'Setembro'],
-                ['id' => '10', 'data' => 'Outubro'],
-                ['id' => '11', 'data' => 'Novembro'],
-                ['id' => '12', 'data' => 'Dezembro']
-                ),
-        'id','data');
-*/
+       
         $meses = array(
                 1=> 'Janeiro',
                 2=> 'Fevereiro',
@@ -110,6 +94,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             //'filterModel' => $searchModel,
             'layout' => "{items}\n{summary}\n{pager}",
+            'rowOptions' => function($model, $key, $index, $column){
+                if($index % 2 == 0){
+                    return ['class' => 'info'];
+                }
+            },
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
                 [

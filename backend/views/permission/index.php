@@ -20,6 +20,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             // 'filterModel' => $searchModel,
             'layout'    => "{summary}\n{items}\n{pager}",
+            'rowOptions' => function($model, $key, $index, $column){
+                if($index % 2 == 0){
+                    return ['class' => 'info'];
+                }
+            },
             'summary'   => "<div class='summary-grid'>Listando {begin} - {end} de {totalCount} itens</div>",
             'emptyText' => 'Nenhum registro encontrado',
             'columns' => [
