@@ -168,7 +168,7 @@ foreach ($graficoYTD as $value) {
                   'format'         => ['date', 'php:d/m/Y'],                        
                 ],
                 [
-                  'label' => 'Percentual',
+                  'label' => '% Prazo',
                   'format'         => 'raw', 
                   'value'=> function ($data) {
                     $percentual = Yii::$app->system->calcPercentual($data->prazo, $data->abertura);

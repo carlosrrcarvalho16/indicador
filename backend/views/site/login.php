@@ -8,8 +8,6 @@ use yii\helpers\Html;
 use yii\helpers\BaseUrl;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'INDICADOR';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="login-box">
   <div class="login-box-body">
@@ -17,17 +15,20 @@ $this->params['breadcrumbs'][] = $this->title;
       <a href="#"><img src="<?php echo BaseUrl::base();?>/dist/img/logo_indicador.png" /></a>
     </div><!-- /.login-logo -->
     <p class="login-box-msg">Informe os seus dados de acesso</p>
-    <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>  
+
+        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?> 
+        <div class="form-group has-feedback"> 
         <?= $form->field($model, 'username', [
             'options' => [
               'tag'         => 'div', 
-              'class'       => 'form-group field-loginform-username has-feedback required'
+              'class'       => 'form-group has-feedback field-loginform-username required'
             ],
             'template' => '{input}<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                           {error}{hint}'
-        ])->textInput(['placeholder' => 'Email ou Usuário']);
+        ])->textInput(['placeholder' => 'Usuário']);
         ?>
-
+        </div>
+        <div class="form-group has-feedback">
         <?= $form->field($model, 'password', [
             'options' => [
               'tag'         => 'div', 
@@ -36,10 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'template' => '{input}<span class="glyphicon glyphicon-lock form-control-feedback"></span>'
         ])->passwordInput(['placeholder' => 'Senha']); 
         ?>
-    
-      <div class="row">
+        </div>
+        <div class="row">
         
-        <div class="col-xs-4">
+        <div class="col-xs-6">
               <?= Html::submitButton('Entrar', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
         </div><!-- /.col -->
       </div>
