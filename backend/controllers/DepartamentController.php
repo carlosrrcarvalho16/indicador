@@ -25,6 +25,8 @@ class DepartamentController extends Controller
                 'delete' => ['post'],
                 ],
             ],
+            
+
         ];
     }
 

@@ -47,7 +47,7 @@ use yii\bootstrap\ActiveForm;
     <?php ActiveForm::end(); ?>
     
     <div style="color:#999;margin:1em 0">
-      Se você esqueceu a senha, você pode <?= Html::a('resetar', ['site/request-password-reset']) ?>.
+      Se você esqueceu a senha, você pode <?= Html::a('resetar', ['site/requestpasswordreset']) ?>.
     </div>
 
    </div><!-- /.login-box-body -->

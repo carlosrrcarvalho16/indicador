@@ -20,6 +20,18 @@ class IndicadorController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['update','index','create','delete','view'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['update','index','create','delete','view'],
+                        'roles' => ['manageIndicador'],
+                    ],
+                ]
+                
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
