@@ -34,6 +34,11 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                        'actions' => ['requestpassword','resetpassword'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
                 ],
             ],
             'verbs' => [
@@ -119,8 +124,9 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionRequestPasswordReset()
+    public function actionRequestpassword()
     {
+        $this->layout = 'loginLayout';
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
@@ -143,8 +149,9 @@ class SiteController extends Controller
      * @return mixed
      * @throws BadRequestHttpException
      */
-    public function actionResetPassword($token)
+    public function actionResetpassword($token)
     {
+        $this->layout = 'loginLayout';
         try {
             $model = new ResetPasswordForm($token);
         } catch (InvalidParamException $e) {
