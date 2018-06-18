@@ -54,26 +54,7 @@ class PasswordResetRequestForm extends Model
                 return false;
             }
         }
-        // //send mail
-        // $mail = new \backend\components\SendMail;
-        // $id_user = $user['id'];//($_GET['origin'] == 'user' ? $_GET['id'] : 0);
-        // //check Config Mail Company
-        //     $ConfEmail = ConfEmail::checkConfCompany($id_user);
-        //     if($ConfEmail){
-        //         $mail->smtp      = $ConfEmail->host_smtp;
-        //         $mail->port      = $ConfEmail->port;
-        //         $mail->from      = $ConfEmail->from_email;
-        //         $mail->pass      = $ConfEmail->password;
-        //         $mail->fromName  = $ConfEmail->from_name;
-        //         $mail->security  = (empty($ConfEmail->security) ? null : $ConfEmail->security);
-        //     }
-        //   print_r($ConfEmail)  ;die;
-        // $subject  = 'Teste Envio de Email';
-        // if($mail->send($user->email, $subject, "E-mail somente para testes!")){
-        //         echo json_encode(['status' => 'success', 'message' => 'E-mail de Teste enviado para: ' . $user->email]);
-        //     }else{
-        //         echo json_encode(['status' => 'error', 'message' => 'Falha no envio']);
-        //     }
+        
 
         return Yii::$app
             ->mailer
@@ -83,7 +64,7 @@ class PasswordResetRequestForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
             ->setTo($this->email)
-            ->setSubject('Password reset for ' . Yii::$app->name)
+            ->setSubject('Redefinição de senha para ' . Yii::$app->name)
             ->send();
         
     }

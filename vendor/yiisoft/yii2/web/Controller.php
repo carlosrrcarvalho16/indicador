@@ -108,6 +108,7 @@ class Controller extends \yii\base\Controller
 
         $route = $this->getRoute();
        
+       
         if(Yii::$app->user->identity == NULL && ($route != 'site/index' && $route != 'site/login'  && $route != 'site/requestpassword' && $route != 'site/resetpassword')):
             $this->redirect(Yii::$app->homeUrl);
         endif;
