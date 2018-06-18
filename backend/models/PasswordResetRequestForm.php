@@ -18,12 +18,13 @@ class PasswordResetRequestForm extends Model
      */
     public function rules()
     {
+       
         return [
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',
-                'targetClass' => '\models\User',
+                'targetClass' => 'backend\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
                 'message' => 'There is no user with this email address.'
             ],
@@ -53,8 +54,28 @@ class PasswordResetRequestForm extends Model
                 return false;
             }
         }
+        // //send mail
+        // $mail = new \backend\components\SendMail;
+        // $id_user = $user['id'];//($_GET['origin'] == 'user' ? $_GET['id'] : 0);
+        // //check Config Mail Company
+        //     $ConfEmail = ConfEmail::checkConfCompany($id_user);
+        //     if($ConfEmail){
+        //         $mail->smtp      = $ConfEmail->host_smtp;
+        //         $mail->port      = $ConfEmail->port;
+        //         $mail->from      = $ConfEmail->from_email;
+        //         $mail->pass      = $ConfEmail->password;
+        //         $mail->fromName  = $ConfEmail->from_name;
+        //         $mail->security  = (empty($ConfEmail->security) ? null : $ConfEmail->security);
+        //     }
+        //   print_r($ConfEmail)  ;die;
+        // $subject  = 'Teste Envio de Email';
+        // if($mail->send($user->email, $subject, "E-mail somente para testes!")){
+        //         echo json_encode(['status' => 'success', 'message' => 'E-mail de Teste enviado para: ' . $user->email]);
+        //     }else{
+        //         echo json_encode(['status' => 'error', 'message' => 'Falha no envio']);
+        //     }
 
-        $result = Yii::$app
+        return Yii::$app
             ->mailer
             ->compose(
                 ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
@@ -64,6 +85,6 @@ class PasswordResetRequestForm extends Model
             ->setTo($this->email)
             ->setSubject('Password reset for ' . Yii::$app->name)
             ->send();
-        var_dump($result);die;
+        
     }
 }
