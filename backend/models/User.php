@@ -48,7 +48,12 @@ class User extends \yii\db\ActiveRecord
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['id_company'], 'integer'],
-            [['email', 'username', 'auth_key', 'password_hash'], 'required', 'message' => 'Campo "{attribute}" obrigatório'],
+             [['id_company'], 'required', 'message' => 'Campo "{attribute}" obrigatório'],
+            ['username', 'unique', 'message' => 'Esse usuário já existe.'],
+            ['email', 'unique', 'message' => 'Esse e-mail já existe.'],
+
+            [['email', 'auth_key', 'password_hash'], 'required', 'message' => 'Campo "{attribute}" obrigatório'],
+           // [['email', 'username', 'auth_key', 'password_hash'], 'required', 'message' => 'Campo "{attribute}" obrigatório'],
             [['name', 'email'], 'string', 'max' => 155],
             [['username'], 'string', 'max' => 50],
             [['group'], 'string', 'max' => 64],

@@ -44,11 +44,21 @@ use yii\bootstrap\ActiveForm;
               <?= Html::submitButton('Entrar', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
         </div><!-- /.col -->
       </div>
+      <div class="row">
+            <div class="col-xs-8">
+                <?= $form->field($model, 'rememberMe')->checkbox(['label' => 'Lempre me']) ?>
+            </div>
+            </div>
+      <div class="row">
+            <!-- /.col -->
+            <div style="color:#999;margin:1em 0">
+                Se você esqueceu a senha, você pode <?= Html::a('resetar', ['site/requestpassword']) ?>.
+            </div>
+            <!-- /.col -->
+        </div>
     <?php ActiveForm::end(); ?>
     
-    <div style="color:#999;margin:1em 0">
-      Se você esqueceu a senha, você pode <?= Html::a('resetar', ['site/requestpassword']) ?>.
-    </div>
+    
 
    </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->
