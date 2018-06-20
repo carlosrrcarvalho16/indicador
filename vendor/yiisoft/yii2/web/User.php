@@ -655,6 +655,7 @@ class User extends Component
      */
     public function can($permissionName, $params = [], $allowCaching = true)
     {
+
         if ($allowCaching && empty($params) && isset($this->_access[$permissionName])) {
             return $this->_access[$permissionName];
         }
@@ -662,7 +663,7 @@ class User extends Component
         if ($allowCaching && empty($params)) {
             $this->_access[$permissionName] = $access;
         }
-
+         
         return $access;
     }
 

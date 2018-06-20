@@ -19,6 +19,10 @@ use yii\widgets\ActiveForm;
         <div class="tab-content">
           <div class="active tab-pane" id="dados_mes">
                 <div class="box-body">
+                  <h1><?=  $model->indicador->nome?>
+                    <small><?= Yii::$app->formmat->strMonth($model->mes)?></small>
+                  </h1>
+                  
                     <?php $form = ActiveForm::begin();?>
 
                      <div class='col-md-12' style="text-align: left;">

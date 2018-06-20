@@ -8,6 +8,7 @@ use backend\models\TbIndicadorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * IndicadorController implements the CRUD actions for TbIndicador model.

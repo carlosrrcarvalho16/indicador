@@ -16,6 +16,7 @@ use Yii;
  * @property double $ytd
  * @property integer $departamentoID
  * @property integer $criadoPor
+ * @property string $active
  * @property string $dataCriacao
  * @property integer $modificadoPor
  * @property string $dataModificacao
@@ -46,6 +47,7 @@ class TbIndicador extends \yii\db\ActiveRecord
             [['sentido_da_meta', 'departamentoID', 'criadoPor', 'modificadoPor'], 'integer'],
             [['dataCriacao', 'dataModificacao'], 'safe'],
             [['nome'], 'string', 'max' => 100],
+            [['active'], 'string', 'max' => 1],
             [['descricao'], 'string', 'max' => 50],
             [['ano'], 'string', 'max' => 4],
             [['departamentoID'], 'exist', 'skipOnError' => true, 'targetClass' => TbDepartaments::className(), 'targetAttribute' => ['departamentoID' => 'id']],

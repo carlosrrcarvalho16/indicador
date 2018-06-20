@@ -11,6 +11,7 @@ use backend\models\TbIndicador;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * DadosmesController implements the CRUD actions for TbDadosmes model.

@@ -8,6 +8,7 @@ use backend\models\ConfEmailSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * ConfemailController implements the CRUD actions for ConfEmail model.

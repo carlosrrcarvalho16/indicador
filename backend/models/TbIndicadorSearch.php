@@ -20,7 +20,7 @@ class TbIndicadorSearch extends TbIndicador
     {
         return [
             [['id', 'sentido_da_meta', 'departamentoID', 'criadoPor', 'modificadoPor'], 'integer'],
-            [['nome', 'descricao', 'ano', 'dataCriacao', 'dataModificacao', 'active'], 'safe'],
+            [['nome', 'descricao', 'ano', 'dataCriacao', 'dataModificacao', ], 'safe'],
             [['meta', 'ytd'], 'number'],
         ];
     }

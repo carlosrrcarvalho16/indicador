@@ -44,6 +44,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     'value' => 'ano',
                     'contentOptions'=>['style'=>'width: 80px;']
                 ],
+                [
+                    'attribute' => 'active',
+                    'content' => function($data){
+                        return ($data->active == 'Y' ? 'Ativo' : 'Inativo');
+                    }
+                ],
 
                 [
                     'attribute' =>'meta',

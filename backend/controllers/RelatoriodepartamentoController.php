@@ -6,6 +6,7 @@ use Yii;
 use backend\models\TbDepartamentoSearch;
 use backend\models\TbDepartaments;
 use kartik\mpdf\Pdf;
+use yii\filters\AccessControl;
 
 
 class RelatoriodepartamentoController extends \yii\web\Controller

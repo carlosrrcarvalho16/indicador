@@ -6,14 +6,14 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\TbDadosmes */
 
-$this->title = $model->id;
+$this->title = $model->indicador->nome;
 $this->params['breadcrumbs'][] = ['label' => 'Dados do mês', 'url' => ['index?dep=0']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tb-dadosmes-view box box-primary">
-    
+    <h1><?= $model->indicador->nome . ' - ' ?><small><?= $model->indicador->descricao?></small></h1>
     <div class="box-header">
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-flat']) ?>
+        <?= Html::a('Atualizar', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-flat']) ?>
     </div>
     
         <?= DetailView::widget([
