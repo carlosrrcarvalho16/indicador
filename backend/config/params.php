@@ -1,6 +1,6 @@
 <?php
 return [
-	'adminEmail'       => 'admin@example.com',
+	'adminEmail'       => 'carlos_carvalho@outlook.com',
 	'version' => '2.0.0',
 	'titleApplication' => 'Indicador'
 ];

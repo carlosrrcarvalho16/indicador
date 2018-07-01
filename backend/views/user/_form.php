@@ -93,7 +93,8 @@ use backend\models\AuthItem;
                                         endif; //End Update Password
                                         ?>
 
-                                        <?= $form->field($model, 'active')->checkbox(['class' => 'minimal', 'value' => 'Y']) ?>
+                                        <?php // $form->field($model, 'active')->checkbox(['class' => 'minimal', 'value' => 'Y']) ?>
+                                        <?= $form->field($model, 'status')->checkbox(['class' => 'minimal', 'value' => '10']) ?>
 
 
                                     <?php else: ?>

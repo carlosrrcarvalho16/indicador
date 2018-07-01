@@ -51,18 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                          }
                      }
 
-	             	//Verifica o [sentido]= 0 'Maior Melhor', [sentido]= 1 'Maior Pior'
-                   /* echo 'sentido ' . $sentido  . "<p>" .
-                       'sentido ' . $dados_mes[$i]['sentido'] . "<p>" .
-                         'mes ' . $dados_mes[$i]['mes'] . " <p>" .
-                         'nome ' .$dados_mes[$i]['nome'] . " <p>" .
-                         'valor ' .$dados_mes[$i]['valor'] . " <p>" ; die;
-                   */
-
-
-	             	// Verifica se está na dentro da meta
-	             	//$textVal = ($dados_mes[$i]['valor'] >= $dados_mes[$i]['meta']) ? 'text-warning' : 'text-success';
-	             	//Define o tipo de seta e a mensagem Tooltip
+	             	
 	            	$retVal = ($dados_mes[$i]['sentido'] == 0) ? "class= 'fa fa-arrow-up pr5 '" : "class= 'fa fa-arrow-down pr5  '";
 
 	            	$tipoTooltip = $sentido;

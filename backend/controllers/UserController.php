@@ -18,6 +18,16 @@ use yii\filters\AccessControl;
  */
 class UserController extends Controller
 {
+    // criar a ação site/error
+    // https://www.yiiframework.com/doc/guide/2.0/pt-br/runtime-handling-errors
+    public function actions()
+   {
+       return [
+           'error' => [
+               'class' => 'yii\web\ErrorAction',
+           ],
+       ];
+   }    
     public function behaviors()
     {
         return [
@@ -236,7 +246,13 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        try {
+               $this->findModel($id)->delete();
+            } catch (ErrorException $e) {
+               Yii::warning("Usuário não pode ser excluído.");
+            }
+
+        
 
         return $this->redirect(['index']);
     }

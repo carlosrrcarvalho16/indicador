@@ -31,6 +31,7 @@ class TbPlanoAcao extends \yii\db\ActiveRecord
         return 'tb_plano_acao';
     }
 
+
     /**
      * @inheritdoc
      */
@@ -76,6 +77,7 @@ class TbPlanoAcao extends \yii\db\ActiveRecord
         return $this->hasOne(TbIndicador::className(), ['id' => 'indicador']);
     }
     
+    
     public static function getPlanoAcao($idIndicador){
         $idIndicador = trim($idIndicador);
         $sql = "CALL `selectPlanoAcao`('{$idIndicador}')";
@@ -83,6 +85,14 @@ class TbPlanoAcao extends \yii\db\ActiveRecord
         
         return $result;
     }
+    public static function getReportplanoacao($ano){
+        $sql = "CALL `reportPlanoAcao`('{$ano}')";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        
+        return $result;
+    }
+
+
 
     public function beforeValidate() 
     {
@@ -96,5 +106,6 @@ class TbPlanoAcao extends \yii\db\ActiveRecord
         }
 
         return parent::beforeValidate();
-    } 
+    }
+    
 }

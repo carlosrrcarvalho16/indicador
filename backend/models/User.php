@@ -51,7 +51,6 @@ class User extends \yii\db\ActiveRecord
              [['id_company'], 'required', 'message' => 'Campo "{attribute}" obrigatório'],
             ['username', 'unique', 'message' => 'Esse usuário já existe.'],
             ['email', 'unique', 'message' => 'Esse e-mail já existe.'],
-
             [['email', 'auth_key', 'password_hash'], 'required', 'message' => 'Campo "{attribute}" obrigatório'],
            // [['email', 'username', 'auth_key', 'password_hash'], 'required', 'message' => 'Campo "{attribute}" obrigatório'],
             [['name', 'email'], 'string', 'max' => 155],
@@ -112,6 +111,7 @@ class User extends \yii\db\ActiveRecord
             'password_reset_token' => 'Senha Token Reset',
             'image'                => 'Imagem',
             'active'               => 'Ativo',
+            'status'               => 'Ativo',
         ];
     }
 

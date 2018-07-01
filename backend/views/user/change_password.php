@@ -11,16 +11,16 @@ use backend\models\AuthItem;
 /* @var $model backend\models\User */
 /* @var $form yii\widgets\ActiveForm */
 
-$this->title = 'Atualizar Perfil';
-$this->params['breadcrumbs'][] = ['label' => 'Usuários', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->ID]];
-$this->params['breadcrumbs'][] = 'Atualizar Perfil';
+$this->title = 'Trocar de senha';
+//$this->params['breadcrumbs'][] = ['label' => 'Usuários', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->ID]];
+$this->params['breadcrumbs'][] = 'Trocar de senha';
 ?>
 <div class="row">
     <div class="col-md-12">
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#cadastro" data-toggle="tab">Usuário</a></li>
+                <li class="active"><a href="#cadastro" data-toggle="tab">Troca de senha de usuário</a></li>
             </ul>
             <div class="tab-content">
                 <div class="active tab-pane" id="cadastro">
@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = 'Atualizar Perfil';
                     <div class="box-footer">
                         <div class="form-group">
                             <?= Html::submitButton('Salvar', ['class' => $user->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-                            <?= Html::a('<i class="glyphicon glyphicon-chevron-left"></i> Cancelar', ['/user'], ['class' => 'btn btn-danger']); ?>
+                            <?= Html::a('<i class="glyphicon glyphicon-chevron-left"></i> Cancelar', ['/site'], ['class' => 'btn btn-danger']); ?>
                         </div>
                     </div>
                     <?php ActiveForm::end(); ?>

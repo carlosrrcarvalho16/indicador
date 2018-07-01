@@ -76,9 +76,10 @@ foreach ($graficoYTD as $value) {
 
 
 ?>
-<?php $form = ActiveForm::begin(); ?>
 <script src="/plugins/chartjs/Chart.js"></script>
 <script src="/plugins/chartjs/Chart.bundle.js"></script>
+<?php $form = ActiveForm::begin(); ?>
+
 <div class="box box-primary">
   <div class="box-header with-border">
     <h3 class="box-title">Gráficos - <?php echo $vNome; ?></h3>
