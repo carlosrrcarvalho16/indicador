@@ -27,20 +27,29 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
   CONSTRAINT `auth_assignment_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Copiando dados para a tabela indicador.auth_assignment: ~9 rows (aproximadamente)
+-- Copiando dados para a tabela indicador.auth_assignment: ~19 rows (aproximadamente)
 /*!40000 ALTER TABLE `auth_assignment` DISABLE KEYS */;
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
-	('admin', '1', 1512927094),
-	('admin', '10', 1521302067),
-	('admin', '9', 1521301998),
-	('administrativo', '2', 1521301722),
-	('administrativo', '3', 1521301785),
-	('administrativo', '4', 1521301824),
-	('administrativo', '5', 1521301859),
-	('administrativo', '6', 1521301889),
-	('administrativo', '7', 1521301919),
-	('administrativo', '8', 1521301959),
-	('administrativo', '9', 1521302024);
+	('admin', '1', 1529161153),
+	('admin', '18', 1529536275),
+	('Engenharia', '16', 1529496919),
+	('Engenharia', '17', 1529498297),
+	('Engenharia', '5', 1529496413),
+	('Meio Ambiente', '12', 1529498521),
+	('padrao', '13', 1524233248),
+	('padrao', '4', 1523982246),
+	('padrao', '5', 1529496357),
+	('padrao', '7', 1523982274),
+	('PCL', '14', 1525197684),
+	('PCL', '3', 1523984187),
+	('PCL', '9', 1529503007),
+	('Producao', '2', 1529502972),
+	('Producao', '9', 1529503017),
+	('Qualidade', '15', 1525197807),
+	('Qualidade', '2', 1523984127),
+	('Recursos Humanos', '10', 1529497808),
+	('Recursos Humanos', '17', 1529497808),
+	('Saude e segurança', '11', 1523982304);
 /*!40000 ALTER TABLE `auth_assignment` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela indicador.auth_item
@@ -59,17 +68,37 @@ CREATE TABLE IF NOT EXISTS `auth_item` (
   CONSTRAINT `auth_item_ibfk_1` FOREIGN KEY (`rule_name`) REFERENCES `auth_rule` (`name`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Copiando dados para a tabela indicador.auth_item: ~8 rows (aproximadamente)
+-- Copiando dados para a tabela indicador.auth_item: ~22 rows (aproximadamente)
 /*!40000 ALTER TABLE `auth_item` DISABLE KEYS */;
 INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
 	('admin', 1, 'Grupo Principal do Sistema', NULL, NULL, 1512849006, 1512849006),
 	('administrativo', 1, 'Grupo Administrativo Empresas', NULL, NULL, 1512932645, 1512932645),
-	('createCompany', 2, 'Criar novas Empresas', NULL, NULL, 1513205639, 1513205639),
+	('Engenharia', 1, 'Grupo de atualização da Engenharia', NULL, NULL, 1523981996, 1523981996),
+	('guest', 2, 'Usuário convidado', NULL, NULL, 1523982183, 1523982183),
+	('ICIM LEAN', 1, 'Grupo de atualização de ICIM & LEAN', NULL, NULL, 1523982037, 1523982037),
 	('manageCompany', 2, 'Gerenciar empresa', NULL, NULL, 1512849953, 1512849953),
+	('manageDepartament', 2, 'Manter Departamentos', NULL, NULL, 1529019546, 1529019546),
 	('manageGroup', 2, 'Gerenciar Grupos de Usuários', NULL, NULL, 1513203105, 1513203105),
+	('manageIndicador', 2, 'Manter Indicador', NULL, NULL, 1529062488, 1529062488),
 	('managePermission', 2, 'Gerenciar Permissões', NULL, NULL, 1512860575, 1512860575),
 	('manageUser', 2, 'Gerenciar Usuários', NULL, NULL, 1512849953, 1512849953),
-	('padrao', 1, 'Acesso de Funcionalidades Limitadas', NULL, NULL, 1512932670, 1512932670);
+	('Meio Ambiente', 1, 'Grupo de atualização do Meio Ambiente', NULL, NULL, 1523981913, 1523981913),
+	('padrao', 1, 'Usuário padrão, convidado', NULL, NULL, 1523982218, 1523982218),
+	('PCL', 1, 'Grupo de atualização de PC&L', NULL, NULL, 1523982076, 1523982076),
+	('Producao', 1, 'Grupo de atualização da Produção', NULL, NULL, 1523981949, 1523981949),
+	('Qualidade', 1, 'Grupo de atualização de dados da Qualidade', NULL, NULL, 1523981629, 1523981629),
+	('Recursos Humanos', 1, 'Grupo de atualização de dados do RH', NULL, NULL, 1523981738, 1523981738),
+	('Saude e segurança', 1, 'Grupo de atualização de Saúde e segurança', NULL, NULL, 1523981863, 1523981863),
+	('updateCompras', 2, 'Atualiza Compras', NULL, NULL, 1523981359, 1523981359),
+	('updateDataMonth', 2, 'Menu atualizar dados -> Dados Mes', NULL, NULL, 1526685693, 1526685693),
+	('updateEngenharia', 2, 'Atualiza Engenharia', NULL, NULL, 1523981021, 1523981021),
+	('updateIcimLeam', 2, 'Atualiza ICIM & LEAN', NULL, NULL, 1523981053, 1523981053),
+	('updateMeioAmbiente', 2, 'Atualiza Meio Ambiente', NULL, NULL, 1523980930, 1523980930),
+	('updatePCL', 2, 'Atualiza PC&L', NULL, NULL, 1523981075, 1523981075),
+	('updateProducao', 2, 'Atualiza Produção', NULL, NULL, 1523980999, 1523980999),
+	('updateQualidade', 2, 'Atualiza Qualidade', NULL, NULL, 1523980956, 1523980956),
+	('updateRecursosHumanos', 2, 'Atualiza RH', NULL, NULL, 1523980827, 1523980827),
+	('updateSaudeSegurança', 2, 'Atualiza Saúde e segurança', NULL, NULL, 1523980911, 1523980911);
 /*!40000 ALTER TABLE `auth_item` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela indicador.auth_item_child
@@ -83,13 +112,42 @@ CREATE TABLE IF NOT EXISTS `auth_item_child` (
   CONSTRAINT `auth_item_child_ibfk_2` FOREIGN KEY (`child`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Copiando dados para a tabela indicador.auth_item_child: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela indicador.auth_item_child: ~33 rows (aproximadamente)
 /*!40000 ALTER TABLE `auth_item_child` DISABLE KEYS */;
 INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
 	('admin', 'manageCompany'),
+	('admin', 'manageDepartament'),
 	('admin', 'manageGroup'),
+	('admin', 'manageIndicador'),
 	('admin', 'managePermission'),
-	('admin', 'manageUser');
+	('admin', 'manageUser'),
+	('admin', 'updateCompras'),
+	('admin', 'updateDataMonth'),
+	('admin', 'updateEngenharia'),
+	('admin', 'updateIcimLeam'),
+	('admin', 'updateMeioAmbiente'),
+	('admin', 'updatePCL'),
+	('admin', 'updateProducao'),
+	('admin', 'updateQualidade'),
+	('admin', 'updateRecursosHumanos'),
+	('admin', 'updateSaudeSegurança'),
+	('Engenharia', 'updateDataMonth'),
+	('Engenharia', 'updateEngenharia'),
+	('ICIM LEAN', 'updateDataMonth'),
+	('ICIM LEAN', 'updateIcimLeam'),
+	('Meio Ambiente', 'updateDataMonth'),
+	('Meio Ambiente', 'updateMeioAmbiente'),
+	('padrao', 'guest'),
+	('PCL', 'updateDataMonth'),
+	('PCL', 'updatePCL'),
+	('Producao', 'updateDataMonth'),
+	('Producao', 'updateProducao'),
+	('Qualidade', 'updateDataMonth'),
+	('Qualidade', 'updateQualidade'),
+	('Recursos Humanos', 'updateDataMonth'),
+	('Recursos Humanos', 'updateRecursosHumanos'),
+	('Saude e segurança', 'updateDataMonth'),
+	('Saude e segurança', 'updateSaudeSegurança');
 /*!40000 ALTER TABLE `auth_item_child` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela indicador.auth_rule
@@ -146,6 +204,30 @@ CREATE TABLE IF NOT EXISTS `conf_email` (
 INSERT INTO `conf_email` (`ID`, `id_company`, `id_user`, `from_name`, `host_smtp`, `port`, `security`, `from_email`, `password`, `active`) VALUES
 	(1, 0, NULL, 'Indicador Nexteer', 'forwarder.nexteer.com', 25, '', 'indicador@nexteer.com', '', 'Y');
 /*!40000 ALTER TABLE `conf_email` ENABLE KEYS */;
+
+-- Copiando estrutura para função indicador.fn_PlanosAcaoAbertos
+DROP FUNCTION IF EXISTS `fn_PlanosAcaoAbertos`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` FUNCTION `fn_PlanosAcaoAbertos`(
+	`vAno` INT
+
+) RETURNS int(11)
+    DETERMINISTIC
+RETURN (select count(pa.idPlano) as Abertos from tb_plano_acao as pa
+		where pa.ano = vAno and pa.`status` = 'Aberto')//
+DELIMITER ;
+
+-- Copiando estrutura para função indicador.fn_PlanosAcaoAtrazados
+DROP FUNCTION IF EXISTS `fn_PlanosAcaoAtrazados`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` FUNCTION `fn_PlanosAcaoAtrazados`(
+	`vAno` INT
+
+) RETURNS int(11)
+    DETERMINISTIC
+RETURN (select count(pa.idPlano) as Atrazadas from tb_plano_acao as pa
+		where pa.ano = vAno and pa.`status` = 'Aberto' and pa.prazo < NOW())//
+DELIMITER ;
 
 -- Copiando estrutura para tabela indicador.migration
 DROP TABLE IF EXISTS `migration`;
@@ -215,6 +297,41 @@ sum(if(d.sentido = 0,(if(d.valor < d.meta, 1, 0)),(if(d.valor > d.meta, 1, 0))))
 END//
 DELIMITER ;
 
+-- Copiando estrutura para procedure indicador.reportPlanoAcao
+DROP PROCEDURE IF EXISTS `reportPlanoAcao`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `reportPlanoAcao`(
+	IN `vAno` INT
+)
+    COMMENT 'Relatório de plano de ações por ano'
+SELECT
+pa.`status` as 'Status',  
+c.departamento as 'Departamento', 
+i.nome as 'Indicador', 
+pa.ano as 'Ano', 
+pa.item as 'Item', 
+pa.descricao_problema as 'Descrição', 
+pa.plano_acao as 'Plano',
+pa.responsavel as 'Responsável', 
+pa.abertura, pa.prazo, 
+ (SELECT DATEDIFF(pa.prazo, pa.abertura)) as 'TotalDias',
+ (SELECT DATEDIFF(CURDATE(),  pa.abertura)) as 'DiasCorridos',
+ (((SELECT DATEDIFF(CURDATE(),  pa.abertura))/ ((SELECT DATEDIFF(pa.prazo, pa.abertura))))*100) as 'Percentual'
+FROM tb_plano_acao as pa
+INNER JOIN tb_indicador as i ON pa.indicador = i.id
+INNER JOIN tb_departaments as c ON c.id = i.departamentoID
+WHERE pa.ano =vAno ORDER BY c.departamento,i.nome,status,abertura asc//
+DELIMITER ;
+
+-- Copiando estrutura para procedure indicador.selectAnos
+DROP PROCEDURE IF EXISTS `selectAnos`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectAnos`()
+    COMMENT 'Retorna os anos encontrados na tabela tb_dadosmes'
+select da.ano from tb_dadosmes as da
+group by da.ano//
+DELIMITER ;
+
 -- Copiando estrutura para procedure indicador.selectDadosIndicadorMes
 DROP PROCEDURE IF EXISTS `selectDadosIndicadorMes`;
 DELIMITER //
@@ -233,6 +350,7 @@ DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `selectDepartamento`(
 	IN `vMes` INT(1),
 	IN `vAno` INT(4)
+
 
 
 )
@@ -275,12 +393,27 @@ join (
 		group by ca.departamento
 	) as va 
 	on idDep = dep.id
-where ind.ano = vAno and dep.active = 'Y'
+where ind.ano = vAno and dep.active = 'Y' and ind.active = 'Y'
 group by 
        dep.id,
        dep.departamento
 order by 
 		dep.departamento//
+DELIMITER ;
+
+-- Copiando estrutura para procedure indicador.selectDepartamentoAuth
+DROP PROCEDURE IF EXISTS `selectDepartamentoAuth`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectDepartamentoAuth`(
+	IN `vGrupo` CHAR(50)
+)
+select dep.id, dep.departamento from tb_departaments as dep
+inner join  
+(select * from auth_item_child as auch
+where auch.parent = vGrupo) as autorizacao
+on dep.`group`= autorizacao.child
+group by dep.departamento
+order by dep.departamento asc//
 DELIMITER ;
 
 -- Copiando estrutura para procedure indicador.selectIndicadorAno
@@ -298,12 +431,123 @@ DELIMITER ;
 -- Copiando estrutura para procedure indicador.selectPlanoAcao
 DROP PROCEDURE IF EXISTS `selectPlanoAcao`;
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `selectPlanoAcao`(IN `vIdIndicador` INT(11))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectPlanoAcao`(
+	IN `vIdIndicador` INT(11)
+
+)
     NO SQL
-BEGIN
-SELECT * FROM tb_plano_acao
-WHERE indicador =vIdIndicador ORDER BY status,abertura asc;
-END//
+SELECT  
+pa.idPlano, pa.indicador, pa.ano, pa.mes, pa.item, pa.descricao_problema, pa.plano_acao,
+pa.responsavel, pa.abertura, pa.prazo, pa.`status`,
+ (SELECT DATEDIFF(pa.prazo, pa.abertura)) as 'TotalDias',
+ (SELECT DATEDIFF(CURDATE(),  pa.abertura)) as 'DiasCorridos',
+ (((SELECT DATEDIFF(CURDATE(),  pa.abertura))/ ((SELECT DATEDIFF(pa.prazo, pa.abertura))))*100) as 'Percentual'
+FROM tb_plano_acao as pa
+WHERE indicador =vIdIndicador ORDER BY status,abertura asc//
+DELIMITER ;
+
+-- Copiando estrutura para procedure indicador.selectPlanosVencidos
+DROP PROCEDURE IF EXISTS `selectPlanosVencidos`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectPlanosVencidos`(
+	IN `vAno` INT
+)
+select u.ID as ID_usuario, u.name, de.id as ID_Dep, de.departamento as Departamento, ind.nome as Indicador ,
+pa.descricao_problema, pa.plano_acao,pa.responsavel
+ from tb_plano_acao as pa
+inner join tb_indicador as ind on ind.id = pa.indicador
+join tb_departaments as de on de.id = ind.departamentoID
+join user as u on u.ID= de.managerUserId
+	where pa.ano = vAno and pa.`status` = 'Aberto' and pa.prazo < NOW()//
+DELIMITER ;
+
+-- Copiando estrutura para procedure indicador.selectQtdDepartamentoPlanosAcao
+DROP PROCEDURE IF EXISTS `selectQtdDepartamentoPlanosAcao`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectQtdDepartamentoPlanosAcao`(
+	IN `vAno` INT
+
+
+
+)
+    COMMENT 'Procedimento para retornar os departamentos com planos de ações atrazados'
+select 
+Abertos.usuarioId,
+Abertos.usuarioNome,
+Abertos.departamento,
+Abertos.indicadorNome , Abertos.TotalAbertos, Atrasados.TotalAtrasados
+from
+(
+select u.ID as usuarioId, u.name as usuarioNome, 
+dep.departamento, pa.idPlano as planoId, 
+ind.nome as indicadorNome, count(pa.idPlano) as TotalAtrasados 
+from tb_plano_acao as pa
+inner join tb_indicador as ind on (ind.id = pa.indicador)
+inner join tb_departaments as dep
+on ind.departamentoID = dep.id
+inner join user as u
+on dep.managerUserId = u.ID
+where pa.ano = vAno and pa.`status` = 'Aberto' and pa.prazo < NOW()
+group by dep.departamento
+		) as Atrasados
+Right JOIN		
+(
+select u.ID as usuarioId, u.name as usuarioNome, 
+dep.departamento, pa.idPlano as planoId, 
+ind.nome as indicadorNome, count(pa.idPlano) as TotalAbertos 
+from tb_plano_acao as pa
+inner join tb_indicador as ind on (ind.id = pa.indicador)
+inner join tb_departaments as dep
+on ind.departamentoID = dep.id
+inner join user as u
+on dep.managerUserId = u.ID
+where pa.ano = vAno and pa.`status` = 'Aberto'
+group by dep.departamento
+		) as Abertos
+on Abertos.departamento = Atrasados.departamento
+order by Abertos.departamento asc//
+DELIMITER ;
+
+-- Copiando estrutura para procedure indicador.selectQtdDepartamentoPlanosAcaoTodos
+DROP PROCEDURE IF EXISTS `selectQtdDepartamentoPlanosAcaoTodos`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectQtdDepartamentoPlanosAcaoTodos`()
+select 
+Abertos.ano,
+Abertos.usuarioId,
+Abertos.usuarioNome,
+Abertos.departamento,
+Abertos.indicadorNome , Abertos.TotalAbertos, Atrasados.TotalAtrasados
+from
+(
+		select pa.ano, u.ID as usuarioId, u.name as usuarioNome,
+			dep.departamento, pa.idPlano as planoId, 
+			ind.nome as indicadorNome, count(pa.idPlano) as TotalAtrasados 
+		from tb_plano_acao as pa
+			inner join tb_indicador as ind on (ind.id = pa.indicador)
+			inner join tb_departaments as dep
+			on ind.departamentoID = dep.id
+			inner join user as u
+			on dep.managerUserId = u.ID
+		where  pa.`status` = 'Aberto' and pa.prazo < NOW()
+		group by dep.departamento, pa.ano
+		) as Atrasados
+Right JOIN		
+(
+		select pa.ano, u.ID as usuarioId, u.name as usuarioNome, 
+			dep.departamento, pa.idPlano as planoId,  
+			ind.nome as indicadorNome, count(pa.idPlano) as TotalAbertos 
+		from tb_plano_acao as pa
+			inner join tb_indicador as ind on (ind.id = pa.indicador)
+			inner join tb_departaments as dep
+			on ind.departamentoID = dep.id
+			inner join user as u
+			on dep.managerUserId = u.ID
+		where pa.`status` = 'Aberto'
+		group by dep.departamento, pa.ano
+		) as Abertos
+on Abertos.departamento = Atrasados.departamento and Abertos.ano = Atrasados.ano
+order by Abertos.ano, Abertos.departamento asc//
 DELIMITER ;
 
 -- Copiando estrutura para procedure indicador.selectTb_dadosmesAno
@@ -324,14 +568,18 @@ DELIMITER ;
 -- Copiando estrutura para procedure indicador.selectTb_dadosmesAnoMes
 DROP PROCEDURE IF EXISTS `selectTb_dadosmesAnoMes`;
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `selectTb_dadosmesAnoMes`(IN `id_departamento` INT(5), IN `vAno` VARCHAR(2018), IN `vMes` INT(1))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectTb_dadosmesAnoMes`(
+	IN `id_departamento` INT(5),
+	IN `vAno` VARCHAR(2018),
+	IN `vMes` INT(1)
+)
 BEGIN 
 	
 	SELECT d.id as 'ID Mes', c.id  as 'ID Dep', d.idIndicador as 'ID Indicador',c.departamento, i.nome,i.descricao , d.ano ,d.mes, d.valor, d.meta, d.sentido 
 	FROM tb_dadosmes as d 
 	INNER JOIN tb_indicador as i ON d.idIndicador = i.id
    INNER JOIN tb_departaments as c ON c.id = i.departamentoID
-	WHERE c.id = id_departamento and d.ano = vAno and d.mes = vMes
+	WHERE c.id = id_departamento and d.ano = vAno and d.mes = vMes and i.active = 'Y'
 	ORDER BY i.nome ASC;
 	
 END//
@@ -371,12 +619,12 @@ CREATE TABLE IF NOT EXISTS `tb_dadosmes` (
   CONSTRAINT `fk_dadosMes_criadoPor_modificadoPor` FOREIGN KEY (`modificadoPor`) REFERENCES `user` (`ID`),
   CONSTRAINT `fk_dadosMes_criadoPor_userID` FOREIGN KEY (`criadoPor`) REFERENCES `user` (`ID`),
   CONSTRAINT `fk_dadosMes_idIndicador_ID` FOREIGN KEY (`idIndicador`) REFERENCES `tb_indicador` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5004 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5016 DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela indicador.tb_dadosmes: ~2.620 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_dadosmes` DISABLE KEYS */;
 INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `meta`, `sentido`, `ano`, `criadoPor`, `dataCriacao`, `modificadoPor`, `dataModificacao`) VALUES
-	(2359, 4.76, 4, NULL, '2018-03-14', 1, 9, 0, '2015', 1, '2018-03-15', NULL, NULL),
+	(2359, 4.76, 4, NULL, '2018-03-14', 1, 9, 0, '2015', 1, '2018-03-15', 1, '2018-04-18'),
 	(2360, 12, 4, NULL, '2018-03-14', 2, 9, 0, '2015', 1, '2018-03-15', NULL, NULL),
 	(2361, 14.8, 4, NULL, '2018-03-14', 3, 9, 0, '2015', 1, '2018-03-15', NULL, NULL),
 	(2362, 16.58, 4, NULL, '2018-03-14', 4, 9, 0, '2015', 1, '2018-03-15', NULL, NULL),
@@ -544,11 +792,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2536, 0, 17, NULL, '2018-03-14', 11, 1, 1, '2017', 1, '2018-03-15', NULL, NULL),
 	(2537, 0, 17, NULL, '2018-03-14', 12, 1, 1, '2017', 1, '2018-03-15', NULL, NULL),
 	(2538, 1.78, 18, NULL, '2018-03-14', 1, 5, 0, '2017', 1, '2018-03-15', NULL, NULL),
-	(2539, 1.5, 19, NULL, '2018-03-14', 1, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(2539, 1.5, 19, NULL, '2018-03-14', 1, 1, 1, '2018', 1, '2018-03-15', 1, '2018-04-18'),
 	(2540, 1.23, 19, NULL, '2018-03-14', 2, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2541, 1.33, 19, NULL, '2018-03-14', 3, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2542, NULL, 19, NULL, '2018-03-14', 4, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2543, NULL, 19, NULL, '2018-03-14', 5, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(2541, 1.33, 19, 1.36, '2018-03-14', 3, 1, 1, '2018', 1, '2018-03-15', 10, '2018-05-01'),
+	(2542, 0.91, 19, 1.36, '2018-03-14', 4, 1, 1, '2018', 1, '2018-03-15', 10, '2018-06-20'),
+	(2543, 0.89, 19, 1.36, '2018-03-14', 5, 1, 1, '2018', 1, '2018-03-15', 10, '2018-06-20'),
 	(2544, NULL, 19, NULL, '2018-03-14', 6, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2545, NULL, 19, NULL, '2018-03-14', 7, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2546, NULL, 19, NULL, '2018-03-14', 8, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -556,11 +804,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2548, NULL, 19, NULL, '2018-03-14', 10, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2549, NULL, 19, NULL, '2018-03-14', 11, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2550, NULL, 19, NULL, '2018-03-14', 12, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2551, 4.27, 20, NULL, '2018-03-14', 1, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2552, 5.08, 20, NULL, '2018-03-14', 2, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2553, 4.21, 20, NULL, '2018-03-14', 3, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2554, NULL, 20, NULL, '2018-03-14', 4, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2555, NULL, 20, NULL, '2018-03-14', 5, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(2551, 4.28, 20, 4.28, '2018-03-14', 1, 6, 0, '2018', 1, '2018-03-15', 10, '2018-05-01'),
+	(2552, 5.08, 20, 5.08, '2018-03-14', 2, 6, 0, '2018', 1, '2018-03-15', 10, '2018-05-01'),
+	(2553, 4.21, 20, 4.22, '2018-03-14', 3, 6, 0, '2018', 1, '2018-03-15', 10, '2018-05-01'),
+	(2554, 4.22, 20, NULL, '2018-03-14', 4, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(2555, 3.58, 20, 3.86, '2018-03-14', 5, 6, 0, '2018', 1, '2018-03-15', 10, '2018-06-20'),
 	(2556, NULL, 20, NULL, '2018-03-14', 6, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2557, NULL, 20, NULL, '2018-03-14', 7, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2558, NULL, 20, NULL, '2018-03-14', 8, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -568,11 +816,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2560, NULL, 20, NULL, '2018-03-14', 10, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2561, NULL, 20, NULL, '2018-03-14', 11, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2562, NULL, 20, NULL, '2018-03-14', 12, 6, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2563, 6.09, 21, NULL, '2018-03-14', 1, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2564, 5.57, 21, NULL, '2018-03-14', 2, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2565, 6.87, 21, NULL, '2018-03-14', 3, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2566, NULL, 21, NULL, '2018-03-14', 4, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2567, NULL, 21, NULL, '2018-03-14', 5, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(2563, 6.09, 21, 6.09, '2018-03-14', 1, 5, 1, '2018', 1, '2018-03-15', 10, '2018-05-01'),
+	(2564, 5.57, 21, 5.57, '2018-03-14', 2, 5, 1, '2018', 1, '2018-03-15', 10, '2018-05-01'),
+	(2565, 6.87, 21, 6.39, '2018-03-14', 3, 5, 1, '2018', 1, '2018-03-15', 10, '2018-05-01'),
+	(2566, 5.2, 21, 6.39, '2018-03-14', 4, 5, 1, '2018', 1, '2018-03-15', 10, '2018-06-20'),
+	(2567, 3.38, 21, 6.39, '2018-03-14', 5, 5, 1, '2018', 1, '2018-03-15', 10, '2018-06-20'),
 	(2568, NULL, 21, NULL, '2018-03-14', 6, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2569, NULL, 21, NULL, '2018-03-14', 7, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2570, NULL, 21, NULL, '2018-03-14', 8, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -580,11 +828,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2572, NULL, 21, NULL, '2018-03-14', 10, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2573, NULL, 21, NULL, '2018-03-14', 11, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2574, NULL, 21, NULL, '2018-03-14', 12, 5, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2575, 2.37, 22, NULL, '2018-03-14', 1, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2576, 1.1, 22, NULL, '2018-03-14', 2, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2577, 1.07, 22, NULL, '2018-03-14', 3, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2578, NULL, 22, NULL, '2018-03-14', 4, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2579, NULL, 22, NULL, '2018-03-14', 5, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(2575, 2.37, 22, 2.37, '2018-03-14', 1, 1, 1, '2018', 1, '2018-03-15', 10, '2018-05-01'),
+	(2576, 1.1, 22, 1.1, '2018-03-14', 2, 1, 1, '2018', 1, '2018-03-15', 10, '2018-05-01'),
+	(2577, 1.07, 22, 1.23, '2018-03-14', 3, 1, 1, '2018', 1, '2018-03-15', 10, '2018-05-01'),
+	(2578, 1.39, 22, 1.23, '2018-03-14', 4, 1, 1, '2018', 1, '2018-03-15', 10, '2018-06-20'),
+	(2579, 2.39, 22, 1.23, '2018-03-14', 5, 1, 1, '2018', 1, '2018-03-15', 10, '2018-06-20'),
 	(2580, NULL, 22, NULL, '2018-03-14', 6, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2581, NULL, 22, NULL, '2018-03-14', 7, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2582, NULL, 22, NULL, '2018-03-14', 8, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -808,11 +1056,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2800, 92, 128, NULL, '2018-03-14', 10, 90, 0, '2017', 1, '2018-03-15', NULL, NULL),
 	(2801, 91, 128, NULL, '2018-03-14', 11, 90, 0, '2017', 1, '2018-03-15', NULL, NULL),
 	(2802, 90, 128, NULL, '2018-03-14', 12, 90, 0, '2017', 1, '2018-03-15', NULL, NULL),
-	(2803, 0, 129, NULL, '2018-03-14', 1, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2804, 0, 129, NULL, '2018-03-14', 2, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2805, 1, 129, NULL, '2018-03-14', 3, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2806, NULL, 129, NULL, '2018-03-14', 4, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2807, NULL, 129, NULL, '2018-03-14', 5, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(2803, 0, 129, 0, '2018-03-14', 1, 0, 1, '2018', 1, '2018-03-15', 11, '2018-05-01'),
+	(2804, 0, 129, 0, '2018-03-14', 2, 0, 1, '2018', 1, '2018-03-15', 11, '2018-05-01'),
+	(2805, 1, 129, 1, '2018-03-14', 3, 0, 1, '2018', 1, '2018-03-15', 11, '2018-05-01'),
+	(2806, 0, 129, 0, '2018-03-14', 4, 0, 1, '2018', 1, '2018-03-15', 11, '2018-06-20'),
+	(2807, 0, 129, 0, '2018-03-14', 5, 0, 1, '2018', 1, '2018-03-15', 11, '2018-06-20'),
 	(2808, NULL, 129, NULL, '2018-03-14', 6, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2809, NULL, 129, NULL, '2018-03-14', 7, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2810, NULL, 129, NULL, '2018-03-14', 8, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -823,8 +1071,8 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2815, 1984, 130, NULL, '2018-03-14', 1, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2816, 2012, 130, NULL, '2018-03-14', 2, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2817, 24, 130, NULL, '2018-03-14', 3, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2818, NULL, 130, NULL, '2018-03-14', 4, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2819, NULL, 130, NULL, '2018-03-14', 5, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(2818, 54, 130, 0, '2018-03-14', 4, 0, 0, '2018', 1, '2018-03-15', 11, '2018-06-20'),
+	(2819, 85, 130, 831, '2018-03-14', 5, 0, 0, '2018', 1, '2018-03-15', 11, '2018-06-20'),
 	(2820, NULL, 130, NULL, '2018-03-14', 6, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2821, NULL, 130, NULL, '2018-03-14', 7, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2822, NULL, 130, NULL, '2018-03-14', 8, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -834,9 +1082,9 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2826, NULL, 130, NULL, '2018-03-14', 12, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2827, 90, 131, NULL, '2018-03-14', 1, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2828, 90, 131, NULL, '2018-03-14', 2, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2829, 0, 131, NULL, '2018-03-14', 3, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2830, NULL, 131, NULL, '2018-03-14', 4, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2831, NULL, 131, NULL, '2018-03-14', 5, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(2829, 93, 131, 90, '2018-03-14', 3, 90, 0, '2018', 1, '2018-03-15', 11, '2018-06-20'),
+	(2830, 91, 131, 90, '2018-03-14', 4, 90, 0, '2018', 1, '2018-03-15', 11, '2018-06-20'),
+	(2831, 91, 131, 91, '2018-03-14', 5, 90, 0, '2018', 1, '2018-03-15', 11, '2018-06-20'),
 	(2832, NULL, 131, NULL, '2018-03-14', 6, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2833, NULL, 131, NULL, '2018-03-14', 7, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2834, NULL, 131, NULL, '2018-03-14', 8, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -846,9 +1094,9 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2838, NULL, 131, NULL, '2018-03-14', 12, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2839, 0, 132, NULL, '2018-03-14', 1, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2840, 0, 132, NULL, '2018-03-14', 2, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2841, 0, 132, NULL, '2018-03-14', 3, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2842, NULL, 132, NULL, '2018-03-14', 4, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2843, NULL, 132, NULL, '2018-03-14', 5, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(2841, 1, 132, 0, '2018-03-14', 3, 0, 1, '2018', 1, '2018-03-15', 11, '2018-06-20'),
+	(2842, 0, 132, 0, '2018-03-14', 4, 0, 1, '2018', 1, '2018-03-15', 11, '2018-06-20'),
+	(2843, 0, 132, 0, '2018-03-14', 5, 0, 1, '2018', 1, '2018-03-15', 11, '2018-06-20'),
 	(2844, NULL, 132, NULL, '2018-03-14', 6, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2845, NULL, 132, NULL, '2018-03-14', 7, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2846, NULL, 132, NULL, '2018-03-14', 8, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -858,9 +1106,9 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2850, NULL, 132, NULL, '2018-03-14', 12, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2851, 1, 133, NULL, '2018-03-14', 1, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2852, 2, 133, NULL, '2018-03-14', 2, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2853, NULL, 133, NULL, '2018-03-14', 3, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2854, NULL, 133, NULL, '2018-03-14', 4, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2855, NULL, 133, NULL, '2018-03-14', 5, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(2853, 0, 133, 0, '2018-03-14', 3, 0, 1, '2018', 1, '2018-03-15', 11, '2018-06-20'),
+	(2854, 0, 133, 0.6, '2018-03-14', 4, 0, 1, '2018', 1, '2018-03-15', 11, '2018-06-20'),
+	(2855, 0, 133, 0.6, '2018-03-14', 5, 0, 1, '2018', 1, '2018-03-15', 11, '2018-06-20'),
 	(2856, NULL, 133, NULL, '2018-03-14', 6, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2857, NULL, 133, NULL, '2018-03-14', 7, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2858, NULL, 133, NULL, '2018-03-14', 8, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -868,11 +1116,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2860, NULL, 133, NULL, '2018-03-14', 10, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2861, NULL, 133, NULL, '2018-03-14', 11, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2862, NULL, 133, NULL, '2018-03-14', 12, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2863, 90, 134, NULL, '2018-03-14', 1, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2864, 80, 134, NULL, '2018-03-14', 2, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2865, 0, 134, NULL, '2018-03-14', 3, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2866, NULL, 134, NULL, '2018-03-14', 4, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(2867, NULL, 134, NULL, '2018-03-14', 5, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(2863, 90, 134, 90, '2018-03-14', 1, 90, 1, '2018', 1, '2018-03-15', 1, '2018-06-20'),
+	(2864, 80, 134, 0, '2018-03-14', 2, 90, 1, '2018', 1, '2018-03-15', 1, '2018-06-20'),
+	(2865, 84, 134, 85.2, '2018-03-14', 3, 90, 1, '2018', 1, '2018-03-15', 1, '2018-06-20'),
+	(2866, 85, 134, 85.2, '2018-03-14', 4, 90, 1, '2018', 1, '2018-03-15', 1, '2018-06-20'),
+	(2867, 87, 134, 85.2, '2018-03-14', 5, 90, 1, '2018', 1, '2018-03-15', 1, '2018-06-20'),
 	(2868, NULL, 134, NULL, '2018-03-14', 6, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2869, NULL, 134, NULL, '2018-03-14', 7, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(2870, NULL, 134, NULL, '2018-03-14', 8, 90, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -976,11 +1224,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2968, 0.29, 241, NULL, '2018-03-14', 10, 0.56, 1, '2017', 1, '2018-03-15', NULL, NULL),
 	(2969, 0.44, 241, NULL, '2018-03-14', 11, 0.56, 1, '2017', 1, '2018-03-15', NULL, NULL),
 	(2970, 0.48, 241, NULL, '2018-03-14', 12, 0.56, 1, '2017', 1, '2018-03-15', NULL, NULL),
-	(2971, 7.74, 243, 8.3, '2018-03-14', 1, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2972, 8.76, 243, 8.3, '2018-03-14', 2, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2973, 8.42, 243, 8.3, '2018-03-14', 3, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2974, NULL, 243, NULL, '2018-03-14', 4, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2975, NULL, 243, NULL, '2018-03-14', 5, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(2971, 6.82, 243, 8.3, '2018-03-14', 1, 5.91, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2972, 9.07, 243, 8.3, '2018-03-14', 2, 5.91, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2973, 8.01, 243, 8.3, '2018-03-14', 3, 5.91, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2974, 7.02, 243, 6.82, '2018-03-14', 4, 5.91, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2975, 8.31, 243, 7.7, '2018-03-14', 5, 5.91, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
 	(2976, NULL, 243, NULL, '2018-03-14', 6, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2977, NULL, 243, NULL, '2018-03-14', 7, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2978, NULL, 243, NULL, '2018-03-14', 8, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -988,11 +1236,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2980, NULL, 243, NULL, '2018-03-14', 10, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2981, NULL, 243, NULL, '2018-03-14', 11, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2982, NULL, 243, NULL, '2018-03-14', 12, 5.91, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2983, 0.52, 244, 0.52, '2018-03-14', 1, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2984, 0.59, 244, 0.5, '2018-03-14', 2, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2985, 0.6, 244, 0.56, '2018-03-14', 3, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2986, NULL, 244, NULL, '2018-03-14', 4, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2987, NULL, 244, NULL, '2018-03-14', 5, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(2983, 0.46, 244, 0.52, '2018-03-14', 1, 0.45, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2984, 0.61, 244, 0.5, '2018-03-14', 2, 0.45, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2985, 0.57, 244, 0.56, '2018-03-14', 3, 0.45, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2986, 0.39, 244, 0.51, '2018-03-14', 4, 0.45, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2987, 0.66, 244, 0.51, '2018-03-14', 5, 0.45, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
 	(2988, NULL, 244, NULL, '2018-03-14', 6, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2989, NULL, 244, NULL, '2018-03-14', 7, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2990, NULL, 244, NULL, '2018-03-14', 8, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -1000,11 +1248,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(2992, NULL, 244, NULL, '2018-03-14', 10, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2993, NULL, 244, NULL, '2018-03-14', 11, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(2994, NULL, 244, NULL, '2018-03-14', 12, 0.45, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2995, 0.53, 245, 0.53, '2018-03-14', 1, 0.33, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2996, 0.32, 245, 0.4, '2018-03-14', 2, 0.33, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2997, 0.63, 245, 0.43, '2018-03-14', 3, 0.33, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2998, NULL, 245, NULL, '2018-03-14', 4, 0.33, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(2999, NULL, 245, NULL, '2018-03-14', 5, 0.33, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(2995, 0.47, 245, 0.53, '2018-03-14', 1, 0.33, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2996, 0.34, 245, 0.4, '2018-03-14', 2, 0.33, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2997, 0.6, 245, 0.43, '2018-03-14', 3, 0.33, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2998, 0.27, 245, 0.42, '2018-03-14', 4, 0.33, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(2999, 0.32, 245, 0.47, '2018-03-14', 5, 0.33, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
 	(3000, NULL, 245, NULL, '2018-03-14', 6, 0.33, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(3001, NULL, 245, NULL, '2018-03-14', 7, 0.33, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(3002, NULL, 245, NULL, '2018-03-14', 8, 0.33, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -1666,7 +1914,7 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(3658, 0, 80, NULL, '2018-03-14', 12, 80, 0, '2017', 1, '2018-03-15', NULL, NULL),
 	(3659, 100, 81, NULL, '2018-03-14', 1, 100, 0, '2017', 1, '2018-03-15', NULL, NULL),
 	(3660, 100, 81, NULL, '2018-03-14', 2, 100, 0, '2017', 1, '2018-03-15', NULL, NULL),
-	(3661, 100, 81, NULL, '2018-03-14', 3, 100, 0, '2017', 1, '2018-03-15', NULL, NULL),
+	(3661, 100, 81, 100, '2018-03-14', 3, 100, 0, '2017', 1, '2018-03-15', 1, '2018-04-20'),
 	(3662, 100, 81, NULL, '2018-03-14', 4, 100, 0, '2017', 1, '2018-03-15', NULL, NULL),
 	(3663, 99, 81, NULL, '2018-03-14', 5, 100, 0, '2017', 1, '2018-03-15', NULL, NULL),
 	(3664, 100, 81, NULL, '2018-03-14', 6, 100, 0, '2017', 1, '2018-03-15', NULL, NULL),
@@ -1725,9 +1973,9 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(3717, NULL, 86, NULL, '2018-03-14', 11, 11261, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(3718, NULL, 86, NULL, '2018-03-14', 12, 11261, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(3719, 0.73, 87, NULL, '2018-03-14', 1, 0.6, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(3720, 0.66, 87, NULL, '2018-03-14', 2, 0.6, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(3721, 0.45, 87, NULL, '2018-03-14', 3, 0.6, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(3722, 0.48, 87, NULL, '2018-03-14', 4, 0.6, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(3720, 0.7, 87, 0.7, '2018-03-14', 2, 0.6, 1, '2018', 1, '2018-03-15', 1, '2018-05-01'),
+	(3721, 0.52, 87, 0.69, '2018-03-14', 3, 0.6, 1, '2018', 1, '2018-03-15', 1, '2018-05-01'),
+	(3722, 0.52, 87, 0.62, '2018-03-14', 4, 0.6, 1, '2018', 1, '2018-03-15', 1, '2018-05-01'),
 	(3723, NULL, 87, NULL, '2018-03-14', 5, 0.6, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(3724, NULL, 87, NULL, '2018-03-14', 6, 0.6, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(3725, NULL, 87, NULL, '2018-03-14', 7, 0.6, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -1964,10 +2212,10 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(3956, NULL, 106, NULL, '2018-03-14', 10, 80, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(3957, NULL, 106, NULL, '2018-03-14', 11, 80, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(3958, NULL, 106, NULL, '2018-03-14', 12, 80, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(3959, 100, 107, NULL, '2018-03-14', 1, 100, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(3960, 100, 107, NULL, '2018-03-14', 2, 100, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(3961, NULL, 107, NULL, '2018-03-14', 3, 100, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(3962, 100, 107, NULL, '2018-03-14', 4, 100, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(3959, 100, 107, 100, '2018-03-14', 1, 100, 0, '2018', 1, '2018-03-15', 1, '2018-04-25'),
+	(3960, 100, 107, 100, '2018-03-14', 2, 100, 0, '2018', 1, '2018-03-15', 1, '2018-04-18'),
+	(3961, 100, 107, NULL, '2018-03-14', 3, 100, 0, '2018', 1, '2018-03-15', 1, '2018-04-18'),
+	(3962, 100, 107, 100, '2018-03-14', 4, 100, 0, '2018', 1, '2018-03-15', 1, '2018-04-20'),
 	(3963, NULL, 107, NULL, '2018-03-14', 5, 100, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(3964, NULL, 107, NULL, '2018-03-14', 6, 100, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(3965, NULL, 107, NULL, '2018-03-14', 7, 100, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2240,11 +2488,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4232, 13.2, 165, NULL, '2018-03-14', 10, 9, 1, '2017', 1, '2018-03-15', NULL, NULL),
 	(4233, 10.2, 165, NULL, '2018-03-14', 11, 9, 1, '2017', 1, '2018-03-15', NULL, NULL),
 	(4234, 10.42, 165, NULL, '2018-03-14', 12, 9, 1, '2017', 1, '2018-03-15', NULL, NULL),
-	(4235, 0, 166, NULL, '2018-03-14', 1, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4236, 0, 166, NULL, '2018-03-14', 2, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4237, NULL, 166, NULL, '2018-03-14', 3, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4238, NULL, 166, NULL, '2018-03-14', 4, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4239, NULL, 166, NULL, '2018-03-14', 5, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(4235, 13.43, 166, 13.43, '2018-03-14', 1, 7.42, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4236, 8.8, 166, 8.24, '2018-03-14', 2, 7.42, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4237, 8.5, 166, 8.24, '2018-03-14', 3, 7.42, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4238, 13.1, 166, 8.24, '2018-03-14', 4, 7.42, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4239, 18.7, 166, 8.24, '2018-03-14', 5, 7.42, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
 	(4240, NULL, 166, NULL, '2018-03-14', 6, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4241, NULL, 166, NULL, '2018-03-14', 7, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4242, NULL, 166, NULL, '2018-03-14', 8, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2252,11 +2500,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4244, NULL, 166, NULL, '2018-03-14', 10, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4245, NULL, 166, NULL, '2018-03-14', 11, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4246, NULL, 166, NULL, '2018-03-14', 12, 7.42, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4247, 0, 167, NULL, '2018-03-14', 1, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4248, 0, 167, NULL, '2018-03-14', 2, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4249, NULL, 167, NULL, '2018-03-14', 3, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4250, NULL, 167, NULL, '2018-03-14', 4, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4251, NULL, 167, NULL, '2018-03-14', 5, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(4247, 70, 167, 70, '2018-03-14', 1, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4248, 75, 167, 75, '2018-03-14', 2, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4249, 59.9, 167, 60, '2018-03-14', 3, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4250, 75.6, 167, 70.1, '2018-03-14', 4, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4251, 89.1, 167, 73.9, '2018-03-14', 5, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
 	(4252, NULL, 167, NULL, '2018-03-14', 6, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4253, NULL, 167, NULL, '2018-03-14', 7, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4254, NULL, 167, NULL, '2018-03-14', 8, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2264,11 +2512,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4256, NULL, 167, NULL, '2018-03-14', 10, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4257, NULL, 167, NULL, '2018-03-14', 11, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4258, NULL, 167, NULL, '2018-03-14', 12, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4259, 0, 168, NULL, '2018-03-14', 1, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4260, 0, 168, NULL, '2018-03-14', 2, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4261, NULL, 168, NULL, '2018-03-14', 3, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4262, NULL, 168, NULL, '2018-03-14', 4, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4263, NULL, 168, NULL, '2018-03-14', 5, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(4259, 50, 168, 50, '2018-03-14', 1, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4260, 58, 168, 55, '2018-03-14', 2, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4261, 57.7, 168, 56, '2018-03-14', 3, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4262, 70.4, 168, 61.2, '2018-03-14', 4, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4263, 70, 168, 61.22, '2018-03-14', 5, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
 	(4264, NULL, 168, NULL, '2018-03-14', 6, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4265, NULL, 168, NULL, '2018-03-14', 7, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4266, NULL, 168, NULL, '2018-03-14', 8, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2276,11 +2524,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4268, NULL, 168, NULL, '2018-03-14', 10, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4269, NULL, 168, NULL, '2018-03-14', 11, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4270, NULL, 168, NULL, '2018-03-14', 12, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4271, 0, 169, NULL, '2018-03-14', 1, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4272, 0, 169, NULL, '2018-03-14', 2, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4273, NULL, 169, NULL, '2018-03-14', 3, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4274, NULL, 169, NULL, '2018-03-14', 4, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4275, NULL, 169, NULL, '2018-03-14', 5, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(4271, 76, 169, 76, '2018-03-14', 1, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4272, 71, 169, 71, '2018-03-14', 2, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4273, 78, 169, 78, '2018-03-14', 3, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4274, 77, 169, 75.9, '2018-03-14', 4, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4275, 77, 169, 75.9, '2018-03-14', 5, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
 	(4276, NULL, 169, NULL, '2018-03-14', 6, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4277, NULL, 169, NULL, '2018-03-14', 7, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4278, NULL, 169, NULL, '2018-03-14', 8, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2288,11 +2536,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4280, NULL, 169, NULL, '2018-03-14', 10, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4281, NULL, 169, NULL, '2018-03-14', 11, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4282, NULL, 169, NULL, '2018-03-14', 12, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4283, 0, 170, NULL, '2018-03-14', 1, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4284, 0, 170, NULL, '2018-03-14', 2, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4285, NULL, 170, NULL, '2018-03-14', 3, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4286, NULL, 170, NULL, '2018-03-14', 4, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4287, NULL, 170, NULL, '2018-03-14', 5, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(4283, 60, 170, 60, '2018-03-14', 1, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4284, 83, 170, 70, '2018-03-14', 2, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4285, 46.7, 170, 60, '2018-03-14', 3, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4286, 89.8, 170, 70, '2018-03-14', 4, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4287, 72.6, 170, 70.4, '2018-03-14', 5, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
 	(4288, NULL, 170, NULL, '2018-03-14', 6, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4289, NULL, 170, NULL, '2018-03-14', 7, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4290, NULL, 170, NULL, '2018-03-14', 8, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2300,11 +2548,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4292, NULL, 170, NULL, '2018-03-14', 10, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4293, NULL, 170, NULL, '2018-03-14', 11, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4294, NULL, 170, NULL, '2018-03-14', 12, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4295, 0, 171, NULL, '2018-03-14', 1, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4296, 0, 171, NULL, '2018-03-14', 2, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4297, NULL, 171, NULL, '2018-03-14', 3, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4298, NULL, 171, NULL, '2018-03-14', 4, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4299, NULL, 171, NULL, '2018-03-14', 5, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(4295, 61, 171, 61, '2018-03-14', 1, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4296, 73, 171, 70, '2018-03-14', 2, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4297, 81.9, 171, 68.9, '2018-03-14', 3, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4298, 79.7, 171, 70.6, '2018-03-14', 4, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4299, 79.7, 171, 70.6, '2018-03-14', 5, 78, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
 	(4300, NULL, 171, NULL, '2018-03-14', 6, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4301, NULL, 171, NULL, '2018-03-14', 7, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4302, NULL, 171, NULL, '2018-03-14', 8, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2312,11 +2560,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4304, NULL, 171, NULL, '2018-03-14', 10, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4305, NULL, 171, NULL, '2018-03-14', 11, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4306, NULL, 171, NULL, '2018-03-14', 12, 78, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4307, 0, 172, NULL, '2018-03-14', 1, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4308, 0, 172, NULL, '2018-03-14', 2, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4309, NULL, 172, NULL, '2018-03-14', 3, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4310, NULL, 172, NULL, '2018-03-14', 4, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4311, NULL, 172, NULL, '2018-03-14', 5, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(4307, 52, 172, 52, '2018-03-14', 1, 65, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4308, 60, 172, 60, '2018-03-14', 2, 65, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4309, 57, 172, 57, '2018-03-14', 3, 65, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4310, 30.1, 172, 40, '2018-03-14', 4, 65, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4311, 27.96, 172, 47.4, '2018-03-14', 5, 65, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
 	(4312, NULL, 172, NULL, '2018-03-14', 6, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4313, NULL, 172, NULL, '2018-03-14', 7, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4314, NULL, 172, NULL, '2018-03-14', 8, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2324,11 +2572,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4316, NULL, 172, NULL, '2018-03-14', 10, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4317, NULL, 172, NULL, '2018-03-14', 11, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4318, NULL, 172, NULL, '2018-03-14', 12, 65, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4319, 0, 173, NULL, '2018-03-14', 1, 6100, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4320, 0, 173, NULL, '2018-03-14', 2, 6100, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4321, NULL, 173, NULL, '2018-03-14', 3, 6100, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4322, NULL, 173, NULL, '2018-03-14', 4, 6100, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4323, NULL, 173, NULL, '2018-03-14', 5, 6100, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(4319, 6235, 173, 6235, '2018-03-14', 1, 6100, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4320, 6482, 173, 5654, '2018-03-14', 2, 6100, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4321, 6781, 173, 5654, '2018-03-14', 3, 6100, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4322, 6216.63, 173, 5654, '2018-03-14', 4, 6100, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4323, 2559.58, 173, 5654, '2018-03-14', 5, 6100, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
 	(4324, NULL, 173, NULL, '2018-03-14', 6, 6100, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4325, NULL, 173, NULL, '2018-03-14', 7, 6100, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4326, NULL, 173, NULL, '2018-03-14', 8, 6100, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2338,9 +2586,9 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4330, NULL, 173, NULL, '2018-03-14', 12, 6100, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4331, 88, 174, NULL, '2018-03-14', 1, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4332, 100, 174, NULL, '2018-03-14', 2, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4333, NULL, 174, NULL, '2018-03-14', 3, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4334, NULL, 174, NULL, '2018-03-14', 4, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4335, NULL, 174, NULL, '2018-03-14', 5, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(4333, 93, 174, 95, '2018-03-14', 3, 99, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4334, 100, 174, 97, '2018-03-14', 4, 99, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4335, 97.31, 174, 98, '2018-03-14', 5, 99, 0, '2018', 1, '2018-03-15', 9, '2018-06-20'),
 	(4336, NULL, 174, NULL, '2018-03-14', 6, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4337, NULL, 174, NULL, '2018-03-14', 7, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4338, NULL, 174, NULL, '2018-03-14', 8, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2348,11 +2596,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4340, NULL, 174, NULL, '2018-03-14', 10, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4341, NULL, 174, NULL, '2018-03-14', 11, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4342, NULL, 174, NULL, '2018-03-14', 12, 99, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4343, 0, 175, NULL, '2018-03-14', 1, 9, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4344, 0, 175, NULL, '2018-03-14', 2, 9, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4345, NULL, 175, NULL, '2018-03-14', 3, 9, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4346, NULL, 175, NULL, '2018-03-14', 4, 9, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4347, NULL, 175, NULL, '2018-03-14', 5, 9, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(4343, 25.7, 175, 11, '2018-03-14', 1, 9, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4344, 14, 175, 11, '2018-03-14', 2, 9, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4345, 8, 175, 11, '2018-03-14', 3, 9, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4346, 20.7, 175, 11, '2018-03-14', 4, 9, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
+	(4347, 24.8, 175, 18.64, '2018-03-14', 5, 9, 1, '2018', 1, '2018-03-15', 9, '2018-06-20'),
 	(4348, NULL, 175, NULL, '2018-03-14', 6, 9, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4349, NULL, 175, NULL, '2018-03-14', 7, 9, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4350, NULL, 175, NULL, '2018-03-14', 8, 9, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2398,9 +2646,9 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4390, 2, 178, NULL, '2018-03-14', 7, 0, 1, '2017', 1, '2018-03-15', NULL, NULL),
 	(4391, 0, 181, NULL, '2018-03-14', 1, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4392, 0, 181, NULL, '2018-03-14', 2, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4393, NULL, 181, NULL, '2018-03-14', 3, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4394, NULL, 181, NULL, '2018-03-14', 4, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4395, NULL, 181, NULL, '2018-03-14', 5, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(4393, 0, 181, 0, '2018-03-14', 3, 0, 1, '2018', 1, '2018-03-15', 5, '2018-06-20'),
+	(4394, 0, 181, 0, '2018-03-14', 4, 0, 1, '2018', 1, '2018-03-15', 5, '2018-06-20'),
+	(4395, 0, 181, 0, '2018-03-14', 5, 0, 1, '2018', 1, '2018-03-15', 5, '2018-06-20'),
 	(4396, NULL, 181, NULL, '2018-03-14', 6, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4397, NULL, 181, NULL, '2018-03-14', 7, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4398, NULL, 181, NULL, '2018-03-14', 8, 0, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2938,7 +3186,7 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4930, NULL, 227, NULL, '2018-03-14', 12, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4931, 0.99, 228, NULL, '2018-03-14', 1, 3, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4932, 0, 228, NULL, '2018-03-14', 2, 3, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4933, NULL, 228, NULL, '2018-03-14', 3, 3, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(4933, 0, 228, 0, '2018-03-14', 3, 3, 1, '2018', 1, '2018-03-15', 14, '2018-05-01'),
 	(4934, NULL, 228, NULL, '2018-03-14', 4, 3, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4935, NULL, 228, NULL, '2018-03-14', 5, 3, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4936, NULL, 228, NULL, '2018-03-14', 6, 3, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2948,11 +3196,11 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4940, NULL, 228, NULL, '2018-03-14', 10, 3, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4941, NULL, 228, NULL, '2018-03-14', 11, 3, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4942, NULL, 228, NULL, '2018-03-14', 12, 3, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4956, NULL, 182, NULL, '2018-03-15', 1, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4957, NULL, 182, NULL, '2018-03-15', 2, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4958, NULL, 182, NULL, '2018-03-15', 3, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4959, NULL, 182, NULL, '2018-03-15', 4, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4960, NULL, 182, NULL, '2018-03-15', 5, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(4956, 0, 182, 0, '2018-03-15', 1, 1, 1, '2018', 1, '2018-03-15', 5, '2018-06-20'),
+	(4957, 0, 182, 0, '2018-03-15', 2, 1, 1, '2018', 1, '2018-03-15', 5, '2018-06-20'),
+	(4958, 0, 182, 0, '2018-03-15', 3, 1, 1, '2018', 1, '2018-03-15', 5, '2018-06-20'),
+	(4959, 0, 182, 0, '2018-03-15', 4, 1, 1, '2018', 1, '2018-03-15', 5, '2018-06-20'),
+	(4960, 0, 182, 0, '2018-03-15', 5, 1, 1, '2018', 1, '2018-03-15', 5, '2018-06-20'),
 	(4961, NULL, 182, NULL, '2018-03-15', 6, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4962, NULL, 182, NULL, '2018-03-15', 7, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4963, NULL, 182, NULL, '2018-03-15', 8, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2960,8 +3208,8 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4965, NULL, 182, NULL, '2018-03-15', 10, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4966, NULL, 182, NULL, '2018-03-15', 11, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4967, NULL, 182, NULL, '2018-03-15', 12, 1, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4968, NULL, 229, NULL, '2018-03-15', 1, 95, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4969, NULL, 229, NULL, '2018-03-15', 2, 95, 0, '2018', 1, '2018-03-15', NULL, NULL),
+	(4968, 100, 229, 100, '2018-03-15', 1, 95, 0, '2018', 1, '2018-03-15', 14, '2018-05-01'),
+	(4969, 100, 229, 100, '2018-03-15', 2, 95, 0, '2018', 1, '2018-03-15', 14, '2018-05-01'),
 	(4970, NULL, 229, NULL, '2018-03-15', 3, 95, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4971, NULL, 229, NULL, '2018-03-15', 4, 95, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4972, NULL, 229, NULL, '2018-03-15', 5, 95, 0, '2018', 1, '2018-03-15', NULL, NULL),
@@ -2984,18 +3232,30 @@ INSERT INTO `tb_dadosmes` (`id`, `valor`, `idIndicador`, `ytd`, `data`, `mes`, `
 	(4989, NULL, 109, NULL, '2018-03-15', 10, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4990, NULL, 109, NULL, '2018-03-15', 11, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
 	(4991, NULL, 109, NULL, '2018-03-15', 12, 0, 0, '2018', 1, '2018-03-15', NULL, NULL),
-	(4992, 7.58, 242, 10.9, '2018-03-15', 1, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4993, 14.28, 242, 10.9, '2018-03-15', 2, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4994, 13.36, 242, 10.9, '2018-03-15', 3, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4995, NULL, 242, NULL, '2018-03-15', 4, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(4996, NULL, 242, NULL, '2018-03-15', 5, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(4992, 6.68, 242, 6.68, '2018-03-15', 1, 9.3, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(4993, 14.78, 242, 10.9, '2018-03-15', 2, 9.3, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(4994, 12.72, 242, 10.9, '2018-03-15', 3, 9.3, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(4995, 8.43, 242, 6.68, '2018-03-15', 4, 9.3, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
+	(4996, 16.48, 242, 6.68, '2018-03-15', 5, 9.3, 1, '2018', 1, '2018-03-15', 12, '2018-06-20'),
 	(4997, NULL, 242, NULL, '2018-03-15', 6, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4998, NULL, 242, NULL, '2018-03-15', 7, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(4999, NULL, 242, NULL, '2018-03-15', 8, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(5000, NULL, 242, NULL, '2018-03-15', 9, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(5001, NULL, 242, NULL, '2018-03-15', 10, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
 	(5002, NULL, 242, NULL, '2018-03-15', 11, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
-	(5003, NULL, 242, NULL, '2018-03-15', 12, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL);
+	(5003, NULL, 242, NULL, '2018-03-15', 12, 9.3, 1, '2018', 1, '2018-03-15', NULL, NULL),
+	(5004, 15940, 246, 15940, '2018-05-02', 1, 10000, 1, '2018', 1, '2018-05-02', 1, '2018-05-02'),
+	(5005, 8605, 246, 24545, '2018-05-02', 2, 10000, 1, '2018', 1, '2018-05-02', 1, '2018-05-02'),
+	(5006, 3066, 246, 27612, '2018-05-02', 3, 17000, 1, '2018', 1, '2018-05-02', 1, '2018-05-02'),
+	(5007, 14705, 246, 42317, '2018-05-02', 4, 10000, 1, '2018', 1, '2018-05-02', NULL, NULL),
+	(5008, NULL, 246, NULL, '2018-05-02', 5, 10000, 1, '2018', 1, '2018-05-02', NULL, NULL),
+	(5009, NULL, 246, NULL, '2018-05-02', 6, 35000, 1, '2018', 1, '2018-05-02', NULL, NULL),
+	(5010, NULL, 246, NULL, '2018-05-02', 7, 20000, 1, '2018', 1, '2018-05-02', NULL, NULL),
+	(5011, NULL, 246, NULL, '2018-05-02', 8, 32000, 1, '2018', 1, '2018-05-02', NULL, NULL),
+	(5012, NULL, 246, NULL, '2018-05-02', 9, 10000, 1, '2018', 1, '2018-05-02', NULL, NULL),
+	(5013, NULL, 246, NULL, '2018-05-02', 10, 10000, 1, '2018', 1, '2018-05-02', NULL, NULL),
+	(5014, NULL, 246, NULL, '2018-05-02', 11, 10000, 1, '2018', 1, '2018-05-02', NULL, NULL),
+	(5015, NULL, 246, NULL, '2018-05-02', 12, 10000, 1, '2018', 1, '2018-05-02', NULL, NULL);
 /*!40000 ALTER TABLE `tb_dadosmes` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela indicador.tb_departaments
@@ -3004,6 +3264,7 @@ CREATE TABLE IF NOT EXISTS `tb_departaments` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `departamento` varchar(100) DEFAULT NULL COMMENT 'Departamento',
   `managerUserId` int(11) unsigned NOT NULL COMMENT 'ID Gerente',
+  `group` varchar(64) NOT NULL,
   `active` char(1) NOT NULL DEFAULT 'Y' COMMENT 'Ativo',
   `icons` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -3013,15 +3274,15 @@ CREATE TABLE IF NOT EXISTS `tb_departaments` (
 
 -- Copiando dados para a tabela indicador.tb_departaments: ~8 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_departaments` DISABLE KEYS */;
-INSERT INTO `tb_departaments` (`id`, `departamento`, `managerUserId`, `active`, `icons`) VALUES
-	(2, 'Recursos Humanos', 10, 'Y', 'fa-user-plus'),
-	(3, 'Saúde e segurança', 10, 'Y', 'fa-plus-square'),
-	(4, 'Meio Ambiente', 10, 'Y', 'fa-leaf'),
-	(5, 'Qualidade', 2, 'Y', 'fa-area-chart'),
-	(6, 'Produção', 9, 'Y', 'fa-industry'),
-	(7, 'Engenharia', 5, 'Y', 'fa-cogs'),
-	(8, 'ICIM & LEAN', 9, 'Y', 'fa-line-chart'),
-	(9, 'PC&L', 9, 'Y', 'fa-truck');
+INSERT INTO `tb_departaments` (`id`, `departamento`, `managerUserId`, `group`, `active`, `icons`) VALUES
+	(2, 'Recursos Humanos', 10, 'updateRecursosHumanos', 'Y', 'fa-user-plus'),
+	(3, 'Saúde e segurança', 10, 'updateSaudeSegurança', 'Y', 'fa-plus-square'),
+	(4, 'Meio Ambiente', 10, 'updateMeioAmbiente', 'Y', 'fa-leaf'),
+	(5, 'Qualidade', 2, 'updateQualidade', 'Y', 'fa-area-chart'),
+	(6, 'Produção', 9, 'updateProducao', 'Y', 'fa-industry'),
+	(7, 'Engenharia', 5, 'updateEngenharia', 'Y', 'fa-cogs'),
+	(8, 'ICIM & LEAN', 9, 'updateIcimLeam', 'Y', 'fa-line-chart'),
+	(9, 'PC&L', 9, 'updatePCL', 'Y', 'fa-truck');
 /*!40000 ALTER TABLE `tb_departaments` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela indicador.tb_indicador
@@ -3047,9 +3308,9 @@ CREATE TABLE IF NOT EXISTS `tb_indicador` (
   CONSTRAINT `fk_indicador_departamentoID` FOREIGN KEY (`departamentoID`) REFERENCES `tb_departaments` (`id`),
   CONSTRAINT `fk_indicador_departamentoID_criadoPor` FOREIGN KEY (`criadoPor`) REFERENCES `user` (`ID`),
   CONSTRAINT `fk_indicador_departamentoID_modificadoPor` FOREIGN KEY (`modificadoPor`) REFERENCES `user` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=246 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela indicador.tb_indicador: ~230 rows (aproximadamente)
+-- Copiando dados para a tabela indicador.tb_indicador: ~231 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_indicador` DISABLE KEYS */;
 INSERT INTO `tb_indicador` (`id`, `nome`, `descricao`, `ano`, `meta`, `sentido_da_meta`, `ytd`, `departamentoID`, `criadoPor`, `dataCriacao`, `modificadoPor`, `dataModificacao`, `active`) VALUES
 	(4, 'Horas de Treinamento', 'N° de horas de Treinamento p/Funcionário', '2015', 9, 0, 13.03, 2, 1, '2018-03-14', NULL, NULL, 'Y'),
@@ -3067,10 +3328,10 @@ INSERT INTO `tb_indicador` (`id`, `nome`, `descricao`, `ano`, `meta`, `sentido_d
 	(16, 'Horas de Treinamento', 'N° de horas de Treinamento p/Funcionário', '2017', 6, 0, 4.1, 2, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(17, 'Turnover Pedidos', 'NULL', '2017', 1, 1, 0.69, 2, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(18, 'Overtime', 'NULL', '2017', 5, 0, 6.84, 2, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(19, 'Absenteeism', '% faltantes', '2018', 1, 1, 1.36, 2, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(20, 'Horas de Treinamento', 'N° de horas de Treinamento p/Funcionário', '2018', 6, 0, 4.22, 2, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(21, 'Overtime', 'Horas extras', '2018', 5, 1, 6.39, 2, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(22, 'Turnover Pedidos', 'Saída de func.', '2018', 1, 1, 1.23, 2, 1, '2018-03-14', NULL, NULL, 'Y'),
+	(19, 'Absenteeism', '% faltantes', '2018', 1, 1, 1.36, 2, 1, '2018-03-14', 10, '2018-06-20', 'Y'),
+	(20, 'Horas de Treinamento', 'N° de horas de Treinamento p/Funcionário', '2018', 6, 0, 3.86, 2, 1, '2018-03-14', 10, '2018-06-20', 'Y'),
+	(21, 'Overtime', 'Horas extras', '2018', 5, 1, 6.39, 2, 1, '2018-03-14', 10, '2018-06-20', 'Y'),
+	(22, 'Turnover Pedidos', 'Saída de func.', '2018', 1, 1, 1.23, 2, 1, '2018-03-14', 10, '2018-06-20', 'Y'),
 	(23, 'Spill', '0', '2015', 0, 0, 0, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(24, 'WICC', 'N° de reclamções formais', '2015', 0, 0, 25, 5, 1, '2018-03-14', 1, '2018-04-12', 'Y'),
 	(25, 'WFCC', 'N° de reclamções formais', '2015', 0, 0, 25, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
@@ -3129,13 +3390,13 @@ INSERT INTO `tb_indicador` (`id`, `nome`, `descricao`, `ano`, `meta`, `sentido_d
 	(78, 'Customer Score Card - FCA - SE', 'Bid List FCA - SE', '2017', 80, 0, 100, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(79, 'Customer Score Card - FCA - CEPS', '0', '2017', 80, 0, 100, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(80, 'Customer Score Card - FCA - Bombas', 'Bid List FCA - Bombas', '2017', 80, 0, 98, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(81, 'Calibrações de Instrumentos', 'Lts/Pçs produzidas', '2017', 100, 0, 99.9, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
+	(81, 'Calibrações de Instrumentos', 'Lts/Pçs produzidas', '2017', 100, 0, 100, 5, 1, '2018-03-14', 1, '2018-04-20', 'Y'),
 	(82, 'Custo Garantia', '0', '2017', 65000, 1, 742926.31, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(83, 'Reclamações Nexteer to Nexteer', 'Reclamações de outras plantas Nexteer', '2017', 0, 1, 0, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(84, 'Major Disruption', 'Parada de linha', '2018', 0, 1, 0, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(85, 'PMPS', 'Reclamações em PPM', '2018', 8.7, 1, 34.54, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(86, 'PPB', 'Partes por bilhão', '2018', 11261, 1, 8864, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(87, 'Scrap', '% sobre Vendas', '2018', 0.13, 1, 0.63, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
+	(87, 'Scrap', '% sobre Vendas', '2018', 0.13, 1, 0.62, 5, 1, '2018-03-14', 1, '2018-05-01', 'Y'),
 	(88, 'FTQ Semi-Eixo', 'Partes por milhão', '2018', 99, 0, 0.3, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(89, 'FTQ BOMBAS', 'Partes por milhão', '2018', 3663, 1, 0.3, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(90, 'RTY SPEPS', 'Partes por milhão', '2018', 98.63, 0, 0.3, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
@@ -3155,7 +3416,7 @@ INSERT INTO `tb_indicador` (`id`, `nome`, `descricao`, `ano`, `meta`, `sentido_d
 	(104, 'Customer Score Card - FCA - SE', 'Bid List FCA - SE', '2018', 80, 0, 100, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(105, 'Customer Score Card - FCA - CEPS', 'Bid List FCA - CEPS', '2018', 80, 0, 100, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(106, 'Customer Score Card - FCA - Bombas', 'Bid List FCA - Bombas', '2018', 80, 0, 98, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(107, 'Calibrações de Instrumentos', '% Prev. x Real.', '2018', 100, 0, 99.9, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
+	(107, 'Calibrações de Instrumentos', '% Prev. x Real.', '2018', 100, 0, 100, 5, 1, '2018-03-14', 1, '2018-04-25', 'Y'),
 	(108, 'Custo Garantia', 'Valor R$', '2018', 65000, 1, 742926.31, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(109, 'Reclamações Nexteer to Nexteer', 'Reclamações de outras plantas Nexteer', '2018', 0, 1, 0, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(110, 'FTQ SEM', 'Parte por milhão', '2018', 99, 0, 8384, 5, 1, '2018-03-14', NULL, NULL, 'Y'),
@@ -3177,12 +3438,12 @@ INSERT INTO `tb_indicador` (`id`, `nome`, `descricao`, `ano`, `meta`, `sentido_d
 	(126, 'Serious Incident', 'NULL', '2017', 0, 1, 2, 3, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(127, 'Weekly Safety Walk leadership', 'NULL', '2017', 90, 0, 0, 3, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(128, 'On-going Safety Walk concern', 'NULL', '2017', 90, 0, 0, 3, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(129, 'LWDC', 'Dias perdidos', '2018', 0, 1, 2, 3, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(130, 'No. of days without LWDC', 'Dias pedidos', '2018', 0, 0, 0, 3, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(131, 'On-going Safety Walk concern', 'Caminhada de seg.', '2018', 90, 0, 0, 3, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(132, 'Recordables', 'Recordables', '2018', 0, 1, 0, 3, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(133, 'Serious Incident', 'Dias perdidos', '2018', 0, 1, 2, 3, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(134, 'Weekly Safety Walk leadership', 'Dias perdidos', '2018', 90, 0, 0, 3, 1, '2018-03-14', NULL, NULL, 'Y'),
+	(129, 'LWDC', 'Dias perdidos', '2018', 0, 1, 0, 3, 1, '2018-03-14', 11, '2018-06-20', 'Y'),
+	(130, 'No. of days without LWDC', 'Dias pedidos', '2018', 0, 0, 831, 3, 1, '2018-03-14', 11, '2018-06-20', 'Y'),
+	(131, 'On-going Safety Walk concern', 'Caminhada de seg.', '2018', 90, 0, 91, 3, 1, '2018-03-14', 11, '2018-06-20', 'Y'),
+	(132, 'Recordables', 'Recordables', '2018', 0, 1, 0, 3, 1, '2018-03-14', 11, '2018-06-20', 'Y'),
+	(133, 'Serious Incident', 'Dias perdidos', '2018', 0, 1, 0.6, 3, 1, '2018-03-14', 11, '2018-06-20', 'Y'),
+	(134, 'Weekly Safety Walk leadership', 'Dias perdidos', '2018', 90, 1, 85.2, 3, 1, '2018-03-14', 1, '2018-06-20', 'Y'),
 	(146, 'Mfg Cost to Sales', 'Custo de Manufatura sobre as vendas', '2015', 0, 0, 7.6, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(147, 'Prod. Halfshafts', '% Produzido\r\n', '2015', 0, 0, 64, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(148, 'Prod. EPS', '% Produzido', '2015', 0, 0, 84, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
@@ -3203,24 +3464,24 @@ INSERT INTO `tb_indicador` (`id`, `nome`, `descricao`, `ano`, `meta`, `sentido_d
 	(163, 'MTBF', 'Período médio entre falhas', '2017', 6100, 0, 6980.44, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(164, '% Preventivas Realizadas', '% Manut. Realizadas', '2017', 10, 0, 98, 6, 1, '2018-03-14', 1, '2018-04-10', 'Y'),
 	(165, 'Mfg Total cost', '0', '2017', 9, 1, 0, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(166, 'Mfg Cost to Sales', 'Custo de Manufatura sobre as vendas', '2018', 7.42, 1, 0, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(167, 'Prod. EPS', '% Produzido', '2018', 78, 0, 75, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(168, 'Prod. Halfshafts', '% Produzido', '2018', 78, 0, 58, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(169, 'Prod. Pumps', '% Produzido', '2018', 78, 0, 71, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(170, 'Prod. CEPS', 'Parte por milhão', '2018', 78, 0, 83, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(171, 'Plant Productivity, total', '% Produção', '2018', 78, 0, 73, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(172, 'MTTR', 'Tempo Médio de Reparo', '2018', 65, 1, 69.6, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(173, 'MTBF', 'Período médio entre falhas', '2018', 6100, 0, 6728.12, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(174, '% Preventivas Realizadas', '% Manut. Realizadas', '2018', 99, 0, 98, 6, 1, '2018-03-14', 1, '2018-04-10', 'Y'),
-	(175, 'Mfg Total cost', 'Custo de manufatura', '2018', 9, 1, 0, 6, 1, '2018-03-14', NULL, NULL, 'Y'),
+	(166, 'Mfg Cost to Sales', 'Custo de Manufatura sobre as vendas', '2018', 7.42, 1, 8.24, 6, 1, '2018-03-14', 9, '2018-06-20', 'Y'),
+	(167, 'Prod. EPS', '% Produzido', '2018', 78, 0, 73.9, 6, 1, '2018-03-14', 9, '2018-06-20', 'Y'),
+	(168, 'Prod. Halfshafts', '% Produzido', '2018', 78, 0, 61.22, 6, 1, '2018-03-14', 9, '2018-06-20', 'Y'),
+	(169, 'Prod. Pumps', '% Produzido', '2018', 78, 0, 75.9, 6, 1, '2018-03-14', 9, '2018-06-20', 'Y'),
+	(170, 'Prod. CEPS', 'Parte por milhão', '2018', 78, 0, 70.4, 6, 1, '2018-03-14', 9, '2018-06-20', 'Y'),
+	(171, 'Plant Productivity, total', '% Produção', '2018', 78, 0, 70.6, 6, 1, '2018-03-14', 9, '2018-06-20', 'Y'),
+	(172, 'MTTR', 'Tempo Médio de Reparo', '2018', 65, 1, 47.4, 6, 1, '2018-03-14', 9, '2018-06-20', 'Y'),
+	(173, 'MTBF', 'Período médio entre falhas', '2018', 6100, 0, 5654, 6, 1, '2018-03-14', 9, '2018-06-20', 'Y'),
+	(174, '% Preventivas Realizadas', '% Manut. Realizadas', '2018', 99, 0, 98, 6, 1, '2018-03-14', 9, '2018-06-20', 'Y'),
+	(175, 'Mfg Total cost', 'Custo de manufatura', '2018', 9, 1, 18.64, 6, 1, '2018-03-14', 9, '2018-06-20', 'Y'),
 	(176, 'Cost Improvement Process', '0', '2015', 0, 0, 433521, 7, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(177, 'Cost Improvement Process', '0', '2016', 52750, 0, 433521, 7, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(178, 'Perfect Launch', 'N° de Reclamações Formais', '2017', 0, 1, 0, 7, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(179, 'Falhas Relacionadas ao Processo de Mudança', 'Nº de Falhas', '2017', 0, 1, 0, 7, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(180, 'Controle de Prazos de PCNs', 'Efetividade PCNs [%]', '2017', 0, 0, 0, 7, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(181, 'Perfect Launch', 'N° de Reclamações Formais', '2018', 0, 1, 0, 7, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(182, 'Falhas Relacionadas ao Processo de Mudança', 'Nº de Falhas', '2018', 0, 1, 0, 7, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(183, 'Controle de Prazos de PCNs', 'Efetividade PCNs [%]', '2018', 0, 0, 0, 7, 1, '2018-03-14', NULL, NULL, 'Y'),
+	(181, 'Perfect Launch', 'N° de Reclamações Formais', '2018', 0, 1, 0, 7, 1, '2018-03-14', 5, '2018-06-20', 'Y'),
+	(182, 'Falhas Relacionadas ao Processo de Mudança', 'Nº de Falhas', '2018', 0, 1, 0, 7, 1, '2018-03-14', 1, '2018-06-22', 'Y'),
+	(183, 'Controle de Prazos de PCNs', 'Efetividade PCNs [%]', '2018', 0, 0, 0, 7, 1, '2018-03-14', 1, '2018-06-22', '0'),
 	(184, 'No. of Improvements', 'N° melhorias implementadas', '2015', 0, 0, 8, 8, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(185, 'Savings(accumulated)', 'Redução de custos', '2015', 0, 0, 300, 8, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(186, 'No. of Improvements', 'N° melhorias implementadas', '2016', 0, 0, 8, 8, 1, '2018-03-14', NULL, NULL, 'Y'),
@@ -3265,8 +3526,8 @@ INSERT INTO `tb_indicador` (`id`, `nome`, `descricao`, `ano`, `meta`, `sentido_d
 	(225, 'Schedule Attainment', '%', '2018', 85, 0, 0, 9, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(226, 'Schedule Attainment CEPS', '%', '2018', 75, 0, 90, 9, 1, '2018-03-14', NULL, NULL, 'Y'),
 	(227, 'Frete expresso', '% sobre vendas', '2018', 1, 1, 1.17, 9, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(228, 'Fretes Normal', '% sobre vendas', '2018', 3, 1, 1.91, 9, 1, '2018-03-14', NULL, NULL, 'Y'),
-	(229, 'Índice de performance de Entrega', 'Performace entrega', '2018', 95, 0, 88.7, 9, 1, '2018-03-14', NULL, NULL, 'Y'),
+	(228, 'Fretes Normal', '% sobre vendas', '2018', 3, 1, 0, 9, 1, '2018-03-14', 14, '2018-05-01', 'Y'),
+	(229, 'Índice de performance de Entrega', 'Performace entrega', '2018', 95, 0, 100, 9, 1, '2018-03-14', 14, '2018-05-01', 'Y'),
 	(231, 'Consumo de Água', 'Ltrs/Peça produzida', '2015', 0, 0, 15.72, 4, 1, '2018-03-15', NULL, NULL, 'Y'),
 	(232, 'Consumo de Energia', 'Kws /Peça produzida', '2015', 0, 0, 20.31, 4, 1, '2018-03-15', NULL, NULL, 'Y'),
 	(233, 'Volume Efluente Tratado', 'Ltrs Tradados/Peça produzida', '2015', 0, 0, 0.53, 4, 1, '2018-03-15', NULL, NULL, 'Y'),
@@ -3278,10 +3539,11 @@ INSERT INTO `tb_indicador` (`id`, `nome`, `descricao`, `ano`, `meta`, `sentido_d
 	(239, 'Consumo de Energia', 'Kws /Peça produzida', '2017', 5.91, 1, 6.7, 4, 1, '2018-03-15', NULL, NULL, 'Y'),
 	(240, 'Volume Efluente Tratado', 'Ltrs Tradados/Peça produzida', '2017', 0.33, 1, 0.37, 4, 1, '2018-03-15', NULL, NULL, 'Y'),
 	(241, 'Geração Resíduos Sólidos', 'Ton/Peça produzida', '2017', 0.56, 1, 0.31, 4, 1, '2018-03-15', NULL, NULL, 'Y'),
-	(242, 'Consumo de Água', 'Ltrs/Peça produzida', '2018', 9.3, 1, 10.09, 4, 1, '2018-03-15', NULL, NULL, 'Y'),
-	(243, 'Consumo de Energia', 'Kws /Peça produzida', '2018', 5.91, 1, 8.3, 4, 1, '2018-03-15', NULL, NULL, 'Y'),
-	(244, 'Geração Resíduos Sólidos', 'Ton/Peça produzida', '2018', 0.56, 1, 0.56, 4, 1, '2018-03-15', NULL, NULL, 'Y'),
-	(245, 'Volume Efluente Tratado', 'Ltrs Tradados/Peça produzida', '2018', 0.33, 1, 0.43, 4, 1, '2018-03-15', NULL, NULL, 'Y');
+	(242, 'Consumo de Água', 'Ltrs/Peça produzida', '2018', 9.3, 1, 6.68, 4, 1, '2018-03-15', 12, '2018-06-20', 'Y'),
+	(243, 'Consumo de Energia', 'Kws /Peça produzida', '2018', 5.91, 1, 7.7, 4, 1, '2018-03-15', 12, '2018-06-20', 'Y'),
+	(244, 'Geração Resíduos Sólidos', 'Ton/Peça produzida', '2018', 0.56, 1, 0.51, 4, 1, '2018-03-15', 12, '2018-06-20', 'Y'),
+	(245, 'Volume Efluente Tratado', 'Ltrs Tradados/Peça produzida', '2018', 0.33, 1, 0.47, 4, 1, '2018-03-15', 12, '2018-06-20', 'Y'),
+	(246, 'Custo da Calibração', 'Valor gasto com calibrações', '2018', 184, 1, 27612, 5, 1, '2018-05-02', 1, '2018-05-02', 'Y');
 /*!40000 ALTER TABLE `tb_indicador` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela indicador.tb_plano_acao
@@ -3301,7 +3563,7 @@ CREATE TABLE IF NOT EXISTS `tb_plano_acao` (
   PRIMARY KEY (`idPlano`),
   KEY `fk_tb_plano_acao_indicador_indicadorID` (`indicador`),
   CONSTRAINT `fk_tb_plano_acao_indicador_indicadorID` FOREIGN KEY (`indicador`) REFERENCES `tb_indicador` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=278 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=302 DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela indicador.tb_plano_acao: ~271 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_plano_acao` DISABLE KEYS */;
@@ -3508,7 +3770,7 @@ INSERT INTO `tb_plano_acao` (`idPlano`, `indicador`, `ano`, `mes`, `item`, `desc
 	(200, 61, '2017', 7, '1', 'Projeto CEPS - passivo 1.7 milhões.', 'Trabalhos em conjunto com manufatura para redução dos níveis de rejeição e monitoramento do scrap proveniente do passivo', 'Guilherme Kowalski', '2017-08-10', '2017-09-30', 'Aberto'),
 	(201, 82, '2017', 1, '01/01/2017', 'Custos garantia SPEPS acima do esperado', 'Repassar custos para Tychy', 'Paula', '2017-08-11', '2017-12-31', 'Aberto'),
 	(202, 81, '2017', 5, '1', 'Não realização da calibração da MMC devido a problemas de produção, impossibilitando a calibração no mês.', 'Fazer uma verificação nos eixos XYZ mensal com blocos badões para acompanhar o Status da calibração ma máquina.', 'Silvio Caldieraro', '2017-04-05', '2017-05-30', 'Fechado'),
-	(203, 81, '2017', 5, '2', 'Não realização da calibração da MMC devido a problemas de produção, impossibilitando a calibração no mês.', 'realizar a calibração da tridimensional nas férias coletivas.', 'Silvio Caldieraro', '2017-05-13', '2017-12-30', 'Aberto'),
+	(203, 81, '2017', 5, '2', 'Não realização da calibração da MMC devido a problemas de produção, impossibilitando a calibração no mês.', 'realizar a calibração da tridimensional nas férias coletivas.', 'Silvio Caldieraro', '2017-05-13', '2017-12-30', 'Fechado'),
 	(204, 165, '2017', 7, '3', 'alto % de horas extras CEPs', 'redução de horas extras com aumento de estoque de segurança FIAT com entrada de reforço de MO em turno intermediário.', 'Leandro J.', '2017-08-10', '2017-10-01', 'Aberto'),
 	(205, 14, '2017', 7, 'Faltas Atestados', 'Atestados Médicos', 'TODOS os retornos por atestados devem passar pelo médico do trabalho.', 'Médico do Trabalho', '2017-01-03', '2017-01-03', 'Fechado'),
 	(206, 18, '2017', 1, 'Overtime 1', 'Horas Extras', 'Conforme Plano da Produção/PC&L ', 'PC&L/Produção', '2017-05-02', '2017-12-31', 'Aberto'),
@@ -3534,10 +3796,10 @@ INSERT INTO `tb_plano_acao` (`idPlano`, `indicador`, `ano`, `mes`, `item`, `desc
 	(226, 208, '2017', 6, 'Ceps', 'Falta de componente importado, por causa da greve da receita federal', 'Aumentar estoque de segurança', 'Luis Felipe', '2017-07-01', '2017-07-30', 'Fechado'),
 	(227, 82, '2017', 11, '01/11/2017', 'Coleta não realizada cliente Fiat R$ 12.806,68 por falta de follow up', 'Atualizar cadastro e incluir mais destinatários na notificação (grupo Garantia)', 'Paula', '2017-12-11', '2017-12-19', 'Aberto'),
 	(228, 129, '2018', 1, '1', 'PPRA de 2018', 'Atualização do PPRA de 2018 com os riscos da linha I-Shaft', 'Wagner Oliveira', '2018-03-01', '2018-05-01', 'Aberto'),
-	(229, 129, '2018', 1, '2', 'Proteção Respiratória na linha I-Shaft', 'Elaboração do Programa de Proteção Respiratório - PPR', 'Wagner Oliveira', '2018-03-01', '2018-06-01', 'Aberto'),
+	(229, 129, '2018', 1, '2', 'Proteção Respiratória na linha I-Shaft', 'Elaboração do Programa de Proteção Respiratório - PPR', 'Wagner Oliveira', '2018-03-01', '2018-06-01', 'Fechado'),
 	(230, 129, '2018', 2, '3', 'Escada SD 160', 'Adequação da escada de acesso da SD 160.', 'Gustavo K.', '2018-03-01', '2018-04-01', 'Fechado'),
 	(231, 22, '2018', 1, 'Pedidos de Demissão', 'Pedidos de demissão na área da produção devido a oportunidades com melhor salário e benefícios.', 'Revisão da tabela salarial para a produção.', 'Sabrina Silva e Jean Fernandes', '2018-03-02', '2018-08-30', 'Aberto'),
-	(232, 108, '2018', 2, '01/01/2018', 'Custo excessivo com peças do antigo design (ruído)', 'Aplicar fator técnico para peças com problem ruído do antigo design', 'P. Mello', '2018-03-06', '2018-04-01', 'Aberto'),
+	(232, 108, '2018', 2, '01/01/2018', 'Custo excessivo com peças do antigo design (ruído)', 'Aplicar fator técnico para peças com problem ruído do antigo design', 'P. Mello', '2018-03-07', '2018-04-01', 'Fechado'),
 	(233, 242, '2018', 1, '1', 'Não tem projeto de amortecimentos de água', 'Realizar o projeto de amortecimento da água', 'Marcio G', '2015-02-20', '2019-10-20', 'Aberto'),
 	(234, 242, '2018', 1, '2', 'Reaproveitamento da água da chuva nas torres de resfriamento.', 'Captar a água da chuva e reutilizar nas torres de resfriamento.', 'Jean', '2016-05-09', '2016-12-10', 'Fechado'),
 	(235, 242, '2018', 1, '3', 'Dia da Água', 'Realizar campanha de conscientização do Dia da Água.', 'Wagner Oliveira', '2017-04-06', '2017-03-20', 'Fechado'),
@@ -3574,14 +3836,38 @@ INSERT INTO `tb_plano_acao` (`idPlano`, `indicador`, `ano`, `mes`, `item`, `desc
 	(266, 245, '2018', 1, '18', 'Identificou-se que o descarte de efluente dentro da fábrica tem sido realizado de forma equivocada, fazendo com que se prejudica-se a tratabilidade da ETE', 'Treinamentos das instruções de operação nas linhas de produção', 'Daniela Hennemann/ Marcio Garcez', '2018-03-07', '2018-12-15', 'Aberto'),
 	(267, 245, '2018', 1, '19', 'Tanque do Sistema Biológico está com baixa eficiência', 'Realizar troca do Tanque do tratamento biológico ETE', 'Marcio Garcez', '2017-11-07', '2018-03-15', 'Aberto'),
 	(268, 243, '2018', 1, '3', 'Ar comprimido sendo usado de forma inadequada', 'Orientar terceiros (ar comprimido)', 'Wagner', '2016-10-27', '2016-12-15', 'Fechado'),
-	(269, 243, '2018', 1, '4', 'Algumas máquinas possuem vazamentos', 'Plano de Manutenção de Máquinas', 'Michel Barreto', '2017-11-07', '2018-12-15', 'Aberto'),
+	(269, 243, '2018', 1, '4', 'Algumas máquinas possuem vazamentos', 'Plano de Manutenção de Máquinas', 'Michel Barreto', '2017-11-07', '2018-12-15', 'Fechado'),
 	(270, 243, '2018', 1, '5', 'Indicador de consumo de energia elétrica tem ficado a cima da meta. ', 'Projeto de melhoria do aquecimento de água em vestiários', 'Michel Barreto', '2017-11-07', '2018-12-15', 'Aberto'),
 	(271, 243, '2018', 1, '6', 'A abrangência do sistema de Eficiência Energética. Além disso', 'Projeto de eficiência energética (substituição das lâmpadas vapor de mercúrio por lâmpadas de LED+luximetro)', 'Michel Barreto', '2017-11-07', '2018-12-15', 'Aberto'),
-	(272, 242, '2018', 3, '5', 'Consumo de água ultrapassou o limite determinado. Descarga do banheiro da fábrica está com vazamento.', 'Orçar e trocar gradativamente as hidras do banheiro da fábrica (doca dos fundos)', 'Simone Trindade/ Fabiano Luz', '2018-03-22', '2018-06-30', 'Aberto'),
+	(272, 242, '2018', 3, '5', 'Consumo de água ultrapassou o limite determinado. Descarga do banheiro da fábrica está com vazamento.', 'Orçar e trocar gradativamente as hidras do banheiro da fábrica (doca dos fundos)', 'Simone Trindade/ Fabiano Luz', '2018-03-22', '2018-06-30', 'Fechado'),
 	(273, 242, '2018', 3, '6', 'Consumo de água ultrapassou o limite determinado.', 'Aumentar a pressão dos chuveiros com vávula de retenção.', 'Márcio Garcez/ Fabiano Luz', '2018-03-22', '2018-06-30', 'Aberto'),
 	(274, 242, '2018', 3, '7', 'Não se tem informações reais do consumo de água do restaurante.', 'Realizar avaliação do consumo de água no restaurante.', 'Márcio Garcez/ Fabiano Luz', '2018-03-22', '2018-05-30', 'Aberto'),
 	(276, 87, '2017', 8, '1', 'Projeto CEPS - passivo 1.7 milhões', 'Trabalhos em conjunto com manufatura para redução dos níveis de rejeição e monitoramento do scrap proveniente do passivo', 'Guilherme Kowalski', '2017-08-10', '2017-09-30', 'Aberto'),
-	(277, 87, '2016', 7, 'Sucata', 'Manter indice de sucata de acordo com o target', 'Acompanhamento de Plano de Ação', 'Emerson Oliveira', '2016-07-13', '2016-12-15', 'Fechado');
+	(277, 87, '2016', 7, 'Sucata', 'Manter indice de sucata de acordo com o target', 'Acompanhamento de Plano de Ação', 'Emerson Oliveira', '2016-07-13', '2016-12-15', 'Fechado'),
+	(278, 19, '2018', 3, '1', 'Alto índice de faltas', 'Melhorias na avaliação no processo de contratação, acompanhamento médico e com os líderes de Produção', 'RH e Produção', '2018-01-01', '2018-12-31', 'Aberto'),
+	(279, 20, '2018', 3, '1', 'Baixo número de treinamentos', 'Motivo - Não realizamos muitos treinamentos neste período devido a férias de funcionários', 'RH', '2018-01-01', '2018-02-28', 'Fechado'),
+	(280, 20, '2018', 3, '2', 'Baixo número de treinamentos', 'Promoção de treinamentos internos-Nexttraining Program\r\n', 'RH', '2018-03-01', '2018-12-31', 'Aberto'),
+	(281, 21, '2018', 3, '1', 'Elevado número de Horas Extras', 'Motivo: Implementação de nova linha (I-shaft), treinamento de novos funcionários, ajustes de máquinas e processos', 'Produção', '2018-01-29', '2018-02-28', 'Fechado'),
+	(282, 21, '2018', 3, '2', 'Elevado número de Horas Extras', 'Conforme planejamento de produção', 'PC&L e Produção', '2018-03-01', '2018-12-31', 'Aberto'),
+	(283, 21, '2018', 3, '3', 'Elevado número de Horas Extras', 'Incluir esse indicador no PLR\r\n', 'RH', '2018-03-02', '2018-04-15', 'Aberto'),
+	(284, 22, '2018', 3, 'Pedidos de Demissão', 'Pedidos de demissão na área da produção devido a oportunidades com melhor salário e benefícios.', 'Revisão da tabela salarial para a produção.', 'Sabrina Silva e Jean Fernandes', '2018-03-02', '2018-08-30', 'Aberto'),
+	(285, 129, '2018', 3, '4', 'Risco de prensagem na LAv.02', 'Colocar cortina de proteção na máquina Lav.02 afim de evitar o risco de esmagamento de membros.', 'Leandro Pereira', '2018-03-20', '2018-06-20', 'Aberto'),
+	(286, 129, '2018', 3, '5', 'Migração das informações para o E-Social.', 'Preencher as planilhas da ADP para a migração das informações para o E-Social', 'Wagner Oliveira', '2018-03-20', '2018-04-30', 'Aberto'),
+	(287, 129, '2018', 3, '6', 'Proteção respiratória linha I-Shaft', 'Comprar máscara de proteção respiratória para a linha de I-Shaft conforme o Programa de Proteção Respiratório (PPR).', 'Wagner Oliveira', '2018-03-20', '2018-03-30', 'Fechado'),
+	(288, 129, '2018', 3, '7', 'Ruido Alliance - MTE', 'Realizar dosimetria de ruído no setor Alliance conforme cronograma de ações do MTE.', 'Wagner Oliveira', '2018-03-20', '2018-03-30', 'Aberto'),
+	(289, 129, '2018', 3, '8', 'Canto vivo sistema hidráulico das BTEs na linha de bombas', 'Retirar o canto vivo de ferro existente no sistema hidrálico das BTEs. Vide cartão 13023.', 'Eng. Industrial', '2018-04-02', '2018-04-03', 'Fechado'),
+	(290, 246, '2018', 4, '1', 'Custo elevado em calibração no mês, devido a antecipação da calibração do circularimetro e perfilometro.', 'Comunicar finança e mudar buget quando necessário a antecipação de calibração.', 'Carlos Carvalho', '2018-04-01', '2018-05-04', 'Fechado'),
+	(291, 174, '2018', 5, 'PREVENTIVA', 'PREVENYIVAS ABAIXO DA META DEVIDO A INSTALÇAÇÃO DA LINHA NOVA I-SHAFT', 'FORAM REPROGARAMADAS AS AÇÕES DE PREVENTIVAS PARA O MES CORRENTE FEVEREIRO', 'LEANDRO PEREIRA', '2018-02-05', '2018-02-28', 'Fechado'),
+	(292, 174, '2018', 5, 'PREVENTIVAS', 'METAS DE PREVENTIVAS REFERENTE AO MES DE MAIO NÃO FOI ALACANÇADO', 'REPROGRAMADO AS AÇÕES DE PREVENTIVAS PARA O MES DE JUNHO', 'LEANDRO E VINICIUS', '2018-06-06', '2018-06-26', 'Fechado'),
+	(293, 174, '2018', 5, 'PREVENTIVAS', 'METAS DE PREVENTIVAS REFERENTE AO MES DE MAIO NÃO FOI ALACANÇADO', 'REPROGRAMADO AS AÇÕES DE PREVENTIVAS PARA O MES DE JUNHO', 'LEANDRO E VINICIUS', '2018-06-05', '2018-06-26', 'Fechado'),
+	(294, 174, '2018', 5, '% preventivas', 'indice de preventivas não atingido', 'Reprogramar ', 'Leandro, Vinicius', '2018-06-06', '2018-06-29', 'Aberto'),
+	(295, 166, '2018', 5, '1', 'Redução de FTQ', 'Mudar especificação de carga na operação do FTS ( I-shaft)', 'Engenharia', '2018-06-08', '2018-11-30', 'Aberto'),
+	(296, 166, '2018', 5, '2', 'Alto indice de FTQ na linha de bombas ', 'Redução de reprovações nos bancos de teste', 'Engenharia', '2018-06-08', '2018-11-30', 'Aberto'),
+	(297, 166, '2018', 5, '1', 'Alto consumo de gás no forno', 'Plano de utilização do forno ', 'Michel Barreto', '2018-06-06', '2018-11-30', 'Aberto'),
+	(298, 168, '2018', 5, '1', 'Retífica da linha PER com alto índice de paradas ', 'Restabelecer equipamento', 'Manutenção ', '2018-05-09', '2018-06-30', 'Aberto'),
+	(299, 168, '2018', 5, '2', 'Baixa produtividade ', 'Readequação da estrutura x demanda de cliente ( lay-out)', 'Eng. industrial ', '2018-05-09', '2018-12-31', 'Aberto'),
+	(300, 169, '2018', 4, '1', 'Falta de operadores', 'Contratar operadores para completar estrutura', 'Michel/Mariana', '2018-05-09', '2018-05-30', 'Fechado'),
+	(301, 169, '2018', 4, '2', 'Melhorar a eficiência da linha', 'Conforme plano de melhoria(Ações da fabrica)', 'Michel', '2018-05-09', '2018-12-31', 'Aberto');
 /*!40000 ALTER TABLE `tb_plano_acao` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela indicador.user
@@ -3606,21 +3892,24 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `email` (`email`),
   KEY `fk004_usuario_empresa` (`id_company`),
   CONSTRAINT `fk001_user_company` FOREIGN KEY (`id_company`) REFERENCES `company` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COMMENT='Usuários';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1 COMMENT='Usuários';
 
--- Copiando dados para a tabela indicador.user: ~9 rows (aproximadamente)
+-- Copiando dados para a tabela indicador.user: ~13 rows (aproximadamente)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`ID`, `id_company`, `group`, `name`, `email`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `image`, `status`, `created_at`, `updated_at`, `active`) VALUES
-	(1, 0, 'admin', 'Carlos Carvalho', 'carlos.carvalho@nexteer.com', 'nzxrf5', 'UGX0QmvvjXGRHmnEmEYsHddLjfEMURFw', '$2y$13$cXO.FvWi6PynP2QbGduGn.2khFoBOQdmsmPsP2tC2.qMyTqtgK0VO', NULL, NULL, 10, 0, 0, 'Y'),
-	(2, 0, 'administrativo', 'Giovanni Souza', 'giovanni.souza@nexteer.com', 'fz1dq3', 'PBuIqw0_0eq11S4YFDWMRca99OyPCVxC', '$2y$13$JDz4v6tTT3yYJt2ZjbM0.eoGBH3Bk15/d7FM4b0/RxQtw100DyYey', NULL, NULL, 10, 1521301722, 1521301722, 'Y'),
-	(3, 0, 'administrativo', 'Jean Fernandes', 'jean.fernandes@nexteer.com', 'wztpwg', 'zsSKOTT-pvYT_brYpID1KkBhaV5T00rj', '$2y$13$Pnv6mbjPoCBGo40g2RudOueKA5n57sH98Wgc/Kj6UZadk6/npfbSm', NULL, NULL, 10, 1521301785, 1521301785, 'Y'),
-	(4, 0, 'administrativo', 'Jeferson Oliveira', 'jeferson.oliveira@nexteer.com', 'tz94zk', 'wOwT-6jeCWYcPyPZA_3le7HpX0NiL43u', '$2y$13$zgE.rJHfuClE/xul46uLdORG8cG2likkNWl.0N9XVQBcXvdQ/Z/1q', NULL, NULL, 10, 1521301824, 1521301824, 'Y'),
-	(5, 0, 'administrativo', 'Vinicius Aimi', 'vinicius.aimi@nexteer.com', 'nzgm20', 'uNb9U-S77PdVrbLzTlr1_C1fKeSoRr25', '$2y$13$DHW4PH28Rq.XYIMtnit4Gux3nl0.JOO1ZLs6DG/Nwk9bij2WvtYDK', NULL, NULL, 10, 1521301859, 1521301859, 'Y'),
-	(6, 0, 'administrativo', 'Mauro Antonini', 'mauro.antonini@nexteer.com', 'nz952n', 'NUsujiLy2rBDGqn5idtNlENltFAQP6a3', '$2y$13$UtO8ZesEvAIGl6HL9ADI5e4Y2g/8sl/yrxE/xjXXKlkIY3Jh//iZi', NULL, NULL, 10, 1521301889, 1521301889, 'Y'),
-	(7, 0, 'administrativo', 'Marcia Jardim', 'marcia.jardim@nexteer.com', 'mzfhqy', 'z2R0-A7jHFIa1Qmepx4KMPtNwwd-nE-Q', '$2y$13$yLz6zmTN310TJ7ase3Z6FO9fjLMA0VdW3icD.2/tz9PnGmZ.6kkcO', NULL, NULL, 10, 1521301919, 1521301919, 'Y'),
-	(8, 0, 'administrativo', 'Leandro Jaskulski', 'leandro.jaskulski@nexteer.com', 'nz3451', 'VWR3Epc4I-OIeMYHXEB3GSKapALpA8eu', '$2y$13$g4MVIPkgnhEYXNfBP.TJIebvj/HkQQ8kuXCuYyiROgshDmFGg0Ebq', NULL, NULL, 10, 1521301959, 1521301959, 'Y'),
-	(9, 0, 'administrativo', 'Michel Andreis Barreto', 'michel.barreto@nexteer.com', 'wz38lx', '9eioNHVwSLDNPj3PAR0deECeMD0DiK86', '$2y$13$LxHqP9zCcQm1.NYqb3v3o.42Nf2VhWxZryAqJAOJN/k2falwn0/rC', NULL, NULL, 10, 1521301998, 1521301998, 'Y'),
-	(10, 0, 'admin', 'Sabrina Silva', 'Sabrina.Silva@nexteer.com', 'dzbwrc', '3P-z-JQ96hUW9hKj6N1K6a7Ddf1zWn60', '$2y$13$jI19oYBg3HbFUoOaenGiqOvrxwsUDbJwaT.5/gtg3SK1zMf6p1JnG', NULL, NULL, 10, 1521302067, 1521302067, 'Y');
+	(1, 0, 'admin', 'Carlos Carvalho', 'carlos.carvalho@nexteer.com', 'nzxrf5', 'UGX0QmvvjXGRHmnEmEYsHddLjfEMURFw', '$2y$13$cXO.FvWi6PynP2QbGduGn.2khFoBOQdmsmPsP2tC2.qMyTqtgK0VO', 'gUl0AJGQ0njSaZm6TXJfJCF3Z8Y75vfk_1529365001', NULL, 10, 0, 0, 'Y'),
+	(2, 0, 'Producao', 'Giovanni Souza', 'giovanni.souza@nexteer.com', 'fz1dq3', 'PBuIqw0_0eq11S4YFDWMRca99OyPCVxC', '$2y$13$cQGQzMX4aNTPQjAmedUP1uoF.247KHOvHcMsio.DiTPhVVS74ufGm', NULL, NULL, 10, 1521301722, 1521301722, 'Y'),
+	(3, 0, 'PCL', 'Jean Fernandes', 'jean.fernandes@nexteer.com', 'wztpwg', 'zsSKOTT-pvYT_brYpID1KkBhaV5T00rj', '$2y$13$Pnv6mbjPoCBGo40g2RudOueKA5n57sH98Wgc/Kj6UZadk6/npfbSm', NULL, NULL, 10, 1521301785, 1521301785, 'Y'),
+	(4, 0, 'padrao', 'Jeferson Oliveira', 'jeferson.oliveira@nexteer.com', 'tz94zk', 'wOwT-6jeCWYcPyPZA_3le7HpX0NiL43u', '$2y$13$zgE.rJHfuClE/xul46uLdORG8cG2likkNWl.0N9XVQBcXvdQ/Z/1q', NULL, NULL, 10, 1521301824, 1521301824, 'Y'),
+	(5, 0, 'Engenharia', 'Vinicius Aimi', 'vinicius.aimi@nexteer.com', 'nzgm20', 'uNb9U-S77PdVrbLzTlr1_C1fKeSoRr25', '$2y$13$DHW4PH28Rq.XYIMtnit4Gux3nl0.JOO1ZLs6DG/Nwk9bij2WvtYDK', NULL, NULL, 0, 1521301859, 1521301859, '0'),
+	(6, 0, 'padrao', 'Mauro Antonini', 'mauro.antonini@nexteer.com', 'nz952n', 'NUsujiLy2rBDGqn5idtNlENltFAQP6a3', '$2y$13$UtO8ZesEvAIGl6HL9ADI5e4Y2g/8sl/yrxE/xjXXKlkIY3Jh//iZi', NULL, NULL, 10, 1521301889, 1521301889, 'Y'),
+	(7, 0, 'padrao', 'Marcia Jardim', 'marcia.jardim@nexteer.com', 'mzfhqy', 'z2R0-A7jHFIa1Qmepx4KMPtNwwd-nE-Q', '$2y$13$yLz6zmTN310TJ7ase3Z6FO9fjLMA0VdW3icD.2/tz9PnGmZ.6kkcO', NULL, NULL, 10, 1521301919, 1521301919, 'Y'),
+	(9, 0, 'Producao', 'Michel Andreis Barreto', 'michel.barreto@nexteer.com', 'wz38lx', '9eioNHVwSLDNPj3PAR0deECeMD0DiK86', '$2y$13$LxHqP9zCcQm1.NYqb3v3o.42Nf2VhWxZryAqJAOJN/k2falwn0/rC', NULL, NULL, 10, 1521301998, 1521301998, 'Y'),
+	(10, 0, 'Recursos Humanos', 'Sabrina Silva', 'sabrina.silva@nexteer.com', 'dzbwrc', '3P-z-JQ96hUW9hKj6N1K6a7Ddf1zWn60', '$2y$13$jI19oYBg3HbFUoOaenGiqOvrxwsUDbJwaT.5/gtg3SK1zMf6p1JnG', NULL, NULL, 10, 1521302067, 1521302067, 'Y'),
+	(11, 0, 'Saude e segurança', 'Wagner Oliveira', 'wagner.oliveira@nexteer.com', 'jz934l', 'rrJC-dDpj0fjVv7eF2lYt8KMOChpiEQq', '$2y$13$RBBnbI8/F9SkRB4maZ16eObNvKZFcOrd3vplUYVphKa3bs/Qealw.', NULL, NULL, 10, 1523979467, 1523979467, 'Y'),
+	(12, 0, 'Meio Ambiente', 'Marcio Garcez', 'marcio.garcez@nexteer.com', 'LZP3BS', 'eWRlp1s6PvfsbFP8QodNAj2DMDbME4Gq', '$2y$13$CVlg6U06n.wTIexfBHXO5ujxSABSV7cZjowfksBcEwfkD4/EWZT/W', NULL, NULL, 10, 1523979677, 1523979677, 'Y'),
+	(14, 0, 'PCL', 'Luis Felipe Luchtemberg', 'luisfelipe.luchtenberg@nexteer.com', 'wz282l', 'bbVaeLB0zeouv2-GmWcEFJjQSni5YYLv', '$2y$13$2wBbtANE1z/ovCxgYUTaOO.tS44BAwtdZjkL9rFoqPQaYZPdr9mzW', NULL, NULL, 10, 1525197684, 1525197684, 'Y'),
+	(15, 0, 'Qualidade', 'Emerson Oliveira', 'emerson.oliveira@nexteer.com', 'nzq5sx', '6KKaeZAfDWrSv-4alTPLk9kkz2Wpk9AT', '$2y$13$/rNiuXF8BMObb7qCnZIA.ejr4pZ0lFrUqpAao05OaYyY0CiWDh9DK', NULL, NULL, 10, 1525197807, 1525197807, 'Y');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Copiando estrutura para trigger indicador.Tgr_Indicador_Delete

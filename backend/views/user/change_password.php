@@ -17,17 +17,20 @@ $this->title = 'Trocar de senha';
 $this->params['breadcrumbs'][] = 'Trocar de senha';
 ?>
 <div class="row">
-    <div class="col-md-12">
-        <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#cadastro" data-toggle="tab">Troca de senha de usuário</a></li>
-            </ul>
-            <div class="tab-content">
+    <div class="col-xs-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Troca de senha do usuário: <?php echo $model->name?>
+                  <small> <?php echo $model->username?></small>
+              </h3>
+            </div>
+            
+            
                 <div class="active tab-pane" id="cadastro">
                     <?php $form = ActiveForm::begin(); ?>
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <?= $form->field($model, 'password')->passwordInput() ?>
                                 </div>
@@ -42,7 +45,7 @@ $this->params['breadcrumbs'][] = 'Trocar de senha';
                     </div>
                     <?php ActiveForm::end(); ?>
                 </div>
-            </div>
+            
         </div>
     </div>
 </div>
